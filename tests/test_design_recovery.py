@@ -38,6 +38,26 @@ class DesignRecoveryTest(unittest.TestCase):
         phrases = re.findall(r'<span[^>]*>(.*?)</span>', heading.group(1))
         self.assertEqual(phrases, ['Win more work.', 'Help more customers.', 'Get more time back.'])
 
+    def test_requested_copy_cleanup_and_relocation(self):
+        home = (PUBLIC / 'index.html').read_text()
+        ways = (PUBLIC / 'ways-we-help.html').read_text()
+        moved = [
+            'Missed calls. Quotes waiting on a reply. Updates nobody has time to send.',
+            'We connect the loose ends, using the tools you already have.',
+        ]
+        for phrase in moved:
+            self.assertNotIn(phrase, home)
+            self.assertIn(phrase, ways)
+        for phrase in [
+            'An illustrative system. Your team stays in control.',
+            'These are illustrative examples. They are not customer results, guarantees, or claims that every tool works the same way in every business.',
+            'Concrete examples, not hype',
+        ]:
+            self.assertNotIn(phrase, home)
+        self.assertNotIn('They stay illustrative on purpose.', ways)
+        for page in PAGES:
+            self.assertNotIn('Plain-language systems help for owner-led businesses.', page.read_text())
+
     def test_home_has_workshop_structure_without_covering_labels(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertIn('Win more work. Help more customers. Get more time back.', html)

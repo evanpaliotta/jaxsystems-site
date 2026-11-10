@@ -236,7 +236,7 @@ main { display: grid; gap: 28px; }
   gap: 24px;
 }
 .split-heading,
-.two-col { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+.two-col { grid-template-columns: minmax(0, 1fr); align-items: start; }
 .section-heading h2,
 .callout h2,
 .contact-layout h2 { margin: 0; font-size: clamp(1.9rem, 3vw, 2.9rem); line-height: 1.07; letter-spacing: -0.04em; }
