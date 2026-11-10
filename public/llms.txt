@@ -2,16 +2,16 @@
 > Jacksonville-based AI help for small businesses.
 
 Primary site: https://jaxsystems.ai/
-Primary contact route: https://jaxsystems.ai/contact.html
+Primary contact route: https://jaxsystems.ai/contact
 
 Pages:
 - https://jaxsystems.ai/
-- https://jaxsystems.ai/ways-we-help.html
-- https://jaxsystems.ai/how-it-works.html
-- https://jaxsystems.ai/pricing.html
-- https://jaxsystems.ai/about.html
-- https://jaxsystems.ai/privacy.html
-- https://jaxsystems.ai/contact.html
+- https://jaxsystems.ai/ways-we-help
+- https://jaxsystems.ai/how-it-works
+- https://jaxsystems.ai/pricing
+- https://jaxsystems.ai/about
+- https://jaxsystems.ai/privacy
+- https://jaxsystems.ai/contact
 
 Notes:
 - The site uses illustrative examples across 19 industries and 57 examples.

@@ -80,10 +80,13 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
 .wordmark small { font-size: 0.65rem; letter-spacing: 0.16em; }
 .menu-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--white);
   padding: 10px 16px;
+  min-height: 44px;
 }
 .site-nav {
   display: flex;
@@ -286,6 +289,7 @@ main { display: grid; gap: 28px; }
   background: rgba(255, 255, 255, 0.75);
   border-radius: 999px;
   padding: 10px 16px;
+  min-height: 44px;
 }
 .demo-tabs button[aria-selected='true'],
 .industry-buttons button[aria-pressed='true'] {
@@ -365,7 +369,7 @@ label { display: inline-flex; gap: 8px; font-weight: 700; margin-bottom: 8px; }
 .small-note,
 .footer-note,
 .caption,
-.status-message { color: var(--ink-soft); font-size: 0.95rem; }
+.status-message { color: var(--ink); font-size: 0.95rem; }
 input,
 textarea {
   width: 100%;
@@ -493,6 +497,7 @@ textarea { resize: vertical; }
     border-radius: 22px;
     box-shadow: var(--shadow);
   }
+  .site-nav a:not(.pill) { display: flex; align-items: center; min-height: 44px; }
   .site-nav[hidden] { display: none !important; }
   .three-up,
   .four-up,
@@ -501,10 +506,12 @@ textarea { resize: vertical; }
   .two-up { grid-template-columns: 1fr; }
   .callout { flex-direction: column; align-items: flex-start; }
   .hero-copy h1,
-  .page-hero h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .page-hero h1 { font-size: clamp(2.1rem, 8.5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.035em; }
   .section,
   .page-hero,
   .hero { padding: 12px 0; }
+  .hero-home { gap: 24px; }
+  .film-frame { aspect-ratio: 16 / 10; }
   .accent-section { padding: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -121,7 +121,7 @@ class PublicSiteTest(unittest.TestCase):
 
             canonical = re.search(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"', html)
             self.assertIsNotNone(canonical, page_name)
-            expected = CANONICAL_BASE if page_name == 'index.html' else CANONICAL_BASE + page_name
+            expected = CANONICAL_BASE if page_name == 'index.html' else CANONICAL_BASE + page_name.removesuffix('.html')
             self.assertEqual(canonical.group(1), expected, page_name)
 
             robots = next((m['content'] for m in doc.meta if m.get('name') == 'robots'), '')
@@ -142,8 +142,8 @@ class PublicSiteTest(unittest.TestCase):
     def test_contact_page_uses_real_api_contract_and_accessible_labels(self):
         html = (PUBLIC / 'contact.html').read_text()
         doc = Document(html)
-        self.assertIn('POST /api/contact', html)
-        self.assertIn('GET /api/contact', html)
+        self.assertNotIn('POST /api/contact', html)
+        self.assertNotIn('GET /api/contact', html)
         form = next((form for form in doc.forms if form.get('id') == 'contact-form'), None)
         self.assertIsNotNone(form)
         self.assertEqual(form.get('method', '').lower(), 'post')
@@ -190,11 +190,14 @@ class PublicSiteTest(unittest.TestCase):
         self.assertIn('19 industries', ways)
         self.assertIn('57 examples', ways)
         self.assertIn('Illustrative examples', ways)
+        for industry in categories:
+            for example in industry['examples']:
+                self.assertIn(example['title'], ways)
 
     def test_search_and_discovery_files_exist(self):
         sitemap = (PUBLIC / 'sitemap.xml').read_text()
         for page in sorted(ALL_PAGES):
-            loc = CANONICAL_BASE if page == 'index.html' else CANONICAL_BASE + page
+            loc = CANONICAL_BASE if page == 'index.html' else CANONICAL_BASE + page.removesuffix('.html')
             self.assertIn(f'<loc>{loc}</loc>', sitemap)
 
         robots = (PUBLIC / 'robots.txt').read_text()

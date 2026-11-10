@@ -194,6 +194,7 @@ function renderTurnstileWhenReady(attempt = 0) {
     shell.hidden = false;
     contactState.turnstileWidgetId = window.turnstile.render(mount, {
       sitekey: contactState.turnstileSiteKey,
+      action: 'contact',
       callback(token) { contactState.turnstileToken = token; },
       'expired-callback'() { contactState.turnstileToken = ''; },
       'error-callback'() { contactState.turnstileToken = ''; }
@@ -271,7 +272,7 @@ async function submitContact(event) {
     }
     setStatus('Your note was delivered.', 'success');
     const successCopy = document.querySelector('[data-success-copy]');
-    if (successCopy) successCopy.textContent = `Thanks — your message was delivered with reference ${data.id}. If you need to retry later, use the same form rather than a guessed mailbox address.`;
+    if (successCopy) successCopy.textContent = `Thanks — your message is in our inbox. Your reference is ${data.id}.`;
     success.hidden = false;
     form.reset();
     contactState.turnstileToken = '';
