@@ -49,6 +49,24 @@ const demos = {
     human: 'Final numbers, discounts and promises stay human',
     boundary: 'Commercial judgment and exceptions stay with your team.'
   },
+  schedule: {
+    title: 'A change of plan reaches everyone who needs it.',
+    description: 'Put confirmed dates, access notes and next actions in the same place.',
+    trigger: 'Schedule change',
+    gather: 'Agreed date, access details and assigned person',
+    handoff: 'One clear next step for the team',
+    human: 'Your team confirms availability',
+    boundary: 'Your team makes the final scheduling decision.'
+  },
+  docs: {
+    title: 'Missing documents become easier to track.',
+    description: 'Track requested files in an approved checklist and flag what is still outstanding.',
+    trigger: 'Document request',
+    gather: 'Required files, due date and owner',
+    handoff: 'A named review queue',
+    human: 'Your reviewer checks access and completeness',
+    boundary: 'Receiving a document is not the same as approving it.'
+  },
   updates: {
     title: 'Routine updates stop eating the afternoon.',
     description: 'Use approved status facts to prepare a draft update that a person can review before it goes out.',

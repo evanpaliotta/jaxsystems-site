@@ -8,10 +8,10 @@
       <meta name="theme-color" content="#0d5f69">
       <meta name="robots" content="index,follow,max-image-preview:large">
       <link rel="canonical" href="https://jaxsystems.ai/">
-      <link rel="stylesheet" href="site.css">
-      <link rel="stylesheet" href="workshop.css">
-      <script src="site.js" defer></script>
-      <script src="workshop.js" defer></script>
+      <link rel="stylesheet" href="site.css?v=1e66100ca881">
+      <link rel="stylesheet" href="workshop.css?v=6f343e297f9e">
+      <script src="site.js?v=901108c232fc" defer></script>
+      <script src="workshop.js?v=8782c092cd46" defer></script>
       <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -58,10 +58,7 @@
         <header class="site-header">
 
 <a class="wordmark" href="index.html" aria-label="Jax Systems home">
-  <svg viewBox="0 0 48 36" aria-hidden="true">
-    <path d="M4 24C11 10 16 10 23 24S35 38 44 11M4 13C11-1 16-1 23 13S35 27 44 0" fill="none" stroke="currentColor" stroke-width="4.5"/>
-  </svg>
-  <span>Jax<small>SYSTEMS</small></span>
+  <img class="brand-logo" src="jax-local-makers.webp" alt="Jax Systems" width="746" height="620">
 </a>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
           <nav class="site-nav" id="site-nav" aria-label="Main navigation">
@@ -75,63 +72,28 @@
         </header>
         <main id="main">
 
-<section class="hero hero-home">
-  <div class="hero-copy stack-lg">
-    <p class="eyebrow">Jacksonville-based AI help for small businesses.</p>
-    <h1>Win more work. Help more customers. Get more time back.</h1>
-    <p class="lede">If work keeps getting stuck between the phone, inbox, spreadsheet and team chat, start there. We help owner-led businesses make one messy handoff clearer, then build carefully from that first win.</p>
-    <div class="hero-actions">
-      <a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
-      <a class="text-link" href="ways-we-help.html">See familiar examples</a>
+<section class="workshop-hero">
+  <div class="workshop-intro">
+    <div class="hero-copy">
+      <p class="eyebrow">Jacksonville-based AI help for small businesses.</p>
+      <h1>Win more work. Help more customers. Get more time back.</h1>
     </div>
-    <ul class="mini-points" aria-label="Common problems we help untangle">
-      <li>Missed enquiries and slow callbacks</li>
-      <li>Quotes, paperwork and updates that get buried</li>
-      <li>Teams re-entering the same details in three places</li>
-    </ul>
-  </div>
-  <div class="hero-media">
-    <div class="film-card">
-      <div class="film-frame">
-        <div class="film-fallback" aria-hidden="true">
-          <span class="fallback-node">Request</span>
-          <i></i>
-          <span class="fallback-node">Context</span>
-          <i></i>
-          <span class="fallback-node">Human review</span>
-        </div>
-        <video muted loop playsinline preload="metadata" poster="poster.webp" aria-label="Original workshop animation showing a request moving into organized context before a human-reviewed handoff">
-          <source src="hero.mp4" type="video/mp4">
-        </video>
-        <button class="motion-button" data-motion type="button" aria-pressed="false" aria-label="Play animation">Play animation ▷</button>
+    <div class="workshop-promise">
+      <p>Missed calls. Quotes waiting on a reply. Updates nobody has time to send.</p>
+      <p>We connect the loose ends, using the tools you already have.</p>
+      <div class="hero-actions">
+        <a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
+        <a class="text-link" href="#examples">See familiar examples ↗</a>
       </div>
-      <p class="caption">Original workshop animation, kept as an illustration of a calmer handoff. Reduced-motion settings are respected.</p>
     </div>
   </div>
-</section>
-
-<section class="section">
-  <div class="section-heading split-heading">
-    <div>
-      <p class="eyebrow">Start with the problem you already feel</p>
-      <h2>Most owners do not need “AI strategy.” They need fewer dropped details.</h2>
-    </div>
-    <p>We focus on work that already repeats: collecting the right basics, keeping follow-up visible, drafting routine updates, and showing your team the next step without turning everything into a science project.</p>
+  <div class="film-frame">
+    <video muted loop playsinline preload="metadata" poster="poster.webp" aria-label="An illustration of an enquiry becoming an organized handoff for human review">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <button class="motion-button" data-motion type="button" aria-pressed="false" aria-label="Play animation">Play animation ▷</button>
   </div>
-  <div class="card-grid three-up">
-    <article class="problem-card">
-      <h3>Missed calls and enquiries</h3>
-      <p>Someone reaches out, but the useful details never land in one place. The callback starts cold, or never happens at all.</p>
-    </article>
-    <article class="problem-card">
-      <h3>Quotes and approvals stall</h3>
-      <p>The estimate went out. The reminder did not. A teammate is left guessing who should follow up next.</p>
-    </article>
-    <article class="problem-card">
-      <h3>Updates eat the afternoon</h3>
-      <p>Staff copy the same facts into emails, texts and portals. The information exists, but it is not gathered for review.</p>
-    </article>
-  </div>
+  <p class="film-caption">An illustrative system. Your team stays in control.</p>
 </section>
 
 <section class="section accent-section" id="examples">
@@ -146,6 +108,8 @@
     <div class="demo-tabs" role="tablist" aria-label="Choose an example">
       <button type="button" role="tab" id="demo-tab-calls" data-demo="calls" aria-controls="demo-panel" aria-selected="true">Catch the enquiry</button>
       <button type="button" role="tab" id="demo-tab-quotes" data-demo="quotes" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Keep quotes moving</button>
+      <button type="button" role="tab" id="demo-tab-schedule" data-demo="schedule" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Coordinate work</button>
+      <button type="button" role="tab" id="demo-tab-docs" data-demo="docs" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Collect documents</button>
       <button type="button" role="tab" id="demo-tab-updates" data-demo="updates" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Prepare updates faster</button>
     </div>
     <div class="demo-panel" id="demo-panel" role="tabpanel" aria-labelledby="demo-tab-calls">
@@ -168,67 +132,6 @@
   </div>
 </section>
 
-<section class="section process-strip">
-  <div class="section-heading split-heading">
-    <div>
-      <p class="eyebrow">How work moves</p>
-      <h2>A practical path from problem to first step</h2>
-    </div>
-    <p>Recognize the stuck point. Review a useful example. Understand the process and pricing. Then tell us what is slowing you down so we can discuss a practical first step.</p>
-  </div>
-  <div class="card-grid four-up">
-    <article class="step-card"><span>01</span><h3>Spot the bottleneck</h3><p>Start with one real handoff that keeps costing attention.</p></article>
-    <article class="step-card"><span>02</span><h3>See a concrete fix</h3><p>Use examples to picture the change without pretending it is already yours.</p></article>
-    <article class="step-card"><span>03</span><h3>Scope the first outcome</h3><p>Agree what gets delivered, what stays human and what it costs.</p></article>
-    <article class="step-card"><span>04</span><h3>Send the enquiry</h3><p>Use the form once the fit feels clear enough to talk specifics.</p></article>
-  </div>
-</section>
-
-<section class="section pricing-summary">
-  <div class="section-heading split-heading">
-    <div>
-      <p class="eyebrow">Pricing in plain numbers</p>
-      <h2>Discovery first. First deployment credited. Care if it helps.</h2>
-    </div>
-    <p>No universal ceiling and no fake all-inclusive promise. Heavier or broader projects are quoted separately once the real scope is known.</p>
-  </div>
-  <div class="card-grid three-up">
-    <article class="price-card"><h3>$999 discovery</h3><p>Walk through the current workflow, pick the most useful first fix, and leave with a written recommendation.</p></article>
-    <article class="price-card featured"><h3>$2,499 first deployment</h3><p>The $999 discovery is fully credited, leaving $1,500 remaining for the first standard deployment.</p></article>
-    <article class="price-card"><h3>$499/month care</h3><p>Optional support for the first deployment. Additional scoped outcomes start at $999 plus $249/month only when that reusable scope is real.</p></article>
-  </div>
-  <div class="section-cta">
-    <a class="pill secondary" href="pricing.html">See the pricing details</a>
-  </div>
-</section>
-
-<section class="section faq-grid">
-  <div class="section-heading split-heading">
-    <div>
-      <p class="eyebrow">Plain-language FAQ</p>
-      <h2>What small-business owners usually want to know first</h2>
-    </div>
-  </div>
-  <div class="faq-list">
-    <details open>
-      <summary>Where do I start if I am not sure what AI could help with?</summary>
-      <p>Start with one recent slowdown, such as a missed enquiry or a quote that stalled. We look at that handoff and the tools you already use before recommending a first fix; you do not need to replace your software or prepare a technical brief.</p>
-    </details>
-    <details>
-      <summary>Is this only for trades?</summary>
-      <p>No. We work with Jacksonville small businesses across 19 industries, with 57 illustrative examples to help you picture a practical first fix.</p>
-    </details>
-    <details>
-      <summary>Will AI talk directly to my customers without oversight?</summary>
-      <p>Not by default. Pricing, promises, sensitive communications and exceptions stay with your team unless a narrower agreement says otherwise.</p>
-    </details>
-    <details>
-      <summary>What about privacy and support?</summary>
-      <p>Those boundaries are discussed before a build starts, and the website privacy page explains how enquiries are handled here.</p>
-    </details>
-  </div>
-</section>
-
 <section class="section final-cta">
   <div class="callout">
     <div>
@@ -247,10 +150,7 @@
         <div>
 
 <a class="wordmark" href="index.html" aria-label="Jax Systems home">
-  <svg viewBox="0 0 48 36" aria-hidden="true">
-    <path d="M4 24C11 10 16 10 23 24S35 38 44 11M4 13C11-1 16-1 23 13S35 27 44 0" fill="none" stroke="currentColor" stroke-width="4.5"/>
-  </svg>
-  <span>Jax<small>SYSTEMS</small></span>
+  <img class="brand-logo" src="jax-local-makers.webp" alt="Jax Systems" width="746" height="620">
 </a>
           <p class="footer-blurb">Jacksonville-based AI help for small businesses.</p>
           <p class="footer-note">Serving Jacksonville and Northeast Florida. Use the contact form to tell us about your business and the workflow you want to improve.</p>
