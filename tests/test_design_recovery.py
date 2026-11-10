@@ -29,6 +29,15 @@ class DesignRecoveryTest(unittest.TestCase):
             self.assertEqual(html.count('src="jax-local-makers.webp"'), 2, page.name)
             self.assertNotIn('<svg viewBox="0 0 48 36"', html, page.name)
 
+    def test_homepage_headline_has_three_separate_phrases(self):
+        html = (PUBLIC / 'index.html').read_text()
+        heading = re.search(r'<h1\b[^>]*>(.*?)</h1>', html, re.S)
+        self.assertIsNotNone(heading)
+        if heading is None:
+            return
+        phrases = re.findall(r'<span[^>]*>(.*?)</span>', heading.group(1))
+        self.assertEqual(phrases, ['Win more work.', 'Help more customers.', 'Get more time back.'])
+
     def test_home_has_workshop_structure_without_covering_labels(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertIn('Win more work. Help more customers. Get more time back.', html)

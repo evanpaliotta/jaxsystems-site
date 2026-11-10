@@ -12,10 +12,11 @@
 }
 .workshop-intro .hero-copy h1 {
   max-width: 750px;
-  font-size: clamp(2.9rem, 5.2vw, 4.8rem);
+  font-size: clamp(2.9rem, 5.2vw, 4.65rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
 }
+.workshop-intro .hero-copy h1 span { display: block; white-space: nowrap; }
 .workshop-promise { max-width: 410px; padding-bottom: 5px; }
 .workshop-promise p { color: var(--ink-soft); margin: 0 0 14px; }
 .workshop-promise .hero-actions { margin-top: 26px; }
@@ -50,7 +51,7 @@
   .site-footer .brand-logo { width: 86px; }
   .workshop-hero { padding-top: 28px; }
   .workshop-intro { margin-bottom: 26px; }
-  .workshop-intro .hero-copy h1 { font-size: clamp(2.35rem, 9.5vw, 3.5rem); line-height: 1.03; letter-spacing: -.045em; }
+  .workshop-intro .hero-copy h1 { font-size: min(9vw, 3.5rem); line-height: 1.03; letter-spacing: -.045em; }
   .workshop-promise .hero-actions { margin-top: 18px; }
   .film-frame { aspect-ratio: 1.55; border-radius: 18px; }
   .motion-button { top: 10px; right: 10px; }
