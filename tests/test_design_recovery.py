@@ -38,6 +38,10 @@ class DesignRecoveryTest(unittest.TestCase):
         phrases = re.findall(r'<span[^>]*>(.*?)</span>', heading.group(1))
         self.assertEqual(phrases, ['Win more work.', 'Help more customers.', 'Get more time back.'])
 
+    def test_remove_requested_homepage_footer_copy(self):
+        home = (PUBLIC / 'index.html').read_text()
+        self.assertNotIn('Serving Jacksonville and Northeast Florida. Use the contact form to tell us about your business and the workflow you want to improve.', home)
+
     def test_requested_copy_cleanup_and_relocation(self):
         home = (PUBLIC / 'index.html').read_text()
         ways = (PUBLIC / 'ways-we-help.html').read_text()
