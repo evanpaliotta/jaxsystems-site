@@ -67,6 +67,11 @@ class DesignRecoveryTest(unittest.TestCase):
         for page in PAGES:
             self.assertNotIn('Plain-language systems help for owner-led businesses.', page.read_text())
 
+    def test_homepage_workflow_heading_is_not_duplicated(self):
+        html = (PUBLIC / 'index.html').read_text()
+        self.assertEqual(html.count('Pick a familiar slowdown. See one plain-language fix.'), 1)
+        self.assertNotIn('class="hero-note card stack-md"', html)
+
     def test_home_has_visual_workflow_stage_without_decorative_video(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertIn('Win more work. Help more customers. Get more time back.', html)
