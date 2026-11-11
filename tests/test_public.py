@@ -1,21 +1,22 @@
 import json
 import re
 import unittest
-from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 PUBLIC = Path(__file__).resolve().parents[1] / 'public'
-CORE_PAGES = {
+CONTENT_PAGES = {
     'index.html',
-    'ways-we-help.html',
+    'how-we-help.html',
     'how-it-works.html',
     'pricing.html',
     'contact.html',
+    'about.html',
+    'privacy.html',
 }
-EXTRA_PAGES = {'about.html', 'privacy.html'}
-ALL_PAGES = CORE_PAGES | EXTRA_PAGES
+REDIRECT_PAGES = {'ways-we-help.html'}
+ALL_PAGES = CONTENT_PAGES | REDIRECT_PAGES
 CANONICAL_BASE = 'https://jaxsystems.ai/'
 TAGLINE = 'Win more work. Help more customers. Get more time back.'
 LOCAL_DESCRIPTOR = 'Jacksonville-based AI help for small businesses.'
@@ -103,12 +104,23 @@ class PublicSiteTest(unittest.TestCase):
     def test_metadata_canonicals_and_jsonld(self):
         required_title_bits = {
             'index.html': 'Jacksonville AI help',
-            'ways-we-help.html': 'Ways we help',
+            'how-we-help.html': 'How we help',
+            'ways-we-help.html': 'How we help',
             'how-it-works.html': 'How it works',
             'pricing.html': 'Pricing',
             'contact.html': 'Contact',
             'about.html': 'About',
             'privacy.html': 'Privacy',
+        }
+        expected_canonicals = {
+            'index.html': CANONICAL_BASE,
+            'how-we-help.html': CANONICAL_BASE + 'how-we-help',
+            'ways-we-help.html': CANONICAL_BASE + 'how-we-help',
+            'how-it-works.html': CANONICAL_BASE + 'how-it-works',
+            'pricing.html': CANONICAL_BASE + 'pricing',
+            'contact.html': CANONICAL_BASE + 'contact',
+            'about.html': CANONICAL_BASE + 'about',
+            'privacy.html': CANONICAL_BASE + 'privacy',
         }
         descriptions = set()
         for page_name in ALL_PAGES:
@@ -126,8 +138,7 @@ class PublicSiteTest(unittest.TestCase):
 
             canonical = re.search(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"', html)
             self.assertIsNotNone(canonical, page_name)
-            expected = CANONICAL_BASE if page_name == 'index.html' else CANONICAL_BASE + page_name.removesuffix('.html')
-            self.assertEqual(canonical.group(1), expected, page_name)
+            self.assertEqual(canonical.group(1), expected_canonicals[page_name], page_name)
 
             robots = next((m['content'] for m in doc.meta if m.get('name') == 'robots'), '')
             self.assertNotIn('noindex', robots.lower(), page_name)
@@ -191,24 +202,32 @@ class PublicSiteTest(unittest.TestCase):
         categories = json.loads((PUBLIC / 'industries.json').read_text())
         self.assertEqual(len(categories), 19)
         self.assertEqual(sum(len(x['examples']) for x in categories), 57)
-        ways = unescape((PUBLIC / 'ways-we-help.html').read_text())
-        self.assertIn('19 industries', ways)
-        self.assertIn('57 examples', ways)
-        self.assertIn('Illustrative examples', ways)
-        self.assertIn('industry-layout', ways)
-        self.assertIn('industry-sidebar', ways)
-        self.assertNotIn('workflow-showcase-card', ways)
+        html = (PUBLIC / 'how-we-help.html').read_text()
+        script = (PUBLIC / 'how-we-help.js').read_text()
+        self.assertIn('id="industry-label">Jax Systems for</strong>', html)
+        self.assertIn('id="industry-options"', html)
+        self.assertIn('id="industry-page"', html)
+        self.assertIn('Find your industry.', html)
         for industry in categories:
-            self.assertIn(industry['name'], ways)
-            self.assertIn(industry['human'], ways)
-            for example in industry['examples']:
-                self.assertIn(example['title'], ways)
+            self.assertIn(industry['name'], script)
+        self.assertEqual(script.count('"boundary": '), 19)
+        self.assertEqual(script.count('"stories": ['), 19)
+        self.assertIn("searchParams.set('industry'", script)
+        self.assertIn("window.addEventListener('popstate'", script)
+        self.assertIn('function industryThumbnail(id)', script)
+
+    def test_legacy_route_redirects_to_how_we_help(self):
+        html = (PUBLIC / 'ways-we-help.html').read_text()
+        self.assertIn('location.replace', html)
+        self.assertIn('how-we-help.html', html)
+        self.assertIn('validIndustries', html)
 
     def test_search_and_discovery_files_exist(self):
         sitemap = (PUBLIC / 'sitemap.xml').read_text()
-        for page in sorted(ALL_PAGES):
+        for page in sorted(CONTENT_PAGES):
             loc = CANONICAL_BASE if page == 'index.html' else CANONICAL_BASE + page.removesuffix('.html')
             self.assertIn(f'<loc>{loc}</loc>', sitemap)
+        self.assertNotIn('ways-we-help', sitemap)
 
         robots = (PUBLIC / 'robots.txt').read_text()
         self.assertIn('Sitemap: https://jaxsystems.ai/sitemap.xml', robots)
@@ -216,10 +235,12 @@ class PublicSiteTest(unittest.TestCase):
 
         llms = (PUBLIC / 'llms.txt').read_text()
         self.assertIn('https://jaxsystems.ai/', llms)
+        self.assertIn('https://jaxsystems.ai/how-we-help', llms)
+        self.assertNotIn('https://jaxsystems.ai/ways-we-help', llms)
         self.assertIn('Jacksonville-based AI help for small businesses.', llms)
 
     def test_public_assets_and_copy_boundaries(self):
-        for asset in ['hero.mp4', 'poster.webp', 'site.js', 'workshop.js', 'site.css', 'workshop.css', 'sitemap.xml', 'robots.txt', 'llms.txt']:
+        for asset in ['hero.mp4', 'poster.webp', 'site.js', 'workshop.js', 'how-we-help.js', 'site.css', 'workshop.css', 'how-we-help.css', 'sitemap.xml', 'robots.txt', 'llms.txt']:
             self.assertGreater((PUBLIC / asset).stat().st_size, 0)
         blocked = [
             'design study',

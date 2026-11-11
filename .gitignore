@@ -3,3 +3,7 @@ backend/wrangler.generated.json
 __pycache__/
 *.pyc
 task-*-report.md
+
+# Local review renditions; production source lives in public/.
+sketches/
+tests/industry-preview.test.mjs
