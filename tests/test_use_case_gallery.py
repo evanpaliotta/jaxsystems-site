@@ -25,7 +25,7 @@ class GalleryDocument(HTMLParser):
             self.panels.append(attrs)
         if tag == 'button' and attrs.get('id') in {'cycle-toggle', 'prev', 'next'}:
             self.controls.append(attrs)
-        if tag == 'svg':
+        if tag == 'svg' and 'diagram' in attrs.get('class', '').split():
             self.svg_count += 1
 
     def handle_endtag(self, tag):

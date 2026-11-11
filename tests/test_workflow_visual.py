@@ -25,13 +25,13 @@ class WorkflowVisualTest(unittest.TestCase):
             self.assertIn(item['name'], script)
         self.assertEqual(script.count('"boundary": '), 19)
 
-    def test_workflow_visual_assets_ship_only_on_how_it_works(self):
-        how_it_works = (PUBLIC / 'how-it-works.html').read_text()
+    def test_workflow_visual_assets_ship_only_on_home(self):
+        how_it_works = (PUBLIC / 'index.html').read_text()
         self.assertIn('workflow-visual-6428c1f98a21.css', how_it_works)
         self.assertIn('workflow-visual-7ba2a9654c72.js', how_it_works)
         self.assertIn('id="workflow-frame"', how_it_works)
         for page in PUBLIC.glob('*.html'):
-            if page.name == 'how-it-works.html':
+            if page.name == 'index.html':
                 continue
             html = page.read_text()
             self.assertNotIn('workflow-visual-6428c1f98a21.css', html, page.name)

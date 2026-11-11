@@ -10,7 +10,7 @@
       <link rel="canonical" href="https://jaxsystems.ai/pricing">
       <link rel="stylesheet" href="site.css?v=9e94241748b2">
       <link rel="stylesheet" href="workshop.css?v=9fbd590884d9">
-      <script src="site.js?v=d2ca0903549d" defer></script>
+      <script src="site.js?v=b626d2a4b3db" defer></script>
       <script src="workshop.js?v=8782c092cd46" defer></script>
       <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -52,7 +52,195 @@
 }</script>
 
           <link rel="stylesheet" href="how-we-help.css?v=1d0e1a8d6a10">
-      <script src="how-we-help.js?v=f6dda05ce2c4" defer></script>
+      <script src="how-we-help.js?v=cd4df3d45bb0" defer></script>
+      <style>
+        .pricing-page main { gap: 34px; }
+        .pricing-hero-shell,
+        .pricing-summary-card,
+        .pricing-path-grid,
+        .pricing-rules-grid,
+        .pricing-faq-layout,
+        .pricing-callout {
+          display: grid;
+          gap: 22px;
+        }
+        .pricing-hero-shell {
+          grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+          align-items: center;
+        }
+        .pricing-hero-copy { display: grid; gap: 20px; }
+        .pricing-summary-card {
+          padding: 28px;
+          border-radius: 34px;
+          background:
+            radial-gradient(circle at top right, rgba(212, 159, 45, 0.18), transparent 30%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(223, 240, 237, 0.68));
+          border: 1px solid rgba(17, 35, 44, 0.08);
+          box-shadow: var(--shadow);
+        }
+        .pricing-summary-card h2,
+        .pricing-card h2,
+        .pricing-rule h3,
+        .pricing-faq-layout h2,
+        .pricing-callout h2 {
+          margin: 0;
+          letter-spacing: -0.04em;
+          line-height: 1.05;
+        }
+        .pricing-summary-card h2 { font-size: clamp(2rem, 3vw, 3rem); }
+        .pricing-summary-copy,
+        .pricing-card p,
+        .pricing-rule p,
+        .pricing-rule li,
+        .pricing-card li,
+        .pricing-callout p,
+        .pricing-faq-layout p { margin: 0; color: var(--ink-soft); }
+        .pricing-math {
+          display: grid;
+          gap: 12px;
+          margin-top: 6px;
+        }
+        .pricing-math-row {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 18px;
+          padding: 12px 0;
+          border-top: 1px solid rgba(17, 35, 44, 0.08);
+        }
+        .pricing-math-row:first-child { border-top: 0; padding-top: 0; }
+        .pricing-math-row strong {
+          font-size: 1.06rem;
+          letter-spacing: -0.02em;
+        }
+        .pricing-math-row span:last-child {
+          font-size: 1.28rem;
+          font-weight: 800;
+          color: var(--ink);
+          white-space: nowrap;
+        }
+        .pricing-math-row.credit span:last-child { color: var(--success); }
+        .pricing-math-row.balance {
+          margin-top: 4px;
+          padding: 16px 18px;
+          border-radius: 22px;
+          border-top: 0;
+          background: rgba(13, 95, 105, 0.1);
+        }
+        .pricing-math-row.balance span:last-child { color: var(--teal-deep); }
+        .pricing-path {
+          position: relative;
+          padding: 4px 0;
+        }
+        .pricing-path::before {
+          content: '';
+          position: absolute;
+          left: 8%;
+          right: 8%;
+          top: 56px;
+          height: 2px;
+          background: linear-gradient(90deg, rgba(13, 95, 105, 0.24), rgba(212, 159, 45, 0.28));
+          z-index: 0;
+        }
+        .pricing-path-grid,
+        .pricing-rules-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .pricing-card,
+        .pricing-rule {
+          position: relative;
+          z-index: 1;
+          min-height: 100%;
+          padding: 24px;
+          border-radius: 28px;
+          border: 1px solid rgba(17, 35, 44, 0.08);
+          background: rgba(255, 255, 255, 0.84);
+          box-shadow: var(--shadow);
+        }
+        .pricing-card.featured {
+          background: linear-gradient(180deg, rgba(13, 95, 105, 0.94), rgba(8, 70, 77, 0.97));
+          color: var(--white);
+          box-shadow: 0 24px 40px rgba(8, 70, 77, 0.22);
+        }
+        .pricing-card.featured p,
+        .pricing-card.featured li,
+        .pricing-card.featured .eyebrow,
+        .pricing-card.featured .pricing-card-label,
+        .pricing-card.featured .pricing-card-note strong,
+        .pricing-card.featured .pricing-card-note p { color: rgba(255, 255, 255, 0.92); }
+        .pricing-card.featured .eyebrow::before { background: var(--white); box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15); }
+        .pricing-card-stack { display: grid; gap: 18px; }
+        .pricing-card-label {
+          font-size: 0.96rem;
+          font-weight: 700;
+          color: var(--teal-deep);
+        }
+        .pricing-card h2 { font-size: 1.8rem; }
+        .pricing-card ul,
+        .pricing-rule ul { margin: 0; padding-left: 18px; }
+        .pricing-card-note {
+          padding: 14px 16px;
+          border-radius: 18px;
+          background: rgba(17, 35, 44, 0.05);
+        }
+        .pricing-card.featured .pricing-card-note { background: rgba(255, 255, 255, 0.1); }
+        .pricing-card-note strong,
+        .pricing-rule strong {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 0.96rem;
+          letter-spacing: -0.02em;
+        }
+        .pricing-rule {
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 239, 228, 0.72));
+        }
+        .pricing-rule span {
+          display: inline-block;
+          margin-bottom: 10px;
+          color: var(--teal);
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.11em;
+          text-transform: uppercase;
+        }
+        .pricing-faq-layout {
+          grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+          align-items: start;
+        }
+        .pricing-callout {
+          padding: 30px;
+          border-radius: 32px;
+          background: linear-gradient(135deg, rgba(13, 95, 105, 0.92), rgba(8, 70, 77, 0.96));
+          color: var(--white);
+          align-items: center;
+          grid-template-columns: minmax(0, 1fr) auto;
+          box-shadow: 0 24px 42px rgba(8, 70, 77, 0.24);
+        }
+        .pricing-callout p,
+        .pricing-callout .eyebrow { color: rgba(255, 255, 255, 0.9); }
+        .pricing-callout .eyebrow::before { background: var(--white); box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.14); }
+        .pricing-callout h2 { font-size: clamp(2rem, 3vw, 3rem); }
+        .pricing-callout .pill.secondary {
+          border-color: rgba(255, 255, 255, 0.24);
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.08);
+        }
+        .pricing-callout .pill.secondary:hover { background: rgba(255, 255, 255, 0.14); }
+        @media (max-width: 1024px) {
+          .pricing-hero-shell,
+          .pricing-faq-layout { grid-template-columns: 1fr; }
+          .pricing-path-grid,
+          .pricing-rules-grid { grid-template-columns: 1fr; }
+          .pricing-path::before { display: none; }
+        }
+        @media (max-width: 760px) {
+          .pricing-page main { gap: 24px; }
+          .pricing-summary-card,
+          .pricing-card,
+          .pricing-rule,
+          .pricing-callout { padding: 22px; }
+          .pricing-callout { grid-template-columns: 1fr; }
+          .pricing-math-row span:last-child { font-size: 1.12rem; }
+        }
+      </style>
 </head>
     <body class="pricing-page">
       <a class="skip-link" href="#main">Skip to content</a>
@@ -66,76 +254,178 @@
           <nav class="site-nav" id="site-nav" aria-label="Main navigation">
             <a href="index.html">Home</a>
 <a data-help-link href="how-we-help.html">How we help</a>
-<a href="how-it-works.html">How it works</a>
 <a href="pricing.html" aria-current="page">Pricing</a>
-<a href="about.html">About</a>
+
 <a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
           </nav>
         </header>
         <main id="main">
 
 <section class="page-hero compact-hero">
-  <p class="eyebrow">Pricing</p>
-  <h1>Clear numbers before work starts.</h1>
-  <p class="lede narrow">Discovery is priced, credited and useful on its own. Broader work is scoped honestly instead of hidden behind “contact us for everything.”</p>
+  <div class="pricing-hero-shell">
+    <div class="pricing-hero-copy">
+      <div class="stack-md">
+
+        <h1>Know the cost before work starts.</h1>
+        <p class="lede">Start with discovery. If we move ahead with a standard deployment, your discovery fee is credited toward it. Ongoing care is optional.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
+
+      </div>
+    </div>
+    <aside class="pricing-summary-card" aria-label="Price breakdown summary">
+
+      <h2>Start with $999 discovery.</h2>
+      <p class="pricing-summary-copy">If the first standard deployment is the fit, the existing credit math leaves $1,500 remaining.</p>
+      <div class="pricing-math">
+        <div class="pricing-math-row"><strong>Discovery</strong><span>$999</span></div>
+        <div class="pricing-math-row"><strong>First standard deployment</strong><span>$2,499</span></div>
+        <div class="pricing-math-row credit"><strong>Discovery credit applied once</strong><span>-$999</span></div>
+        <div class="pricing-math-row balance"><strong>Remaining for the first standard deployment after discovery</strong><span>$1,500</span></div>
+      </div>
+      <p class="small-note">Third-party fees are separate. Larger scopes are quoted before work starts.</p>
+    </aside>
+  </div>
 </section>
 
 <section class="section">
-  <div class="card-grid three-up pricing-grid">
-    <article class="price-card tall-card">
-      <p class="eyebrow">Step 1</p>
-      <h2>$999 discovery</h2>
-      <p>Walk through the current workflow, tools, risks and people involved.</p>
-      <ul>
-        <li>One recent real example reviewed together</li>
-        <li>Recommended first improvement and scope notes</li>
-        <li>The full $999 is credited toward the $2,499 first standard deployment</li>
-      </ul>
-    </article>
-    <article class="price-card featured tall-card">
-      <p class="eyebrow">Step 2</p>
-      <h2>$2,499 standard first deployment</h2>
-      <p><strong>$1,500 remains after the $999 discovery credit.</strong></p>
-      <ul>
-        <li>One clearly scoped outcome</li>
-        <li>Acceptance checks for normal cases and exceptions</li>
-        <li>Team handoff and documentation</li>
-      </ul>
-    </article>
-    <article class="price-card tall-card">
-      <p class="eyebrow">Step 3</p>
-      <h2>$499/month care</h2>
-      <p>Optional support for the first agreed deployment.</p>
-      <ul>
-        <li>Issue investigation and agreed maintenance</li>
-        <li>Included small adjustments</li>
-        <li>Third-party fees handled separately when they exist</li>
-      </ul>
-    </article>
+  <div class="stack-md section-heading">
+
+    <h2>Three clear steps.</h2>
+    <p>Each step answers the next obvious question: what you pay first, what that step includes, and what changes the total later.</p>
+  </div>
+  <div class="pricing-path">
+    <div class="pricing-path-grid">
+      <article class="pricing-card">
+        <div class="pricing-card-stack">
+          <div class="stack-md">
+
+            <h2>$999 discovery</h2>
+            <p class="pricing-card-label">For owners who need the first bottleneck mapped before build decisions.</p>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Included</strong>
+            <ul>
+              <li>Walk through the current workflow, tools, risks and people involved</li>
+              <li>One recent real example reviewed together</li>
+              <li>Recommended first improvement and scope notes</li>
+            </ul>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Discovery credit</strong>
+            <p>The full $999 is credited toward the $2,499 first standard deployment.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="pricing-card-stack">
+          <div class="stack-md">
+
+            <h2>$2,499 first standard deployment</h2>
+            <p class="pricing-card-label">For the first clearly scoped outcome once discovery confirms the fit.</p>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Included</strong>
+            <ul>
+              <li>One clearly scoped outcome</li>
+              <li>Acceptance checks for normal cases and exceptions</li>
+              <li>Team handoff and documentation</li>
+            </ul>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Price breakdown</strong>
+            <p>$1,500 remains after the $999 discovery credit is applied.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="pricing-card-stack">
+          <div class="stack-md">
+
+            <h2>$499/month care</h2>
+            <p class="pricing-card-label">Optional support after the first deployment goes into use.</p>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Included</strong>
+            <ul>
+              <li>Issue investigation and agreed maintenance</li>
+              <li>Small adjustments within the agreed deployment scope</li>
+            </ul>
+          </div>
+          <div class="pricing-card-note">
+            <strong>Conditional / separate</strong>
+            <p>Third-party fees stay separate when they exist. Small adjustments stay limited to the first agreed deployment; a new outcome or broader process change is scoped and quoted separately.</p>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <section class="section accent-section">
-  <div class="two-col">
-    <div>
-      <p class="eyebrow">Additional outcomes</p>
-      <h2>Scope expands only when the work does.</h2>
+  <div class="stack-md section-heading">
+
+    <h2>What can change the total.</h2>
+    <p>Additional work is scoped separately, with pricing agreed before work starts.</p>
+  </div>
+  <div class="pricing-rules-grid">
+    <article class="pricing-rule">
+      <span>Additional outcomes</span>
+      <h3>Subsequent scoped outcomes start at $999.</h3>
+      <p>Starting prices apply when the added scope is reusable and active. New tools, locations, migrations or broader work are quoted separately.</p>
+    </article>
+    <article class="pricing-rule">
+      <span>Incremental care</span>
+      <h3>$249/month only when the added scope is reusable and active.</h3>
+      <p>Incremental care applies only when the added scope is reusable and active.</p>
+    </article>
+    <article class="pricing-rule">
+      <span>Quoted separately</span>
+      <h3>Broader work gets its own quote before work starts.</h3>
+      <p>Examples already called out here include new locations, deeper integrations, migrations or broader process changes.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="pricing-faq-layout">
+    <div class="stack-md section-heading">
+
+      <h2>Pricing and scope questions.</h2>
+      <p>The numbers matter, but so do the rules around those numbers.</p>
     </div>
-    <div class="stack-md">
-      <p>Subsequent scoped outcomes start at <strong>$999</strong> with <strong>$249/month</strong> incremental care only when the added scope is reusable and active.</p>
-      <p>Heavier work—such as new locations, deeper integrations, migrations or broader process changes—is scoped and quoted separately before work starts.</p>
+    <div class="faq-list">
+      <details>
+        <summary>What if discovery shows the first problem is not a fit?</summary>
+        <p>No standard deployment or care charge is introduced in that case. Discovery should still leave the owner with a clearer next step, and any broader work would require a separate quote before it starts.</p>
+      </details>
+      <details>
+        <summary>What makes something a “standard first deployment”?</summary>
+        <p>It is the first clearly scoped outcome that fits the agreed discovery path. Broader work such as migrations, deeper integrations, new locations or wider process changes is quoted separately before it starts.</p>
+      </details>
+      <details>
+        <summary>When does the $249/month incremental care charge apply?</summary>
+        <p>Only when an additional scoped outcome is both reusable and active. If that condition is not true, the incremental care charge does not apply.</p>
+      </details>
+      <details>
+        <summary>What kinds of costs are separate from the listed prices?</summary>
+        <p>Third-party fees are listed separately so you can distinguish Jax’s charges from outside tool or service costs used in the setup.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="callout soft-callout">
-    <div>
-      <p class="eyebrow">Need the plain answer?</p>
-      <h2>If the first problem is not a fit, discovery should say that quickly.</h2>
-      <p>The goal is not to force every conversation into a build. The goal is to leave with a clearer next step.</p>
+  <div class="pricing-callout">
+    <div class="stack-md">
+
+      <h2>Discovery is meant to create clarity, not pressure.</h2>
+      <p>If the first problem is not right for a standard deployment, the useful outcome is still a clearer next move before anything broader is quoted.</p>
     </div>
-    <a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
+    <a class="pill secondary" href="contact.html#contact-form">Tell us what’s slowing you down</a>
   </div>
 </section>
 
@@ -151,7 +441,7 @@
           <p class="footer-blurb">Jacksonville-based AI help for small businesses.</p>
           <p class="footer-note">Serving Jacksonville and Northeast Florida. Use the enquiry form to tell us what’s slowing you down.</p>
         </div>
-        <nav class="footer-links" aria-label="Footer navigation"><a href="how-we-help.html">How we help</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="how-we-help.html">How we help</a><a href="pricing.html">Pricing</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
       </div>
       <div class="footer-bar">
         <a href="contact.html#contact-form">Use the enquiry form</a>

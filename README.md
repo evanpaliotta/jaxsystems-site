@@ -12,7 +12,7 @@ Customer website for https://jaxsystems.ai, hosted on Cloudflare Pages project `
 
 Evan selected Jax Workshop for the custom domain. The five-page design and original video were promoted from `~/Projects/fde-lab/design-lab/concepts/13-jax-workshop/`; the original design lab remains unchanged. Only the relative design-lab backlink was changed to its existing absolute URL for the new hosting root.
 
-Homepage, How we help (19 industries / 57 illustrative scenarios), How it works, Pricing, Contact, About, and Privacy are included. The approved How we help preview is now the production experience at `/how-we-help`, with `/ways-we-help` preserved as a compatibility redirect. Contact uses the live website delivery pipeline; do not reintroduce preview/noindex copy.
+Homepage, How we help (19 industries / 57 workflow scenarios), Pricing, Contact, and Privacy are included. The approved workflow graphic is on Home; `/how-it-works` redirects to that section. About is removed, including navigation and discovery links; `/about` and `/about.html` temporarily redirect home. Do not publish founder identity or biography without explicit approval. The approved How we help preview is now the production experience at `/how-we-help`, with `/ways-we-help` preserved as a compatibility redirect. Contact uses the live website delivery pipeline; do not reintroduce preview/noindex copy.
 
 Edit the files in `public/` here for customer-site updates, not the design-lab source. Pushes deploy automatically. Validate static files with `python3 -m unittest discover -s tests -v`.
 

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const root = new URL('../', import.meta.url);
-const html = readFileSync(new URL('public/how-it-works.html', root), 'utf8');
+const html = readFileSync(new URL('public/index.html', root), 'utf8');
 const js = readFileSync(new URL('public/workflow-visual-7ba2a9654c72.js', root), 'utf8');
 const css = readFileSync(new URL('public/workflow-visual-6428c1f98a21.css', root), 'utf8');
 
@@ -15,7 +15,7 @@ const approvedDescriptions = [
   ['04', 'Put it to work', 'Your team keeps clear ownership and human approval gates, with fewer crossed wires and an obvious next step.'],
 ];
 
-test('how-it-works restores the approved workflow visual markup and assets', () => {
+test('homepage retains the approved workflow visual markup and assets', () => {
   assert.match(html, /workflow-visual-6428c1f98a21\.css/);
   assert.match(html, /workflow-visual-7ba2a9654c72\.js/);
   assert.match(html, /<div class="workflow-frame" id="workflow-frame" data-paused="false">/);

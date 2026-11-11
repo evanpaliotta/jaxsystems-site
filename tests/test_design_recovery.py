@@ -6,7 +6,7 @@ from urllib.parse import parse_qs, urlsplit
 
 PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 PAGES = sorted(PUBLIC.glob('*.html'))
-CONTENT_PAGES = [page for page in PAGES if page.name != 'ways-we-help.html']
+CONTENT_PAGES = [page for page in PAGES if page.name not in {'ways-we-help.html', 'how-it-works.html'}]
 REQUIRED_ALL = ('site.css', 'site.js')
 OPTIONAL_ALL = ('how-we-help.css', 'how-we-help.js', 'workshop.css', 'workshop.js')
 
@@ -17,7 +17,7 @@ class DesignRecoveryTest(unittest.TestCase):
             html = page.read_text()
             for asset in REQUIRED_ALL:
                 refs = re.findall(r'(?:href|src)="(' + re.escape(asset) + r'[^"]*)"', html)
-                if page.name == 'ways-we-help.html':
+                if page.name in {'ways-we-help.html', 'how-it-works.html'}:
                     self.assertEqual(len(refs), 0, (page.name, asset, refs))
                     continue
                 self.assertEqual(len(refs), 1, (page.name, asset, refs))

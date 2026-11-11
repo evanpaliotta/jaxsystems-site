@@ -95,7 +95,7 @@ async function initIndustries() {
 
     panelsHost.innerHTML = industries.map((industry, index) => `
       <section class="industry-panel" data-industry-panel="${industry.id}" ${index === 0 ? '' : 'hidden'}>
-        <p class="eyebrow">Industry ${String(index + 1).padStart(2, '0')}</p>
+
         <h3>${industry.name}</h3>
         <p>${industry.audience}</p>
         <div class="example-grid">

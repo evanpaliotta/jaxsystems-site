@@ -7,16 +7,15 @@ PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 
 
 class DeliveryCopyTest(unittest.TestCase):
-    def test_how_it_works_leads_with_delivery_not_payment(self):
-        html = (PUBLIC / 'how-it-works.html').read_text()
+    def test_homepage_workflow_leads_with_delivery_not_payment(self):
+        html = (PUBLIC / 'index.html').read_text()
         self.assertNotIn('What the four steps mean in practice', html)
         self.assertNotIn('<section class="section" aria-label="Our approach">', html)
         self.assertIn('id="workflow-frame"', html)
         self.assertEqual(html.count('class="workflow-description"'), 4)
-        self.assertLess(html.index('id="workflow-frame"'), html.index('A clear scope at every step.'))
+        self.assertLess(html.index('id="workflow-frame"'), html.index('id="examples"'))
         for heading in ['Understand your day', 'Find the bottleneck', 'Build and test together', 'Put it to work']:
             self.assertIn(heading, html)
-        self.assertIn('documentation your team can use', html)
         self.assertIn('pricing.html', html)
         self.assertNotIn('Send the enquiry</h3>', html)
         self.assertNotIn('Price: $999', html)

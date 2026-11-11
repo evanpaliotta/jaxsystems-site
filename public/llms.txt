@@ -7,9 +7,7 @@ Primary contact route: https://jaxsystems.ai/contact
 Pages:
 - https://jaxsystems.ai/
 - https://jaxsystems.ai/how-we-help
-- https://jaxsystems.ai/how-it-works
 - https://jaxsystems.ai/pricing
-- https://jaxsystems.ai/about
 - https://jaxsystems.ai/privacy
 - https://jaxsystems.ai/contact
 

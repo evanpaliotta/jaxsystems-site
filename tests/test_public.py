@@ -9,13 +9,11 @@ PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 CONTENT_PAGES = {
     'index.html',
     'how-we-help.html',
-    'how-it-works.html',
     'pricing.html',
     'contact.html',
-    'about.html',
     'privacy.html',
 }
-REDIRECT_PAGES = {'ways-we-help.html'}
+REDIRECT_PAGES = {'ways-we-help.html', 'how-it-works.html'}
 ALL_PAGES = CONTENT_PAGES | REDIRECT_PAGES
 CANONICAL_BASE = 'https://jaxsystems.ai/'
 TAGLINE = 'Win more work. Help more customers. Get more time back.'
@@ -106,20 +104,18 @@ class PublicSiteTest(unittest.TestCase):
             'index.html': 'Jacksonville AI help',
             'how-we-help.html': 'How we help',
             'ways-we-help.html': 'How we help',
-            'how-it-works.html': 'How it works',
+            'how-it-works.html': 'Redirecting',
             'pricing.html': 'Pricing',
             'contact.html': 'Contact',
-            'about.html': 'About',
             'privacy.html': 'Privacy',
         }
         expected_canonicals = {
             'index.html': CANONICAL_BASE,
             'how-we-help.html': CANONICAL_BASE + 'how-we-help',
             'ways-we-help.html': CANONICAL_BASE + 'how-we-help',
-            'how-it-works.html': CANONICAL_BASE + 'how-it-works',
+            'how-it-works.html': CANONICAL_BASE + '#workflow-frame',
             'pricing.html': CANONICAL_BASE + 'pricing',
             'contact.html': CANONICAL_BASE + 'contact',
-            'about.html': CANONICAL_BASE + 'about',
             'privacy.html': CANONICAL_BASE + 'privacy',
         }
         descriptions = set()
@@ -130,6 +126,11 @@ class PublicSiteTest(unittest.TestCase):
             title = doc.titles[0]
             self.assertIn(required_title_bits[page_name], title, page_name)
             self.assertIn('Jax Systems', title, page_name)
+
+            if page_name == 'how-it-works.html':
+                self.assertIn('noindex', html)
+                self.assertIn('index.html#workflow-frame', html)
+                continue
 
             description = next((m['content'] for m in doc.meta if m.get('name') == 'description'), None)
             self.assertTrue(description, page_name)
@@ -153,7 +154,7 @@ class PublicSiteTest(unittest.TestCase):
                 self.assertNotIn('review', schema_text.lower(), page_name)
                 self.assertNotIn('aggregateRating', schema_text, page_name)
                 self.assertNotIn('PostalAddress', schema_text, page_name)
-        self.assertEqual(len(descriptions), len(ALL_PAGES))
+        self.assertEqual(len(descriptions), len(ALL_PAGES) - 1)
 
     def test_contact_page_uses_real_api_contract_and_accessible_labels(self):
         html = (PUBLIC / 'contact.html').read_text()
