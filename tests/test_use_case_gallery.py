@@ -93,6 +93,9 @@ class UseCaseGalleryTest(unittest.TestCase):
             return
         self.assertIn('min-width: 0', rule.group(1))
 
+    def test_gallery_does_not_display_a_workflow_count_subtitle(self):
+        self.assertNotIn('Five everyday workflows. Built around the way your team works.', self.html)
+
     def test_first_panel_is_readable_without_javascript(self):
         first = re.search(r'<article class="([^"]+)" role="tabpanel" id="case-0"', self.html)
         self.assertIsNotNone(first)
