@@ -51,14 +51,15 @@ class DesignRecoveryTest(unittest.TestCase):
         ]
         for phrase in moved:
             self.assertNotIn(phrase, home)
-            self.assertIn(phrase, ways)
+            # Superseded by the approved team-first Ways introduction.
+            self.assertNotIn(phrase, ways)
         for phrase in [
             'An illustrative system. Your team stays in control.',
             'These are illustrative examples. They are not customer results, guarantees, or claims that every tool works the same way in every business.',
             'Concrete examples, not hype',
         ]:
             self.assertNotIn(phrase, home)
-        self.assertIn('Find the version that looks most like your day.', ways)
+        self.assertIn('What could that look like in your business?', ways)
         self.assertIn('data-industry-directory', ways)
         self.assertIn('workflow-showcase-card', ways)
         self.assertNotIn('industry-sidebar', ways)
