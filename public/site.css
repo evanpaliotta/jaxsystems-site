@@ -478,7 +478,7 @@ textarea { resize: vertical; }
 /* Homepage use-case gallery: a centered circular rail with static illustrations. */
 .use-case-gallery { min-width: 0; padding: 56px 0 24px; }
 .use-case-gallery .gallery-eyebrow { margin: 0 0 20px; color: #55756a; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
-.use-case-gallery .gallery-title { margin: 0 0 34px; font-size: clamp(33px,4.6vw,58px); font-weight: 550; line-height: 1.07; letter-spacing: -.055em; text-align: center; }
+.use-case-gallery .gallery-title { margin: 0 0 58px; font-size: clamp(33px,4.6vw,58px); font-weight: 550; line-height: 1.07; letter-spacing: -.055em; text-align: center; }
 .use-case-gallery .navrow { position: relative; display: flex; align-items: center; margin: 0 0 20px; }
 .use-case-gallery .tabs { display: flex; flex: 1; gap: 8px; min-width: 0; padding: 5px 2px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-y; cursor: grab; user-select: none; -webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent); }
 .use-case-gallery .tabs.dragging { cursor: grabbing; }
@@ -489,6 +489,9 @@ textarea { resize: vertical; }
 .use-case-gallery .tab:nth-child(3) { --tab-accent:#e6ecef; }
 .use-case-gallery .tab:nth-child(4) { --tab-accent:#eee7dc; }
 .use-case-gallery .tab:nth-child(5) { --tab-accent:#e6eee6; }
+.use-case-gallery .tab:nth-child(6) { --tab-accent:#e7edf3; }
+.use-case-gallery .tab:nth-child(7) { --tab-accent:#f3ead9; }
+.use-case-gallery .tab:nth-child(8) { --tab-accent:#e9e4f0; }
 .use-case-gallery .tab.is-current { color: #153e39; border-color: #0d5f69; box-shadow: inset 0 0 0 1px #0d5f69; }
 .use-case-gallery .cycle-toggle { padding: 8px 5px; border: 0; background: transparent; color: #476358; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .use-case-gallery .cycle-toggle:hover { color: #0d5f69; text-decoration: underline; }
@@ -512,7 +515,7 @@ textarea { resize: vertical; }
 @media (max-width:700px) {
   .use-case-gallery { padding: 38px 0 18px; }
   .use-case-gallery .gallery-eyebrow { font-size: 10px; }
-  .use-case-gallery .gallery-title { margin-bottom: 25px; }
+  .use-case-gallery .gallery-title { margin-bottom: 58px; }
   .use-case-gallery .navrow { gap: 8px; }
   .use-case-gallery .tab { padding: 12px 16px; font-size: 12px; }
   .use-case-gallery .arrows { gap: 4px; }

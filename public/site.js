@@ -36,7 +36,7 @@ if(!section)return;
 const tabs=[...section.querySelectorAll('.tab')],panels=[...section.querySelectorAll('.panel')],track=section.querySelector('.track'),prev=section.querySelector('#prev'),next=section.querySelector('#next'),toggle=section.querySelector('#cycle-toggle'),nav=section.querySelector('.navrow'),rail=section.querySelector('.tabs');
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let active=0,playing=!reduced.matches,hovering=false,focused=false,dragging=false,visible=false,timer,settleTimer;
-// Repeated visual tabs permit a true circular rail. Only the original five are in the accessibility tree.
+// Repeated visual tabs permit a true circular rail. Only the canonical tabs are in the accessibility tree.
 tabs.forEach((tab,i)=>{tab.style.setProperty('--tab-accent',panels[i].style.getPropertyValue('--accent'));tab.dataset.index=i});
 const fragments=[...tabs];
 for(let group=0;group<3;group++)fragments.forEach(tab=>{let clone=tab.cloneNode(true);clone.removeAttribute('id');clone.removeAttribute('role');clone.removeAttribute('aria-controls');clone.removeAttribute('aria-selected');clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;rail.append(clone)});

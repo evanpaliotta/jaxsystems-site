@@ -44,7 +44,7 @@ class UseCaseGalleryTest(unittest.TestCase):
         self.script = (PUBLIC / 'site.js').read_text()
         self.styles = (PUBLIC / 'site.css').read_text()
 
-    def test_five_approved_use_cases_replace_the_old_set(self):
+    def test_eight_approved_use_cases_replace_the_old_set(self):
         labels = [''.join(tab['text']).strip() for tab in self.doc.tabs]
         self.assertEqual(labels, [
             'Catch the enquiry',
@@ -52,15 +52,18 @@ class UseCaseGalleryTest(unittest.TestCase):
             'Coordinate work',
             'Stop chasing paperwork',
             'Get paid faster',
+            'Answer repeat questions',
+            'Ask for the review',
+            'Bring customers back',
         ])
         self.assertNotIn('Prepare updates faster', self.html)
         self.assertNotIn('Collect documents', self.html)
 
     def test_each_tab_has_a_matching_static_illustrated_panel(self):
-        self.assertEqual(len(self.doc.panels), 5)
-        self.assertEqual(self.doc.svg_count, 10)
-        self.assertEqual(self.html.count('class="diagram desktop"'), 5)
-        self.assertEqual(self.html.count('class="diagram mobile"'), 5)
+        self.assertEqual(len(self.doc.panels), 8)
+        self.assertEqual(self.doc.svg_count, 16)
+        self.assertEqual(self.html.count('class="diagram desktop"'), 8)
+        self.assertEqual(self.html.count('class="diagram mobile"'), 8)
         for index, panel in enumerate(self.doc.panels):
             tab = self.doc.tabs[index]['attrs']
             self.assertEqual(panel['id'], f'case-{index}')
