@@ -134,6 +134,7 @@
   }
 }
 @media (max-width: 760px) {
+  #site-nav { max-height: calc(100dvh - 110px); overflow-y: auto; overscroll-behavior: contain; }
   .site-nav .help-menu-wrap {
     width: 100%;
     display: grid;
@@ -147,7 +148,7 @@
   .site-nav .help-navigation {
     position: static;
     width: 100%;
-    max-height: none;
+    max-height: min(580px, calc(100dvh - 230px));
     padding: 16px;
     border-radius: 18px;
     box-shadow: none;
