@@ -78,7 +78,7 @@ class DesignRecoveryTest(unittest.TestCase):
 
     def test_homepage_workflow_heading_is_not_duplicated(self):
         html = (PUBLIC / 'index.html').read_text()
-        self.assertEqual(html.count('Pick a familiar slowdown. See one plain-language fix.'), 1)
+        self.assertEqual(html.count('Pick a familiar slowdown.<br>See a clearer way through.'), 1)
         self.assertNotIn('class="hero-note card stack-md"', html)
 
     def test_home_has_restored_workshop_layout_with_animation(self):

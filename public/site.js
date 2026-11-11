@@ -30,93 +30,49 @@ if (navButton && nav) {
   syncNav();
 }
 
-const demos = {
-  calls: {
-    title: 'A missed call becomes a ready callback.',
-    description: 'Collect the job basics, callback window and ownership so the next person starts with context instead of a voicemail hunt.',
-    trigger: 'Missed call or web enquiry',
-    gather: 'Contact details, location, issue, callback window',
-    handoff: 'One organized summary where the team already works',
-    human: 'Your team still decides pricing and availability',
-    boundary: 'Pricing and scheduling stay with your team.'
-  },
-  quotes: {
-    title: 'An estimate stays visible until someone answers.',
-    description: 'Queue agreed follow-up, stop when the customer replies, and make the open estimate easy to find.',
-    trigger: 'Quote sent, no reply yet',
-    gather: 'Last contact date, quote status, owner, next follow-up',
-    handoff: 'A clean reminder queue instead of inbox archaeology',
-    human: 'Final numbers, discounts and promises stay human',
-    boundary: 'Commercial judgment and exceptions stay with your team.'
-  },
-  schedule: {
-    title: 'A change of plan reaches everyone who needs it.',
-    description: 'Put confirmed dates, access notes and next actions in the same place.',
-    trigger: 'Schedule change',
-    gather: 'Agreed date, access details and assigned person',
-    handoff: 'One clear next step for the team',
-    human: 'Your team confirms availability',
-    boundary: 'Your team makes the final scheduling decision.'
-  },
-  docs: {
-    title: 'Missing documents become easier to track.',
-    description: 'Track requested files in an approved checklist and flag what is still outstanding.',
-    trigger: 'Document request',
-    gather: 'Required files, due date and owner',
-    handoff: 'A named review queue',
-    human: 'Your reviewer checks access and completeness',
-    boundary: 'Receiving a document is not the same as approving it.'
-  },
-  updates: {
-    title: 'Routine updates stop eating the afternoon.',
-    description: 'Use approved status facts to prepare a draft update that a person can review before it goes out.',
-    trigger: 'Customer or owner asks for an update',
-    gather: 'Current milestone, responsible person, next step, source links',
-    handoff: 'A reviewable draft in the right channel',
-    human: 'Sensitive wording and commitments still get checked',
-    boundary: 'Nothing here promises automatic customer communication.'
-  }
-};
+(() => {
+const section=document.querySelector('.use-case-gallery');
+if(!section)return;
+const tabs=[...section.querySelectorAll('.tab')],panels=[...section.querySelectorAll('.panel')],track=section.querySelector('.track'),prev=section.querySelector('#prev'),next=section.querySelector('#next'),toggle=section.querySelector('#cycle-toggle'),nav=section.querySelector('.navrow'),rail=section.querySelector('.tabs');
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+let active=0,playing=!reduced.matches,hovering=false,focused=false,dragging=false,visible=false,timer,settleTimer;
+// Repeated visual tabs permit a true circular rail. Only the original five are in the accessibility tree.
+tabs.forEach((tab,i)=>{tab.style.setProperty('--tab-accent',panels[i].style.getPropertyValue('--accent'));tab.dataset.index=i});
+const fragments=[...tabs];
+for(let group=0;group<3;group++)fragments.forEach(tab=>{let clone=tab.cloneNode(true);clone.removeAttribute('id');clone.removeAttribute('role');clone.removeAttribute('aria-controls');clone.removeAttribute('aria-selected');clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;rail.append(clone)});
+for(let group=0;group<3;group++)[...fragments].reverse().forEach(tab=>{let clone=tab.cloneNode(true);clone.removeAttribute('id');clone.removeAttribute('role');clone.removeAttribute('aria-controls');clone.removeAttribute('aria-selected');clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;rail.prepend(clone)});
+const physical=[...rail.querySelectorAll('.tab')];
+function centerX(b){let r=rail.getBoundingClientRect(),q=b.getBoundingClientRect();return rail.scrollLeft+q.left+q.width/2-r.left-r.width/2}
+function highlight(b){physical.forEach(x=>x.classList.toggle('is-current',x===b))}
+function rebase(i){let canonical=tabs[i];rail.scrollTo({left:centerX(canonical),behavior:'instant'});highlight(canonical)}
+function center(i,animate=true){clearTimeout(settleTimer);let choices=physical.filter(x=>Number(x.dataset.index)===i),candidate=choices.reduce((best,x)=>Math.abs(centerX(x)-rail.scrollLeft)<Math.abs(centerX(best)-rail.scrollLeft)?x:best);highlight(candidate);rail.scrollTo({left:centerX(candidate),behavior:animate&&!reduced.matches?'smooth':'instant'});if(candidate!==tabs[i])settleTimer=setTimeout(()=>rebase(i),850)}
+function showPlayback(){toggle.textContent=playing?'Pause':'Play';toggle.setAttribute('aria-label',playing?'Pause automatic cycling':'Play automatic cycling')}
+function schedule(){clearTimeout(timer);if(!playing||hovering||focused||dragging||!visible||document.hidden)return;timer=setTimeout(()=>select((active+1)%tabs.length),8000)}
+function sync(i,animate=true){if(!Number.isInteger(i)||i<0||i>=tabs.length)return;active=i;tabs.forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1;panels[j].inert=j!==i;panels[j].classList.toggle('is-active',j===i)});center(i,animate)}
+function select(i,focus=false){i=(i+tabs.length)%tabs.length;sync(i);if(focus)tabs[i].focus({preventScroll:true});schedule()}
+tabs.forEach((b,i)=>{b.onclick=()=>select(i);b.onkeydown=e=>{let j=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:e.key==='Home'?0:e.key==='End'?tabs.length-1:null;if(j!==null){e.preventDefault();select(j,true)}}});
+physical.filter(b=>b.getAttribute('aria-hidden')==='true').forEach(b=>b.onclick=()=>select(Number(b.dataset.index)));prev.onclick=()=>select(active-1);next.onclick=()=>select(active+1);
+toggle.onclick=()=>{playing=!playing;if(playing)focused=false;showPlayback();schedule()};
 
-const demoButtons = Array.from(document.querySelectorAll('[data-demo]'));
-function chooseDemo(button) {
-  const demo = demos[button.dataset.demo];
-  if (!demo) return;
-  demoButtons.forEach(item => {
-    const active = item === button;
-    item.setAttribute('aria-selected', String(active));
-    item.tabIndex = active ? 0 : -1;
-  });
-  document.querySelector('#demo-panel')?.setAttribute('aria-labelledby', button.id);
-  const mappings = {
-    '[data-demo-title]': demo.title,
-    '[data-demo-description]': demo.description,
-    '[data-demo-trigger]': demo.trigger,
-    '[data-demo-gather]': demo.gather,
-    '[data-demo-handoff]': demo.handoff,
-    '[data-demo-human]': demo.human,
-    '[data-demo-boundary]': demo.boundary
-  };
-  Object.entries(mappings).forEach(([selector, text]) => {
-    const node = document.querySelector(selector);
-    if (node) node.textContent = text;
-  });
-}
-
-for (const [index, button] of demoButtons.entries()) {
-  button.addEventListener('click', () => chooseDemo(button));
-  button.addEventListener('keydown', event => {
-    let nextIndex;
-    if (event.key === 'ArrowRight') nextIndex = (index + 1) % demoButtons.length;
-    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + demoButtons.length) % demoButtons.length;
-    if (event.key === 'Home') nextIndex = 0;
-    if (event.key === 'End') nextIndex = demoButtons.length - 1;
-    if (nextIndex === undefined) return;
-    event.preventDefault();
-    demoButtons[nextIndex].focus();
-    chooseDemo(demoButtons[nextIndex]);
-  });
-}
+let swipeStart=null;
+track.addEventListener('pointerdown',e=>{swipeStart={x:e.clientX,y:e.clientY};dragging=true;schedule()});
+track.addEventListener('pointerup',e=>{if(swipeStart){let dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))select(active+(dx<0?1:-1))}swipeStart=null;dragging=false;schedule()});
+track.addEventListener('pointercancel',()=>{swipeStart=null;dragging=false;schedule()});
+let railDrag=null,suppressClick=false,wheelTimer;
+function nearestTab(){let r=rail.getBoundingClientRect();return physical.reduce((a,b)=>{let ax=a.getBoundingClientRect(),bx=b.getBoundingClientRect();return Math.abs(bx.x+bx.width/2-r.x-r.width/2)<Math.abs(ax.x+ax.width/2-r.x-r.width/2)?b:a})}
+rail.addEventListener('pointerdown',e=>{if(e.button!==0)return;clearTimeout(settleTimer);railDrag={x:e.clientX,y:e.clientY,left:rail.scrollLeft,moved:false};dragging=true;schedule()});
+rail.addEventListener('pointermove',e=>{if(!railDrag)return;let dx=e.clientX-railDrag.x,dy=e.clientY-railDrag.y;if(!railDrag.moved&&Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){railDrag.moved=true;rail.setPointerCapture(e.pointerId);rail.classList.add('dragging')}if(railDrag.moved){if(e.cancelable)e.preventDefault();rail.scrollLeft=railDrag.left-dx}});
+function endRailDrag(e){if(!railDrag)return;let moved=railDrag.moved;railDrag=null;dragging=false;rail.classList.remove('dragging');if(moved){suppressClick=true;select(Number(nearestTab().dataset.index));setTimeout(()=>suppressClick=false,50)}schedule()}
+rail.addEventListener('pointerup',endRailDrag);rail.addEventListener('pointercancel',endRailDrag);
+rail.addEventListener('click',e=>{if(suppressClick){e.preventDefault();e.stopImmediatePropagation()}},true);
+rail.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>0){clearTimeout(wheelTimer);clearTimeout(timer);wheelTimer=setTimeout(()=>select(Number(nearestTab().dataset.index)),180)}},{passive:true});
+nav.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hovering=true;schedule()}});nav.addEventListener('pointerleave',()=>{hovering=false;schedule()});
+nav.addEventListener('focusin',()=>{focused=true;schedule()});nav.addEventListener('focusout',e=>{if(!nav.contains(e.relatedTarget)){focused=false;schedule()}});
+reduced.addEventListener('change',e=>{if(e.matches){playing=false;showPlayback();schedule()}});
+document.addEventListener('visibilitychange',schedule);window.addEventListener('resize',()=>requestAnimationFrame(()=>{if(rail.clientWidth>0){clearTimeout(settleTimer);rebase(active)}}));
+if('IntersectionObserver' in window){new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule()},{threshold:.1}).observe(section)}else visible=true;
+sync(0,false);rebase(0);showPlayback();schedule();
+})();
 
 async function initIndustries() {
   const buttonsHost = document.querySelector('#industry-buttons');

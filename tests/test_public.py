@@ -89,7 +89,7 @@ class PublicSiteTest(unittest.TestCase):
         self.assertIn(TAGLINE, home)
         self.assertIn(LOCAL_DESCRIPTOR, home)
         self.assertIn('Tell us what’s slowing you down', home)
-        self.assertIn('Pick a familiar slowdown. See one plain-language fix.', home)
+        self.assertIn('Pick a familiar slowdown.<br>See a clearer way through.', home)
         self.assertIn('class="film-frame"', home)
         self.assertIn('hero.mp4', home)
         self.assertIn('data-motion', home)
