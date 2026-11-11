@@ -33,216 +33,89 @@ if (navButton && nav) {
 const demos = {
   calls: {
     title: 'A missed call becomes a ready callback.',
-    description: 'Capture the basics once, then hand a person a clean next step instead of a voicemail hunt.',
-    gather: 'Caller, job address, issue, callback window',
-    human: 'Your team decides pricing and availability',
-    boundary: 'Illustrative only. Pricing and scheduling stay with your team.',
-    tag: 'Phone + inbox',
-    visualTitle: 'Enquiry board',
-    visualDescription: 'The callback starts with context, not a blank voicemail.',
+    description: 'Collect the job basics, callback window and ownership so the next person starts with context instead of a voicemail hunt.',
     trigger: 'Missed call or web enquiry',
-    handoff: 'One organized summary in the team inbox',
-    summaryOne: 'Caller, location, issue, callback window',
-    summaryTwo: 'Office lead reviews and calls back',
-    asideOne: 'One place to review the enquiry before anyone replies.',
-    asideTwo: 'A person still decides the promise, schedule, or price.'
+    gather: 'Contact details, location, issue, callback window',
+    handoff: 'One organized summary where the team already works',
+    human: 'Your team still decides pricing and availability',
+    boundary: 'Pricing and scheduling stay with your team.'
   },
   quotes: {
     title: 'An estimate stays visible until someone answers.',
-    description: 'Keep open quotes in one review queue so follow-up does not disappear into inbox archaeology.',
-    gather: 'Sent date, amount range, owner, next follow-up',
-    human: 'Your team approves pricing, discounts, and exceptions',
-    boundary: 'Illustrative only. Commercial judgment stays with your team.',
-    tag: 'Quotes + follow-up',
-    visualTitle: 'Quote queue',
-    visualDescription: 'The next follow-up is visible before the estimate goes cold.',
+    description: 'Queue agreed follow-up, stop when the customer replies, and make the open estimate easy to find.',
     trigger: 'Quote sent, no reply yet',
-    handoff: 'A clean reminder queue for the right owner',
-    summaryOne: 'Latest quote, last contact, owner, next due date',
-    summaryTwo: 'Sales owner reviews the reminder before it is sent',
-    asideOne: 'Open estimates are easier to spot before they stall out.',
-    asideTwo: 'Only your team decides the actual number or concession.'
+    gather: 'Last contact date, quote status, owner, next follow-up',
+    handoff: 'A clean reminder queue instead of inbox archaeology',
+    human: 'Final numbers, discounts and promises stay human',
+    boundary: 'Commercial judgment and exceptions stay with your team.'
   },
   schedule: {
-    title: 'A change of plan reaches the right people faster.',
-    description: 'Put the confirmed date, access notes, and assigned person in one place before the day gets messy.',
-    gather: 'Confirmed date, access note, assigned person, next step',
-    human: 'Your team still confirms availability and timing',
-    boundary: 'Illustrative only. Final scheduling stays with your team.',
-    tag: 'Calendar + field team',
-    visualTitle: 'Schedule update board',
-    visualDescription: 'Everyone sees the same update instead of three conflicting messages.',
-    trigger: 'Customer or crew asks for a schedule change',
-    handoff: 'A shared update for office and field staff',
-    summaryOne: 'New date, access details, assigned crew, dependencies',
-    summaryTwo: 'Dispatch confirms the final slot before anyone is promised it',
-    asideOne: 'Fewer handoffs get lost between the office and the field.',
-    asideTwo: 'A person still confirms the actual appointment or reroute.'
+    title: 'A change of plan reaches everyone who needs it.',
+    description: 'Put confirmed dates, access notes and next actions in the same place.',
+    trigger: 'Schedule change',
+    gather: 'Agreed date, access details and assigned person',
+    handoff: 'One clear next step for the team',
+    human: 'Your team confirms availability',
+    boundary: 'Your team makes the final scheduling decision.'
   },
   docs: {
-    title: 'Missing documents become easier to chase down.',
-    description: 'Turn document requests into a visible checklist so the next review starts with what is still missing.',
-    gather: 'Requested files, due date, owner, latest upload status',
-    human: 'Your reviewer still checks completeness and approval',
-    boundary: 'Illustrative only. Receiving a file is not the same as approving it.',
-    tag: 'Checklist + upload',
-    visualTitle: 'Document request list',
-    visualDescription: 'Outstanding items stay visible instead of hiding in old email threads.',
-    trigger: 'A file is requested or still missing',
-    handoff: 'A named review queue with the open items highlighted',
-    summaryOne: 'Required files, due date, owner, latest customer response',
-    summaryTwo: 'Reviewer checks what arrived before anything is approved',
-    asideOne: 'The next reminder is easier to send with the missing items listed.',
-    asideTwo: 'A human still verifies the document itself.'
+    title: 'Missing documents become easier to track.',
+    description: 'Track requested files in an approved checklist and flag what is still outstanding.',
+    trigger: 'Document request',
+    gather: 'Required files, due date and owner',
+    handoff: 'A named review queue',
+    human: 'Your reviewer checks access and completeness',
+    boundary: 'Receiving a document is not the same as approving it.'
   },
   updates: {
-    title: 'Routine updates stop eating the whole afternoon.',
-    description: 'Pull the approved facts together so someone can review a draft instead of writing the update from scratch.',
-    gather: 'Current milestone, responsible person, next step, source notes',
-    human: 'Your team still checks wording, timing, and commitments',
-    boundary: 'Illustrative only. Nothing here promises automatic customer communication.',
-    tag: 'Status + draft',
-    visualTitle: 'Update draft desk',
-    visualDescription: 'The draft starts with the latest facts instead of another blank message.',
+    title: 'Routine updates stop eating the afternoon.',
+    description: 'Use approved status facts to prepare a draft update that a person can review before it goes out.',
     trigger: 'Customer or owner asks for an update',
+    gather: 'Current milestone, responsible person, next step, source links',
     handoff: 'A reviewable draft in the right channel',
-    summaryOne: 'Current milestone, blockers, next step, source links',
-    summaryTwo: 'Owner reviews the draft before it reaches the customer',
-    asideOne: 'Useful facts come together without another round of manual copy-paste.',
-    asideTwo: 'A person still approves tone, timing, and promises.'
+    human: 'Sensitive wording and commitments still get checked',
+    boundary: 'Nothing here promises automatic customer communication.'
   }
 };
 
 const demoButtons = Array.from(document.querySelectorAll('[data-demo]'));
-const demoStage = document.querySelector('[data-demo-stage]');
-const demoToggle = document.querySelector('[data-demo-toggle]');
-const demoStatus = document.querySelector('[data-demo-status]');
-const demoReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const demoPauseReasons = new Set();
-const demoSelectors = {
-  '[data-demo-title]': 'title',
-  '[data-demo-description]': 'description',
-  '[data-demo-gather]': 'gather',
-  '[data-demo-human]': 'human',
-  '[data-demo-boundary]': 'boundary',
-  '[data-demo-tag]': 'tag',
-  '[data-demo-visual-title]': 'visualTitle',
-  '[data-demo-visual-description]': 'visualDescription',
-  '[data-demo-trigger]': 'trigger',
-  '[data-demo-handoff]': 'handoff',
-  '[data-demo-summary-one]': 'summaryOne',
-  '[data-demo-summary-two]': 'summaryTwo',
-  '[data-demo-aside-one]': 'asideOne',
-  '[data-demo-aside-two]': 'asideTwo'
-};
-const demoCycleMs = 7000;
-let demoTimer = null;
-let demoActiveIndex = Math.max(0, demoButtons.findIndex(button => button.getAttribute('aria-selected') === 'true'));
-let demoRotationPreference = demoReducedMotion.matches ? 'paused' : 'auto';
-
-function demoRotationActive() {
-  if (!demoStage || demoButtons.length < 2) return false;
-  const allowedByPreference = demoRotationPreference === 'playing' || (demoRotationPreference === 'auto' && !demoReducedMotion.matches);
-  return allowedByPreference && demoPauseReasons.size === 0;
-}
-
-function syncDemoStatus() {
-  if (demoStatus) {
-    demoStatus.textContent = `${demoRotationActive() ? 'Auto-rotating' : 'Paused'} · ${demoActiveIndex + 1} of ${demoButtons.length}`;
-  }
-  if (!demoToggle) return;
-  demoToggle.textContent = demoRotationActive() ? 'Pause rotation' : 'Play rotation';
-  demoToggle.setAttribute('aria-pressed', String(demoRotationActive()));
-  demoToggle.setAttribute('aria-label', demoRotationActive() ? 'Pause example rotation' : 'Play example rotation');
-}
-
-function scheduleDemoRotation() {
-  window.clearTimeout(demoTimer);
-  if (!demoRotationActive()) {
-    syncDemoStatus();
-    return;
-  }
-  demoTimer = window.setTimeout(() => {
-    chooseDemo(demoButtons[(demoActiveIndex + 1) % demoButtons.length]);
-  }, demoCycleMs);
-  syncDemoStatus();
-}
-
-function setDemoPauseReason(reason, paused) {
-  if (paused) demoPauseReasons.add(reason);
-  else demoPauseReasons.delete(reason);
-  scheduleDemoRotation();
-}
-
 function chooseDemo(button) {
-  if (!button) return;
   const demo = demos[button.dataset.demo];
   if (!demo) return;
-  demoActiveIndex = demoButtons.indexOf(button);
   demoButtons.forEach(item => {
     const active = item === button;
     item.setAttribute('aria-selected', String(active));
     item.tabIndex = active ? 0 : -1;
   });
   document.querySelector('#demo-panel')?.setAttribute('aria-labelledby', button.id);
-  Object.entries(demoSelectors).forEach(([selector, key]) => {
-    document.querySelectorAll(selector).forEach(node => {
-      node.textContent = demo[key];
-    });
+  const mappings = {
+    '[data-demo-title]': demo.title,
+    '[data-demo-description]': demo.description,
+    '[data-demo-trigger]': demo.trigger,
+    '[data-demo-gather]': demo.gather,
+    '[data-demo-handoff]': demo.handoff,
+    '[data-demo-human]': demo.human,
+    '[data-demo-boundary]': demo.boundary
+  };
+  Object.entries(mappings).forEach(([selector, text]) => {
+    const node = document.querySelector(selector);
+    if (node) node.textContent = text;
   });
-  scheduleDemoRotation();
 }
 
-if (demoStage && demoButtons.length) {
-  demoButtons.forEach((button, index) => {
-    button.addEventListener('click', () => chooseDemo(button));
-    button.addEventListener('keydown', event => {
-      let nextIndex;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % demoButtons.length;
-      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + demoButtons.length) % demoButtons.length;
-      if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = demoButtons.length - 1;
-      if (nextIndex === undefined) return;
-      event.preventDefault();
-      demoButtons[nextIndex].focus();
-      chooseDemo(demoButtons[nextIndex]);
-    });
+for (const [index, button] of demoButtons.entries()) {
+  button.addEventListener('click', () => chooseDemo(button));
+  button.addEventListener('keydown', event => {
+    let nextIndex;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % demoButtons.length;
+    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + demoButtons.length) % demoButtons.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = demoButtons.length - 1;
+    if (nextIndex === undefined) return;
+    event.preventDefault();
+    demoButtons[nextIndex].focus();
+    chooseDemo(demoButtons[nextIndex]);
   });
-
-  if (demoToggle) {
-    demoToggle.addEventListener('click', () => {
-      demoRotationPreference = demoRotationActive() ? 'paused' : 'playing';
-      scheduleDemoRotation();
-    });
-  }
-
-  demoStage.addEventListener('mouseenter', () => setDemoPauseReason('hover', true));
-  demoStage.addEventListener('mouseleave', () => setDemoPauseReason('hover', false));
-  demoStage.addEventListener('focusin', event => {
-    if (event.target === demoToggle) return;
-    setDemoPauseReason('focus', true);
-  });
-  demoStage.addEventListener('focusout', event => {
-    if (!demoStage.contains(event.relatedTarget) || event.relatedTarget === demoToggle) setDemoPauseReason('focus', false);
-  });
-  document.addEventListener('visibilitychange', () => setDemoPauseReason('hidden', document.visibilityState !== 'visible'));
-  demoReducedMotion.addEventListener('change', event => {
-    if (event.matches && demoRotationPreference === 'auto') demoRotationPreference = 'paused';
-    if (!event.matches && demoRotationPreference === 'paused' && !demoToggle?.matches(':focus')) {
-      demoRotationPreference = 'auto';
-    }
-    scheduleDemoRotation();
-  });
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      const entry = entries[0];
-      setDemoPauseReason('offscreen', !(entry && entry.isIntersecting));
-    }, { threshold: [0, 0.1] });
-    observer.observe(demoStage);
-  }
-
-  chooseDemo(demoButtons[demoActiveIndex]);
 }
 
 async function initIndustries() {
@@ -253,68 +126,75 @@ async function initIndustries() {
   const empty = document.querySelector('#industry-empty');
   if (!buttonsHost || !panelsHost || !summary) return;
 
-  const allButtons = Array.from(buttonsHost.querySelectorAll('[data-industry-select]'));
-  const allPanels = Array.from(panelsHost.querySelectorAll('[data-industry-panel]'));
-  if (!allButtons.length || !allPanels.length) return;
+  try {
+    const response = await fetch('industries.json', { headers: { Accept: 'application/json' } });
+    if (!response.ok) throw new Error('load_failed');
+    const industries = await response.json();
+    const examples = industries.reduce((total, item) => total + item.examples.length, 0);
+    summary.textContent = `${industries.length} industries, ${examples} examples.`;
 
-  const industryMeta = allButtons.map(button => {
-    const panel = allPanels.find(item => item.dataset.industryPanel === button.dataset.industrySelect);
-    return {
-      id: button.dataset.industrySelect,
-      button,
-      panel,
-      haystack: (panel?.dataset.search || `${button.textContent} ${panel?.textContent || ''}`).toLowerCase(),
-      examples: panel ? panel.querySelectorAll('.workflow-showcase-card, .example-card').length : 0
-    };
-  }).filter(item => item.panel);
+    buttonsHost.innerHTML = industries.map((industry, index) => `
+      <button type="button" data-industry-select="${industry.id}" aria-pressed="${index === 0}">${industry.name}</button>
+    `).join('');
 
-  function visibleIndustries() {
-    return industryMeta.filter(item => !item.button.hidden);
-  }
+    panelsHost.innerHTML = industries.map((industry, index) => `
+      <section class="industry-panel" data-industry-panel="${industry.id}" ${index === 0 ? '' : 'hidden'}>
+        <p class="eyebrow">Industry ${String(index + 1).padStart(2, '0')}</p>
+        <h3>${industry.name}</h3>
+        <p>${industry.audience}</p>
+        <div class="example-grid">
+          ${industry.examples.map(example => `
+            <article class="example-card">
+              <h4>${example.title}</h4>
+              <p><strong>Problem:</strong> ${example.problem}</p>
+              <p><strong>Possible fix:</strong> ${example.fix}</p>
+            </article>
+          `).join('')}
+        </div>
+        <div class="boundary">
+          <strong>What stays human</strong>
+          <p>${industry.human}</p>
+        </div>
+      </section>
+    `).join('');
 
-  function updateSummary() {
-    const visible = visibleIndustries();
-    const examples = visible.reduce((total, item) => total + item.examples, 0);
-    summary.textContent = `${visible.length} ${visible.length === 1 ? 'industry' : 'industries'}, ${examples} ${examples === 1 ? 'example' : 'examples'}.`;
-    if (empty) empty.hidden = visible.length !== 0;
-  }
+    const allButtons = Array.from(buttonsHost.querySelectorAll('[data-industry-select]'));
+    const allPanels = Array.from(panelsHost.querySelectorAll('[data-industry-panel]'));
 
-  function showIndustry(id) {
-    const visible = visibleIndustries();
-    const fallback = visible[0]?.id || industryMeta[0]?.id;
-    const targetId = visible.some(item => item.id === id) ? id : fallback;
-    industryMeta.forEach(item => {
-      const active = item.id === targetId;
-      item.button.setAttribute('aria-pressed', String(active));
-      item.panel.hidden = !active || item.button.hidden;
+    function showIndustry(id) {
+      const fallback = allButtons[0]?.dataset.industrySelect;
+      const targetId = allPanels.some(panel => panel.dataset.industryPanel === id) ? id : fallback;
+      allButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.industrySelect === targetId)));
+      allPanels.forEach(panel => { panel.hidden = panel.dataset.industryPanel !== targetId; });
+    }
+
+    buttonsHost.addEventListener('click', event => {
+      const button = event.target.closest('[data-industry-select]');
+      if (!button) return;
+      showIndustry(button.dataset.industrySelect);
+      history.replaceState(null, '', `#${button.dataset.industrySelect}`);
     });
+
+    if (search) {
+      search.addEventListener('input', () => {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+        allButtons.forEach((button, index) => {
+          const industry = industries[index];
+          const haystack = `${industry.name} ${industry.audience} ${industry.examples.map(example => `${example.title} ${example.problem} ${example.fix}`).join(' ')}`.toLowerCase();
+          const show = !query || haystack.includes(query);
+          button.hidden = !show;
+          if (show) visible += 1;
+        });
+        if (empty) empty.hidden = visible !== 0;
+      });
+    }
+
+    showIndustry(location.hash.slice(1));
+    window.addEventListener('hashchange', () => showIndustry(location.hash.slice(1)));
+  } catch (error) {
+    summary.textContent = 'The industry examples could not load right now.';
   }
-
-  function filterIndustries(query) {
-    const lowered = query.trim().toLowerCase();
-    industryMeta.forEach(item => {
-      const show = !lowered || item.haystack.includes(lowered);
-      item.button.hidden = !show;
-      item.panel.hidden = !show;
-    });
-    updateSummary();
-    showIndustry(location.hash.slice(1) || visibleIndustries()[0]?.id);
-  }
-
-  buttonsHost.addEventListener('click', event => {
-    const button = event.target.closest('[data-industry-select]');
-    if (!button || button.hidden) return;
-    showIndustry(button.dataset.industrySelect);
-    history.replaceState(null, '', `#${button.dataset.industrySelect}`);
-  });
-
-  if (search) {
-    search.addEventListener('input', () => filterIndustries(search.value));
-  }
-
-  updateSummary();
-  showIndustry(location.hash.slice(1) || visibleIndustries()[0]?.id);
-  window.addEventListener('hashchange', () => showIndustry(location.hash.slice(1) || visibleIndustries()[0]?.id));
 }
 
 const contactState = {

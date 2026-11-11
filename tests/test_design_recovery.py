@@ -60,30 +60,39 @@ class DesignRecoveryTest(unittest.TestCase):
         ]:
             self.assertNotIn(phrase, home)
         self.assertIn('What could that look like in your business?', ways)
-        self.assertIn('data-industry-directory', ways)
-        self.assertIn('workflow-showcase-card', ways)
-        self.assertNotIn('industry-sidebar', ways)
+        self.assertIn('industry-layout', ways)
+        self.assertIn('industry-sidebar', ways)
+        self.assertNotIn('workflow-showcase-card', ways)
         self.assertNotIn('They stay illustrative on purpose.', ways)
         for page in PAGES:
             self.assertNotIn('Plain-language systems help for owner-led businesses.', page.read_text())
+
+    def test_restored_workshop_animation_and_original_examples(self):
+        home = (PUBLIC / 'index.html').read_text()
+        ways = (PUBLIC / 'ways-we-help.html').read_text()
+        self.assertIn('class="film-frame"', home)
+        self.assertIn('src="hero.mp4"', home)
+        self.assertIn('data-motion', home)
+        self.assertIn('class="industry-layout"', ways)
+        self.assertNotIn('workflow-showcase-card', ways)
 
     def test_homepage_workflow_heading_is_not_duplicated(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertEqual(html.count('Pick a familiar slowdown. See one plain-language fix.'), 1)
         self.assertNotIn('class="hero-note card stack-md"', html)
 
-    def test_home_has_visual_workflow_stage_without_decorative_video(self):
+    def test_home_has_restored_workshop_layout_with_animation(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertIn('Win more work. Help more customers. Get more time back.', html)
         self.assertIn('Jacksonville-based AI help for small businesses.', html)
         self.assertIn('class="workshop-intro"', html)
-        self.assertIn('data-demo-stage', html)
-        self.assertIn('data-demo-toggle', html)
+        self.assertIn('class="film-frame"', html)
+        self.assertIn('hero.mp4', html)
+        self.assertIn('data-motion', html)
         self.assertIn('role="tablist"', html)
         self.assertIn('id="examples"', html)
-        self.assertNotIn('class="film-frame"', html)
-        self.assertNotIn('hero.mp4', html)
-        self.assertNotIn('Original workshop animation, kept', html)
+        self.assertNotIn('data-demo-stage', html)
+        self.assertNotIn('film-fallback', html)
 
 
 if __name__ == '__main__':

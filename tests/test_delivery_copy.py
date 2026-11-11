@@ -30,8 +30,8 @@ class DeliveryCopyTest(unittest.TestCase):
         self.assertNotIn('Start with the problem you already feel', html)
         self.assertNotIn('Most owners do not need', html)
         self.assertNotIn('problem-card', html)
-        self.assertEqual(len(re.findall(r'data-industry-select=', html)), 19)
-        self.assertEqual(html.count('class="workflow-showcase-card"'), 57)
+        self.assertIn('industry-layout', html)
+        self.assertEqual(html.count('class="example-card"'), 57)
 
 
 if __name__ == '__main__':
