@@ -43,7 +43,7 @@ test('thumbnail menu and history-aware link generation are wired in production J
   assert.match(js, /history\.pushState/);
   assert.match(js, /window\.addEventListener\('popstate'/);
   assert.match(js, /data-nav-industry/);
-  assert.match(js, /Illustrative ways to help\. Your people stay in control\./);
+  assert.match(js, /Your people stay in control\./);
 });
 
 test('legacy ways route redirects to how-we-help while preserving industry selectors', () => {

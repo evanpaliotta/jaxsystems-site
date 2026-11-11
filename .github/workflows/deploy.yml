@@ -13,7 +13,7 @@ jobs:
       - name: Test website and enquiry backend
         run: |
           python3 -m unittest discover -s tests -v
-          node --test tests/contact.test.mjs tests/how-we-help-production.test.mjs
+          node --test tests/contact.test.mjs tests/how-we-help-production.test.mjs tests/industry-motion-copy.test.mjs tests/how-it-works-restored.test.mjs
           node --check public/site.js
           node --check public/workshop.js
           node --check public/how-we-help.js

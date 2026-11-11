@@ -18,17 +18,25 @@ class WorkflowVisualTest(unittest.TestCase):
         self.assertIn('function showIndustry(id, updateURL = false)', script)
         self.assertIn('history.pushState', script)
         self.assertIn("window.addEventListener('popstate'", script)
-        self.assertIn('An illustrative example, not a customer result.', script)
+        self.assertNotIn('not a customer result', script)
         self.assertEqual(sum(len(item['examples']) for item in categories), 57)
         for item in categories:
             self.assertIn(item['id'] + ':', script)
             self.assertIn(item['name'], script)
         self.assertEqual(script.count('"boundary": '), 19)
 
-    def test_legacy_workflow_visual_assets_are_not_shipped_on_public_pages(self):
+    def test_workflow_visual_assets_ship_only_on_how_it_works(self):
+        how_it_works = (PUBLIC / 'how-it-works.html').read_text()
+        self.assertIn('workflow-visual-6428c1f98a21.css', how_it_works)
+        self.assertIn('workflow-visual-7ba2a9654c72.js', how_it_works)
+        self.assertIn('id="workflow-frame"', how_it_works)
         for page in PUBLIC.glob('*.html'):
+            if page.name == 'how-it-works.html':
+                continue
             html = page.read_text()
-            self.assertNotIn('workflow-visual-', html, page.name)
+            self.assertNotIn('workflow-visual-6428c1f98a21.css', html, page.name)
+            self.assertNotIn('workflow-visual-7ba2a9654c72.js', html, page.name)
+            self.assertNotIn('id="workflow-frame"', html, page.name)
 
 
 if __name__ == '__main__':

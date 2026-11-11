@@ -7,7 +7,7 @@ const industries = {
     "title": "When the crew is busy, the work should still move.",
     "intro": "The phone rings on a job. An estimate needs a reply. Tomorrow’s crew needs the details. We help the loose ends reach the right person.",
     "stage": "#dcece2",
-    "stageLabel": "A more organized day · Illustrative",
+    "stageLabel": "A more organized day",
     "hero": [
       {
         "kicker": "01 / CUSTOMER CALL",
@@ -137,7 +137,7 @@ const industries = {
     "title": "A clearer path from tenant request to next step.",
     "intro": "Maintenance requests, vendor visits and owner updates cross a lot of desks. We help the details stay together without taking decisions away from your team.",
     "stage": "#e4ecef",
-    "stageLabel": "A maintenance handoff · Illustrative",
+    "stageLabel": "A maintenance handoff",
     "hero": [
       {
         "kicker": "01 / TENANT MESSAGE",
@@ -267,7 +267,7 @@ const industries = {
     "title": "Keep client work moving without losing the paper trail.",
     "intro": "Professional firms spend too much time chasing the same files, retyping the same intake and hunting for dates across inboxes. The goal is a cleaner handoff into the systems your staff already trust.",
     "stage": "#e2ecef",
-    "stageLabel": "Matter intake handoff · Illustrative",
+    "stageLabel": "Matter intake handoff",
     "hero": [
       {
         "kicker": "01 / SECURE REQUEST",
@@ -419,7 +419,7 @@ const industries = {
     "title": "Give each load a cleaner path from update to action.",
     "intro": "Dispatch teams juggle documents, route changes and customer status calls at the same time. A better handoff keeps the facts together so your team can act faster without giving up control of decisions.",
     "stage": "#dfece3",
-    "stageLabel": "Dispatch coordination · Illustrative",
+    "stageLabel": "Dispatch coordination",
     "hero": [
       {
         "kicker": "01 / LOAD EVENT",
@@ -461,7 +461,7 @@ const industries = {
       }
     ],
     "overview": "The handoffs around the load matter.",
-    "overviewIntro": "Illustrative examples for billing files, dispatch continuity and customer updates built from approved shipment facts.",
+    "overviewIntro": "Practical ways to handle billing files, dispatch continuity and customer updates built from approved shipment facts.",
     "pillars": [
       [
         "01",
@@ -556,7 +556,7 @@ const industries = {
     "title": "Keep vessel service details from drifting between people.",
     "intro": "Marine work depends on knowing which vessel, which berth and what has already been approved. Better coordination gives your team a clearer starting point without making promises or technical calls on its behalf.",
     "stage": "#e2ecef",
-    "stageLabel": "Vessel service handoff · Illustrative",
+    "stageLabel": "Vessel service handoff",
     "hero": [
       {
         "kicker": "01 / SERVICE REQUEST",
@@ -693,7 +693,7 @@ const industries = {
     "title": "Help each site visit start with the right instructions.",
     "intro": "Cleaning teams lose time when access notes, inspection issues and renewal reminders live in different places. A better handoff keeps the basics together while staffing, client decisions and safety stay with people.",
     "stage": "#dfece3",
-    "stageLabel": "Site readiness handoff · Illustrative",
+    "stageLabel": "Site readiness handoff",
     "hero": [
       {
         "kicker": "01 / SITE DETAIL",
@@ -837,7 +837,7 @@ const industries = {
     "title": "Keep routine customer work from crowding the counter.",
     "intro": "Retail and service counters lose momentum when the same questions, repair details and follow-ups all compete for attention. A cleaner process prepares the next step while staff stay in charge of exceptions and judgment.",
     "stage": "#efe7d6",
-    "stageLabel": "Counter service handoff · Illustrative",
+    "stageLabel": "Counter service handoff",
     "hero": [
       {
         "kicker": "01 / CUSTOMER QUESTION",
@@ -969,7 +969,7 @@ const industries = {
     "title": "Keep event and supplier details from slipping past the team.",
     "intro": "Food and hospitality teams balance guest messages, floor coordination and supplier follow-up while service is already underway. Better prep gathers the basics in one place without crossing into safety or booking decisions.",
     "stage": "#e3ece5",
-    "stageLabel": "Guest and event handoff · Illustrative",
+    "stageLabel": "Guest and event handoff",
     "hero": [
       {
         "kicker": "01 / EVENT ENQUIRY",
@@ -1121,7 +1121,7 @@ const industries = {
     "title": "Keep each visit feeling prepared before it begins.",
     "intro": "Beauty businesses juggle confirmations, intake notes and repeat-visit follow-ups around a full calendar. The helpful part is not more messages. It is giving staff one clean place to review what matters before they reach out.",
     "stage": "#e8efe6",
-    "stageLabel": "Front desk handoff · Illustrative",
+    "stageLabel": "Front desk handoff",
     "hero": [
       {
         "kicker": "01 / UPCOMING VISIT",
@@ -1261,7 +1261,7 @@ const industries = {
     "title": "Give every guest handoff a clearer starting point.",
     "intro": "Arrival questions, housekeeping updates and guest issues rarely come through one channel. A better setup does not promise more than the team can deliver. It helps the right person see the approved details and respond faster.",
     "stage": "#e6ecef",
-    "stageLabel": "Guest handoff flow · Illustrative",
+    "stageLabel": "Guest handoff flow",
     "hero": [
       {
         "kicker": "01 / ARRIVAL QUESTION",
@@ -1413,7 +1413,7 @@ const industries = {
     "title": "More time in the shop. Fewer loose ends at the desk.",
     "intro": "An enquiry needs the vehicle details. An estimate waits for approval. A customer asks for an update. Give your advisors a clearer way to keep work moving.",
     "stage": "#e9e9e1",
-    "stageLabel": "A service handoff · Illustrative",
+    "stageLabel": "A service handoff",
     "hero": [
       {
         "kicker": "01 / SERVICE ENQUIRY",
@@ -1455,7 +1455,7 @@ const industries = {
       }
     ],
     "overview": "The little handoffs around the repair.",
-    "overviewIntro": "Illustrative ways to help the service desk answer, follow up and keep customers in the loop.",
+    "overviewIntro": "Ways to help the service desk answer, follow up and keep customers in the loop.",
     "pillars": [
       [
         "01",
@@ -1548,7 +1548,7 @@ const industries = {
     "title": "Keep the next class, event or follow-up organized.",
     "intro": "Recreation businesses handle group details, schedule changes and post-visit follow-ups all at once. The goal is not to automate the human energy out of it. It is to make sure staff see the agreed facts before they respond.",
     "stage": "#e8eee1",
-    "stageLabel": "Coordinator handoff · Illustrative",
+    "stageLabel": "Coordinator handoff",
     "hero": [
       {
         "kicker": "01 / NEW ENQUIRY",
@@ -1590,7 +1590,7 @@ const industries = {
       }
     ],
     "overview": "Clearer handoffs around active bookings.",
-    "overviewIntro": "Illustrative moments where a gym, club or event operator can reduce avoidable back-and-forth.",
+    "overviewIntro": "Moments where a gym, club or event operator can reduce avoidable back-and-forth.",
     "pillars": [
       [
         "01",
@@ -1688,7 +1688,7 @@ const industries = {
     "title": "Support the front office without stepping into care.",
     "intro": "Healthcare offices have plenty of repetitive administrative work before anyone touches a clinical decision. The safe lane is narrow on purpose. Helpful systems stay with office tasks, approved tools and reviewed communications inside the organization’s privacy rules.",
     "stage": "#e3ebf0",
-    "stageLabel": "Office admin handoff · Illustrative",
+    "stageLabel": "Office admin handoff",
     "hero": [
       {
         "kicker": "01 / ROUTINE TASK",
@@ -1832,7 +1832,7 @@ const industries = {
     "title": "Keep office work moving without making the decision.",
     "intro": "Finance and insurance teams repeat a lot of document chasing, date tracking and meeting prep before a licensed or authorized person reviews the file. Useful support stays on the administrative side. It organizes permitted facts and leaves the actual judgment to the responsible professional.",
     "stage": "#e9ece4",
-    "stageLabel": "Administrative review flow · Illustrative",
+    "stageLabel": "Administrative review flow",
     "hero": [
       {
         "kicker": "01 / FILE INCOMPLETE",
@@ -1976,7 +1976,7 @@ const industries = {
     "title": "Keep enquiries, reminders and staff paperwork from drifting.",
     "intro": "A program enquiry comes in across email and text. A routine reminder still needs to go out. A staff document is due next week. We help the admin handoff stay clear while authorized staff stay in charge.",
     "stage": "#dcece2",
-    "stageLabel": "Program office handoff · Illustrative",
+    "stageLabel": "Program office handoff",
     "hero": [
       {
         "kicker": "01 / ADULT ENQUIRY",
@@ -2116,7 +2116,7 @@ const industries = {
     "title": "Keep property enquiries and transaction steps easier to see.",
     "intro": "An enquiry arrives while an agent is out showing property. Access notes for a visit are split across messages. A deadline lives in one thread. We help the office prepare the next handoff for licensed staff.",
     "stage": "#e4ecef",
-    "stageLabel": "Brokerage office flow · Illustrative",
+    "stageLabel": "Brokerage office flow",
     "hero": [
       {
         "kicker": "01 / PROPERTY ENQUIRY",
@@ -2158,7 +2158,7 @@ const industries = {
       }
     ],
     "overview": "The brokerage handoffs around the showing.",
-    "overviewIntro": "Illustrative moments where the right summary keeps the office, agent and coordinator aligned.",
+    "overviewIntro": "Moments where the right summary keeps the office, agent and coordinator aligned.",
     "pillars": [
       [
         "01",
@@ -2258,7 +2258,7 @@ const industries = {
     "title": "Keep quotes, status updates and supplier follow-ups moving.",
     "intro": "An RFQ arrives without the full package. A customer asks for order status. A supplier confirmation is still missing. We help estimating, account and purchasing teams see the next admin step without making engineering decisions for them.",
     "stage": "#efe6d1",
-    "stageLabel": "Shop office workflow · Illustrative",
+    "stageLabel": "Shop office workflow",
     "hero": [
       {
         "kicker": "01 / RFQ ARRIVAL",
@@ -2403,7 +2403,7 @@ const industries = {
     "title": "Keep intake, handoffs and reporting clearer for the team.",
     "intro": "A new request lands with half the context. Implementation notes are spread across several tools. The weekly status recap starts from scratch again. We help teams gather approved details before an authorized person acts.",
     "stage": "#e1eaf0",
-    "stageLabel": "Service team handoff · Illustrative",
+    "stageLabel": "Service team handoff",
     "hero": [
       {
         "kicker": "01 / SERVICE REQUEST",
@@ -2545,7 +2545,7 @@ const industries = {
     "title": "Start with the real slowdown, not a generic category.",
     "intro": "Some businesses do not fit a neat label, but the handoff problem still looks familiar. Work stalls between two people, the same details get copied again, or the next step depends on memory. We help map the smallest useful fix.",
     "stage": "#e9e9e1",
-    "stageLabel": "Fit check handoff · Illustrative",
+    "stageLabel": "Fit check handoff",
     "hero": [
       {
         "kicker": "01 / REAL EXAMPLE",
@@ -2587,7 +2587,7 @@ const industries = {
       }
     ],
     "overview": "A simple way to test the fit.",
-    "overviewIntro": "Illustrative examples for businesses that need a careful fit check before any workflow change.",
+    "overviewIntro": "Examples for businesses that need a careful fit check before any workflow change.",
     "pillars": [
       [
         "01",
@@ -2697,7 +2697,7 @@ function ensureHeaderHelpNav() {
   const current = fallbackLink.getAttribute('aria-current') === 'page';
   const wrapper = document.createElement('div');
   wrapper.className = 'help-menu-wrap';
-  wrapper.innerHTML = `<button id="help-toggle" class="help-toggle${current ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="help-navigation">How we help <span aria-hidden="true">⌄</span></button><div id="help-navigation" class="help-navigation" hidden><div class="help-menu-heading"><div><span class="eyebrow">How we help</span><strong>Find your industry.</strong></div><button type="button" class="help-close" aria-label="Close industry navigation">Close ×</button></div><div class="help-grid"></div><p class="help-menu-note">Illustrative ways to help. Your people stay in control.</p></div>`;
+  wrapper.innerHTML = `<button id="help-toggle" class="help-toggle${current ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="help-navigation">How we help <span aria-hidden="true">⌄</span></button><div id="help-navigation" class="help-navigation" hidden><div class="help-menu-heading"><div><span class="eyebrow">How we help</span><strong>Find your industry.</strong></div><button type="button" class="help-close" aria-label="Close industry navigation">Close ×</button></div><div class="help-grid"></div><p class="help-menu-note">Ways we can help. Your people stay in control.</p></div>`;
   fallbackLink.replaceWith(wrapper);
   navToggle = wrapper.querySelector('#help-toggle');
   navPanel = wrapper.querySelector('#help-navigation');
@@ -2710,7 +2710,30 @@ const toggle = document.querySelector('#industry-toggle');
 const menu = document.querySelector('#industry-options');
 const hasPage = Boolean(page && toggle && menu);
 let selectedIndustry = 'trades';
-let motionPaused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionMedia = matchMedia('(prefers-reduced-motion: reduce)');
+let motionPaused = false;
+
+function stageMotion() {
+  return '<div class="workflow-motion" role="img" aria-label="Workflow flow from input to review to handoff"><span class="motion-rail rail-input"></span><span class="motion-rail rail-handoff"></span><span class="motion-beam beam-forward"></span><span class="motion-beam beam-handoff"></span><span class="motion-review"></span></div>';
+}
+
+function syncStageMotion() {
+  if (!hasPage) return;
+  const stage = page.querySelector('.stage');
+  const pause = page.querySelector('.pause');
+  if (!stage || !pause) return;
+  const reduce = motionMedia.matches;
+  const paused = reduce || motionPaused;
+  page.querySelector('.stage').classList.toggle('paused', paused);
+  pause.disabled = reduce;
+  pause.setAttribute('aria-pressed', String(paused));
+  pause.textContent = reduce ? 'Motion reduced' : (paused ? 'Play motion' : 'Pause motion');
+  pause.setAttribute('aria-label', reduce ? 'Motion disabled because reduced motion is enabled' : (paused ? 'Play workflow motion' : 'Pause workflow motion'));
+}
+
+motionMedia.addEventListener('change', () => {
+  syncStageMotion();
+});
 
 function heroCard(card, kind) {
   const chips = card.chips ? `<div class="chips">${card.chips.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div>` : '';
@@ -2728,7 +2751,7 @@ function visual(s) {
   if (s.kind === 'checklist') content = `<div class="folder-art"><span class="mini-kicker">${esc(a.label)}</span><h4>${esc(a.title)}</h4>${a.items.map((x, i) => `<div class="check-row ${i === a.missing ? 'missing' : ''}"><i>${i === a.missing ? '○' : '✓'}</i><span>${esc(x)}</span></div>`).join('')}</div><div class="request-art"><strong>${esc(a.request)}</strong><p>${esc(a.detail)}</p><p>${esc(a.owner)}</p></div><span class="sr-only">${esc(a.badge)}</span>`;
   if (s.kind === 'inbox') content = `<div class="inbox-art"><span class="mini-kicker">${esc(a.label)}</span>${a.messages.map(x => `<div class="message-strip">${esc(x)}</div>`).join('')}</div><div class="route-art"><span class="mini-kicker">${esc(a.target)}</span><h4>${esc(a.title)}</h4><dl>${a.fields.map(r => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl><span class="ready">${esc(a.owner)}</span></div><span class="sr-only">${esc(a.badge)}</span>`;
   if (s.kind === 'board') content = `<div class="queue-art"><span class="mini-kicker">${esc(a.label)}</span><h4>${esc(a.title)}</h4>${a.rows.map(r => `<div class="queue-row"><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join('')}<div class="queue-foot"><span>${esc(a.owner)}</span><strong>${esc(a.next)}</strong></div></div><div class="queue-badge">${esc(a.badge)}</div>`;
-  return `<div class="illustration" style="--canvas:${esc(s.canvas)}" role="img" aria-label="Illustrative workflow: ${esc(s.title)}"><div class="art-wrap" aria-hidden="true">${content}</div></div>`;
+  return `<div class="illustration" style="--canvas:${esc(s.canvas)}" role="img" aria-label="Workflow illustration: ${esc(s.title)}"><div class="art-wrap" aria-hidden="true">${content}</div></div>`;
 }
 
 function industryThumbnail(id) {
@@ -2821,7 +2844,7 @@ function showIndustry(id, updateURL = false) {
   const d = industries[id];
   selectedIndustry = id;
   document.querySelector('#industry-current').textContent = d.name || d.short;
-  document.querySelector('#industry-status').textContent = (d.name || d.short) + ' examples';
+  document.querySelector('#industry-status').textContent = (d.name || d.short) + ' workflows';
   menu.querySelectorAll('[role=option]').forEach(t => t.setAttribute('aria-selected', String(t.dataset.industry === id)));
   page.dataset.industry = id;
   document.querySelectorAll('[data-nav-industry]').forEach(a => {
@@ -2829,21 +2852,13 @@ function showIndustry(id, updateURL = false) {
     else a.removeAttribute('aria-current');
   });
   if (updateURL && new URL(location.href).searchParams.get('industry') !== id) history.pushState({ industry: id }, '', industryURL(id));
-  page.innerHTML = `<div class="hero"><p class="eyebrow">${esc(d.category)}</p><h1>${esc(d.title)}</h1><p class="hero-intro">${esc(d.intro)}</p><div class="hero-actions"><a class="cta" href="contact.html#contact-form">Tell us what’s slowing you down ↗</a><a class="plain-link" href="#stories">Explore the examples ↓</a></div><div class="stage" style="--stage:${esc(d.stage)}"><span class="stage-label">${esc(d.stageLabel)}</span><button class="pause" type="button" aria-pressed="false" aria-label="Pause illustration motion">Pause motion</button><div class="stage-flow">${heroCard(d.hero[0], 'first')}${heroCard(d.hero[1], 'middle')}${heroCard(d.hero[2], 'last')}</div><span class="stage-note">An illustrative example, not a customer result.</span></div></div><section class="overview" id="stories"><div class="overview-top"><div><p class="eyebrow">A closer look · ${esc(d.short)}</p><h2>${esc(d.overview)}</h2></div><p>${esc(d.overviewIntro)}</p></div><div class="pillars">${d.pillars.map(p => `<div class="pillar"><span>${esc(p[0])}</span><strong>${esc(p[1])}</strong><p>${esc(p[2])}</p></div>`).join('')}</div></section><div class="story-list">${d.stories.map(s => `<section class="story"><div class="story-copy"><p class="story-index">ILLUSTRATIVE EXAMPLE / ${esc(s.n)}</p><h3>${esc(s.title)}</h3><p>${esc(s.copy)}</p><p class="story-note">${esc(s.note)}</p></div>${visual(s)}</section>`).join('')}</div><section class="human"><div><p class="eyebrow">People stay in control</p><h2>The tools help. Your team decides.</h2></div><p>${esc(d.boundary)} We start with the tools and processes you already use, then work alongside your team to find the right fit.</p></section><section class="end-card"><p class="eyebrow">Have a slowdown in mind?</p><h2>Let’s start with one real example.</h2><p>Tell us where things tend to get stuck. We can take a look together.</p><a class="cta" href="contact.html#contact-form">Tell us what’s slowing you down ↗</a></section>`;
+  page.innerHTML = `<div class="hero"><p class="eyebrow">${esc(d.category)}</p><h1>${esc(d.title)}</h1><p class="hero-intro">${esc(d.intro)}</p><div class="hero-actions"><a class="cta" href="contact.html#contact-form">Tell us what’s slowing you down ↗</a><a class="plain-link" href="#stories">Explore the examples ↓</a></div><div class="stage" style="--stage:${esc(d.stage)}"><span class="stage-label">${esc(d.stageLabel)}</span><button class="pause" type="button" aria-pressed="false" aria-label="Pause workflow motion">Pause motion</button>${stageMotion()}<div class="stage-flow">${heroCard(d.hero[0], 'first')}${heroCard(d.hero[1], 'middle')}${heroCard(d.hero[2], 'last')}</div><span class="stage-note">Input → review → handoff, with your team approving the next move.</span></div></div><section class="overview" id="stories"><div class="overview-top"><div><p class="eyebrow">A closer look · ${esc(d.short)}</p><h2>${esc(d.overview)}</h2></div><p>${esc(d.overviewIntro)}</p></div><div class="pillars">${d.pillars.map(p => `<div class="pillar"><span>${esc(p[0])}</span><strong>${esc(p[1])}</strong><p>${esc(p[2])}</p></div>`).join('')}</div></section><div class="story-list">${d.stories.map(s => `<section class="story"><div class="story-copy"><p class="story-index">WORKFLOW / ${esc(s.n)}</p><h3>${esc(s.title)}</h3><p>${esc(s.copy)}</p><p class="story-note">${esc(s.note)}</p></div>${visual(s)}</section>`).join('')}</div><section class="human"><div><p class="eyebrow">People stay in control</p><h2>The tools help. Your team decides.</h2></div><p>${esc(d.boundary)} We start with the tools and processes you already use, then work alongside your team to find the right fit.</p></section><section class="end-card"><p class="eyebrow">Have a slowdown in mind?</p><h2>Let’s start with one real example.</h2><p>Tell us where things tend to get stuck. We can take a look together.</p><a class="cta" href="contact.html#contact-form">Tell us what’s slowing you down ↗</a></section>`;
   const pause = page.querySelector('.pause');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || motionPaused) {
-    page.querySelector('.stage').classList.add('paused');
-    pause.textContent = reduce ? 'Motion off' : 'Play motion';
-    pause.setAttribute('aria-label', 'Play illustration motion');
-    pause.setAttribute('aria-pressed', 'true');
-  }
+  syncStageMotion();
   pause.addEventListener('click', () => {
-    const paused = page.querySelector('.stage').classList.toggle('paused');
-    motionPaused = paused;
-    pause.setAttribute('aria-pressed', String(paused));
-    pause.textContent = paused ? 'Play motion' : 'Pause motion';
-    pause.setAttribute('aria-label', paused ? 'Play illustration motion' : 'Pause illustration motion');
+    if (motionMedia.matches) return;
+    motionPaused = !motionPaused;
+    syncStageMotion();
   });
 }
 
