@@ -1,6 +1,7 @@
 import json
 import re
 import unittest
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -88,7 +89,11 @@ class PublicSiteTest(unittest.TestCase):
         self.assertIn(TAGLINE, home)
         self.assertIn(LOCAL_DESCRIPTOR, home)
         self.assertIn('Tell us what’s slowing you down', home)
-        self.assertIn('hero.mp4', home)
+        self.assertIn('Pick a familiar slowdown. See one plain-language fix.', home)
+        self.assertIn('data-demo-stage', home)
+        self.assertIn('data-demo-toggle', home)
+        self.assertNotIn('hero.mp4', home)
+        self.assertNotIn('film-frame', home)
         self.assertNotIn('design study', home.lower())
         self.assertNotIn('prototype', home.lower())
         self.assertNotIn('design-lab', home)
@@ -186,11 +191,17 @@ class PublicSiteTest(unittest.TestCase):
         categories = json.loads((PUBLIC / 'industries.json').read_text())
         self.assertEqual(len(categories), 19)
         self.assertEqual(sum(len(x['examples']) for x in categories), 57)
-        ways = (PUBLIC / 'ways-we-help.html').read_text()
+        ways = unescape((PUBLIC / 'ways-we-help.html').read_text())
         self.assertIn('19 industries', ways)
         self.assertIn('57 examples', ways)
         self.assertIn('Illustrative examples', ways)
+        self.assertIn('data-industry-directory', ways)
+        self.assertIn('workflow-showcase-card', ways)
+        self.assertNotIn('industry-sidebar', ways)
+        self.assertNotIn('industry-layout', ways)
         for industry in categories:
+            self.assertIn(industry['name'], ways)
+            self.assertIn(industry['human'], ways)
             for example in industry['examples']:
                 self.assertIn(example['title'], ways)
 

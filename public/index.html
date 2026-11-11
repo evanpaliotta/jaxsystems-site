@@ -8,10 +8,10 @@
       <meta name="theme-color" content="#0d5f69">
       <meta name="robots" content="index,follow,max-image-preview:large">
       <link rel="canonical" href="https://jaxsystems.ai/">
-      <link rel="stylesheet" href="site.css?v=7d8ce11d89f7">
-      <link rel="stylesheet" href="workshop.css?v=9fbd590884d9">
-      <script src="site.js?v=901108c232fc" defer></script>
-      <script src="workshop.js?v=8782c092cd46" defer></script>
+      <link rel="stylesheet" href="site.css?v=f7d82a5b8c85">
+      <link rel="stylesheet" href="workshop.css?v=53da195cab18">
+      <script src="site.js?v=0d18848a04d6" defer></script>
+      <script src="workshop.js?v=e65f3cca9a46" defer></script>
       <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -72,7 +72,7 @@
         </header>
         <main id="main">
 
-<section class="workshop-hero">
+<section class="workshop-hero" id="examples">
   <div class="workshop-intro">
     <div class="hero-copy">
       <p class="eyebrow">Jacksonville-based AI help for small businesses.</p>
@@ -82,22 +82,23 @@
         <a class="text-link" href="#examples">See familiar examples ↗</a>
       </div>
     </div>
-  </div>
-  <div class="film-frame">
-    <video muted loop playsinline preload="metadata" poster="poster.webp" aria-label="An illustration of an enquiry becoming an organized handoff for human review">
-      <source src="hero.mp4" type="video/mp4">
-    </video>
-    <button class="motion-button" data-motion type="button" aria-pressed="false" aria-label="Play animation">Play animation ▷</button>
-  </div>
-</section>
-
-<section class="section accent-section" id="examples">
-  <div class="section-heading split-heading">
-    <div>
+    <div class="hero-note card stack-md">
+      <p class="eyebrow">Visual workflow stage</p>
       <h2>Pick a familiar slowdown. See one plain-language fix.</h2>
+      <p>These are illustrative examples of how a cleaner handoff could look. Your team still owns judgment, pricing, approvals, and customer promises.</p>
     </div>
   </div>
-  <div class="demo-shell">
+  <div class="hero-stage" data-demo-stage>
+    <div class="hero-stage-top">
+      <div>
+        <p class="eyebrow">Illustrative workflow</p>
+        <h2>Pick a familiar slowdown. See one plain-language fix.</h2>
+      </div>
+      <div class="stage-meta">
+        <p class="stage-status" data-demo-status>Auto-rotating · 1 of 5</p>
+        <button class="demo-rotation-toggle" data-demo-toggle type="button" aria-pressed="true" aria-label="Pause example rotation">Pause rotation</button>
+      </div>
+    </div>
     <div class="demo-tabs" role="tablist" aria-label="Choose an example">
       <button type="button" role="tab" id="demo-tab-calls" data-demo="calls" aria-controls="demo-panel" aria-selected="true">Catch the enquiry</button>
       <button type="button" role="tab" id="demo-tab-quotes" data-demo="quotes" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Keep quotes moving</button>
@@ -105,23 +106,60 @@
       <button type="button" role="tab" id="demo-tab-docs" data-demo="docs" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Collect documents</button>
       <button type="button" role="tab" id="demo-tab-updates" data-demo="updates" aria-controls="demo-panel" aria-selected="false" tabindex="-1">Prepare updates faster</button>
     </div>
-    <div class="demo-panel" id="demo-panel" role="tabpanel" aria-labelledby="demo-tab-calls">
-      <div class="demo-copy stack-md">
-        <p class="eyebrow">Illustrative workflow</p>
+    <div class="hero-stage-grid">
+      <div class="demo-copy stack-md" id="demo-panel" role="tabpanel" aria-labelledby="demo-tab-calls">
         <h3 data-demo-title>A missed call becomes a ready callback.</h3>
-        <p data-demo-description>Collect the job basics, callback window and ownership so the next person starts with context instead of a voicemail hunt.</p>
-        <p class="small-note" data-demo-boundary>Pricing and scheduling stay with your team.</p>
+        <p class="stage-plain" data-demo-description>Capture the basics once, then hand a person a clean next step instead of a voicemail hunt.</p>
+        <div class="stage-points">
+          <article class="stage-point">
+            <span>Collected</span>
+            <strong data-demo-gather>Caller, job address, issue, callback window</strong>
+          </article>
+          <article class="stage-point">
+            <span>What stays human</span>
+            <strong data-demo-human>Your team decides pricing and availability</strong>
+          </article>
+        </div>
+        <p class="small-note" data-demo-boundary>Illustrative only. Pricing and scheduling stay with your team.</p>
       </div>
-      <div class="workflow-board">
-        <div class="workflow-step"><span>Trigger</span><strong data-demo-trigger>Missed call</strong></div>
-        <div class="workflow-step"><span>Gather</span><strong data-demo-gather>Address, issue, callback window</strong></div>
-        <div class="workflow-step"><span>Hand off</span><strong data-demo-handoff>One organized summary in the team inbox</strong></div>
-        <div class="workflow-step"><span>Human step</span><strong data-demo-human>Owner or office lead decides the reply</strong></div>
+      <div class="visual-board" aria-hidden="true">
+        <article class="visual-card visual-card-main">
+          <div class="visual-card-top">
+            <span class="visual-chip" data-demo-tag>Phone + inbox</span>
+            <span class="visual-pulse"></span>
+          </div>
+          <h3 data-demo-visual-title>Enquiry board</h3>
+          <p data-demo-visual-description>The callback starts with context, not a blank voicemail.</p>
+          <div class="signal-row">
+            <span class="signal-chip">Trigger: <strong data-demo-trigger>Missed call or web enquiry</strong></span>
+            <span class="signal-chip">Hand-off: <strong data-demo-handoff>One organized summary in the team inbox</strong></span>
+          </div>
+          <div class="summary-stack">
+            <article class="summary-card">
+              <span>Collected details</span>
+              <strong data-demo-summary-one>Caller, location, issue, callback window</strong>
+            </article>
+            <article class="summary-card">
+              <span>Next human step</span>
+              <strong data-demo-summary-two>Office lead reviews and calls back</strong>
+            </article>
+          </div>
+        </article>
+        <div class="visual-aside">
+          <article class="mini-panel">
+            <span>What gets clearer</span>
+            <strong data-demo-aside-one>One place to review the enquiry before anyone replies.</strong>
+          </article>
+          <article class="mini-panel">
+            <span>What does not change</span>
+            <strong data-demo-aside-two>A person still decides the promise, schedule, or price.</strong>
+          </article>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="section-cta">
-    <a class="text-link" href="ways-we-help.html">Browse 19 industries and 57 examples</a>
+    <div class="section-cta hero-stage-cta">
+      <a class="text-link" href="ways-we-help.html">Browse 19 industries and 57 examples</a>
+    </div>
   </div>
 </section>
 

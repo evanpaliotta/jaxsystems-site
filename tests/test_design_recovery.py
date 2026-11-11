@@ -58,20 +58,26 @@ class DesignRecoveryTest(unittest.TestCase):
             'Concrete examples, not hype',
         ]:
             self.assertNotIn(phrase, home)
+        self.assertIn('Find the version that looks most like your day.', ways)
+        self.assertIn('data-industry-directory', ways)
+        self.assertIn('workflow-showcase-card', ways)
+        self.assertNotIn('industry-sidebar', ways)
         self.assertNotIn('They stay illustrative on purpose.', ways)
         for page in PAGES:
             self.assertNotIn('Plain-language systems help for owner-led businesses.', page.read_text())
 
-    def test_home_has_workshop_structure_without_covering_labels(self):
+    def test_home_has_visual_workflow_stage_without_decorative_video(self):
         html = (PUBLIC / 'index.html').read_text()
         self.assertIn('Win more work. Help more customers. Get more time back.', html)
         self.assertIn('Jacksonville-based AI help for small businesses.', html)
         self.assertIn('class="workshop-intro"', html)
-        self.assertIn('class="film-frame"', html)
-        self.assertNotIn('class="film-card"', html)
-        self.assertNotIn('film-fallback', html)
-        self.assertNotIn('Original workshop animation, kept', html)
+        self.assertIn('data-demo-stage', html)
+        self.assertIn('data-demo-toggle', html)
+        self.assertIn('role="tablist"', html)
         self.assertIn('id="examples"', html)
+        self.assertNotIn('class="film-frame"', html)
+        self.assertNotIn('hero.mp4', html)
+        self.assertNotIn('Original workshop animation, kept', html)
 
 
 if __name__ == '__main__':
