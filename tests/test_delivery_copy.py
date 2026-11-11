@@ -25,7 +25,7 @@ class DeliveryCopyTest(unittest.TestCase):
     def test_ways_opens_with_partnership_then_examples(self):
         html = (PUBLIC / 'ways-we-help.html').read_text()
         self.assertIn('<h1>Solutions built around the way your business works.</h1>', html)
-        self.assertIn('You don’t need to know what to automate.', html)
+        self.assertIn('id="workflow-frame"', html)
         self.assertIn('What could that look like in your business?', html)
         self.assertNotIn('Start with the problem you already feel', html)
         self.assertNotIn('Most owners do not need', html)
