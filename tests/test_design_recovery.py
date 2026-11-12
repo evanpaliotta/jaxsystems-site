@@ -8,7 +8,7 @@ PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 PAGES = sorted(PUBLIC.glob('*.html'))
 CONTENT_PAGES = [page for page in PAGES if page.name not in {'ways-we-help.html', 'how-it-works.html'}]
 REQUIRED_ALL = ('site.css', 'site.js')
-OPTIONAL_ALL = ('how-we-help.css', 'how-we-help.js', 'workshop.css', 'workshop.js')
+OPTIONAL_ALL = ('how-we-help.css', 'how-we-help.js', 'workshop.css', 'workshop.js', 'refinements.css')
 
 
 class DesignRecoveryTest(unittest.TestCase):

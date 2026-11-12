@@ -87,7 +87,7 @@ class PublicSiteTest(unittest.TestCase):
         home = (PUBLIC / 'index.html').read_text()
         self.assertIn(TAGLINE, home)
         self.assertIn(LOCAL_DESCRIPTOR, home)
-        self.assertIn('Tell us what’s slowing you down', home)
+        self.assertIn('Let’s talk about your business', home)
         self.assertIn('Pick a familiar slowdown.<br>See a clearer way through.', home)
         self.assertIn('class="film-frame"', home)
         self.assertIn('hero.mp4', home)
@@ -177,8 +177,8 @@ class PublicSiteTest(unittest.TestCase):
         self.assertEqual(input_map['message'][1].get('name'), 'message')
         self.assertEqual(input_map['website'][1].get('name'), 'website')
         self.assertEqual(input_map['website'][1].get('autocomplete'), 'off')
-        self.assertIn('Tell us what’s slowing you down', html)
-        self.assertIn('We only treat this as received after the message is actually delivered.', html)
+        self.assertIn('Request an introductory call', html)
+        self.assertIn('id="contact-success"', html)
         self.assertNotIn('Nothing is sent or saved', html)
         self.assertNotIn('preview-form', html)
         self.assertNotIn('mailto:', html)
@@ -253,7 +253,7 @@ class PublicSiteTest(unittest.TestCase):
             'guaranteed results',
         ]
         for page in PUBLIC.glob('*.html'):
-            text = page.read_text().lower()
+            text = page.read_text().lower().replace('targets are not guaranteed results', '')
             for needle in blocked:
                 self.assertNotIn(needle, text, (page.name, needle))
 

@@ -10,7 +10,7 @@
       <link rel="canonical" href="https://jaxsystems.ai/contact">
       <link rel="stylesheet" href="site.css?v=9e94241748b2">
       <link rel="stylesheet" href="workshop.css?v=9fbd590884d9">
-      <script src="site.js?v=b626d2a4b3db" defer></script>
+      <script src="site.js?v=19af6a1a8c17" defer></script>
       <script src="workshop.js?v=8782c092cd46" defer></script>
       <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -50,9 +50,10 @@
   },
   "description": "Jacksonville-based AI help for small businesses, focused on clearer handoffs, faster follow-up, and useful time savings."
 }</script>
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+          <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
           <link rel="stylesheet" href="how-we-help.css?v=1d0e1a8d6a10">
-      <script src="how-we-help.js?v=cd4df3d45bb0" defer></script>
+      <script src="how-we-help.js?v=2f92f97ea77f" defer></script>
+<link rel="stylesheet" href="refinements.css?v=400b3b02f6d1">
 </head>
     <body class="contact-page">
       <a class="skip-link" href="#main">Skip to content</a>
@@ -68,32 +69,34 @@
 <a data-help-link href="how-we-help.html">How we help</a>
 <a href="pricing.html">Pricing</a>
 
-<a class="pill" href="contact.html#contact-form">Tell us what’s slowing you down</a>
+<a class="pill" href="contact.html#contact-form">Get in touch</a>
           </nav>
         </header>
         <main id="main">
 
 <section class="page-hero compact-hero">
 
-  <h1>Tell us what’s slowing you down.</h1>
-  <p class="lede narrow">A recent example is enough. No need to write a perfect brief or know the software terms first.</p>
+  <h1>Let’s talk about your business.</h1>
+  <p class="lede narrow">Tell us what you’d like to improve. You don’t need a polished brief, a chosen tool or a solution in mind.</p>
 </section>
 
 <section class="section">
   <div class="contact-layout">
     <aside class="contact-side card stack-md">
-      <h2>What to send</h2>
-      <p>Describe the work that keeps getting stuck, the tools involved if you know them, and what a better next step would feel like.</p>
-      <ul>
-        <li>Missed enquiries or callbacks</li>
-        <li>Quotes, paperwork or updates falling behind</li>
-        <li>Repeated admin work that should be calmer</li>
-      </ul>
-      <p class="small-note">We only treat this as received after the message is actually delivered.</p>
-      <p class="small-note">Your details are used to understand and reply to this enquiry. Sending a message does not subscribe you to marketing.</p>
+      <h2>What happens next</h2>
+      <ol class="intro-steps">
+        <li>We’ll follow up by email to arrange an introductory conversation.</li>
+        <li>We’ll discuss your goals, where work gets difficult, and whether Jax Systems could help.</li>
+        <li>If there’s a fit, we’ll explain the paid Business Improvement Plan before you decide.</li>
+      </ol>
+      <p>The intro is about fit, not the longer analysis and recommendations that come with paid discovery.</p>
+      <a class="text-link" href="pricing.html#improvement-plan">See the plan and pricing ↗</a>
+      <p class="small-note">Your details are used to understand and reply to your enquiry. Sending a message does not subscribe you to marketing.</p>
     </aside>
     <div class="contact-panel card">
       <form id="contact-form" class="contact-form" method="post" action="/api/contact" novalidate>
+        <h2>Request an introductory call</h2>
+        <p class="intro-assurance">There’s no charge for the introductory conversation. No paid work starts without your approval.</p>
         <div class="field-grid two-up">
           <div>
             <label for="name">Name</label>
@@ -109,8 +112,8 @@
           <input id="business" name="business" type="text" autocomplete="organization" maxlength="160">
         </div>
         <div>
-          <label for="message">What’s slowing you down?</label>
-          <textarea id="message" name="message" rows="8" maxlength="3000" required placeholder="Example: We miss calls when everyone is on site, then quotes and updates pile up behind the next job."></textarea>
+          <label for="message">What would you like to improve?</label>
+          <textarea id="message" name="message" rows="8" maxlength="3000" required placeholder="Tell us a little about your business and what you’d like to work better. It’s fine if you’re not sure where to start."></textarea>
         </div>
         <div class="honeypot-field">
           <label for="website">Website</label>
@@ -124,7 +127,7 @@
           <p>Privacy note: send only business context needed for a first conversation. Do not include passwords, payment data, or sensitive customer records.</p>
         </div>
         <div class="form-actions">
-          <button class="pill" type="submit" data-submit-button>Tell us what’s slowing you down</button>
+          <button class="pill" type="submit" data-submit-button>Request an introductory call</button>
           <p id="contact-status" class="status-message" role="status" aria-live="polite"></p>
         </div>
       </form>
@@ -146,7 +149,7 @@
   <img class="brand-logo" src="jax-local-makers.webp" alt="Jax Systems" width="746" height="620">
 </a>
           <p class="footer-blurb">Jacksonville-based AI help for small businesses.</p>
-          <p class="footer-note">Serving Jacksonville and Northeast Florida. Until the business mailbox is verified, the contact form is the public way to reach us.</p>
+          <p class="footer-note">Serving Jacksonville and Northeast Florida. Start with an introductory conversation at no charge.</p>
         </div>
         <nav class="footer-links" aria-label="Footer navigation"><a href="how-we-help.html">How we help</a><a href="pricing.html">Pricing</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
       </div>
