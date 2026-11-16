@@ -110,7 +110,7 @@ class PublicSiteTest(unittest.TestCase):
     def test_metadata_canonicals_and_jsonld(self):
         required_title_bits = {
             'index.html': 'Jacksonville AI help',
-            'how-we-help.html': 'How we help',
+            'how-we-help.html': 'Industries',
             'ways-we-help.html': 'How we help',
             'how-it-works.html': 'Redirecting',
             'pricing.html': 'Pricing',

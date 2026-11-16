@@ -23,7 +23,7 @@ class DeliveryCopyTest(unittest.TestCase):
     def test_how_we_help_uses_the_approved_selector_experience(self):
         html = (PUBLIC / 'how-we-help.html').read_text()
         script = (PUBLIC / 'how-we-help.js').read_text()
-        self.assertIn('How we help for Jacksonville small businesses', html)
+        self.assertIn('Industries for Jacksonville small businesses', html)
         self.assertIn('id="industry-label">Jax Systems for</strong>', html)
         self.assertIn('id="industry-toggle"', html)
         self.assertIn('id="help-toggle"', html)

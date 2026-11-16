@@ -8,7 +8,7 @@ PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 class BusinessImprovementReleaseTest(unittest.TestCase):
     def test_approved_homepage(self):
         html = (PUBLIC / 'index.html').read_text()
-        self.assertTrue('Jax Systems helps Jacksonville businesses improve how they work—from a free working session on one of seven business areas to a direct build or a full Business Improvement Plan when the next step is clear.' in html)
+        self.assertTrue('Practical AI and better systems for Jacksonville small businesses' in html)
         self.assertTrue('Request a free working session' in html and 'See the two paid paths' in html)
         self.assertTrue('Business judgment.' in html and 'Hands-on engineering.' in html)
         self.assertTrue('systems that work in the background' in html and 'not learning another tool' in html)

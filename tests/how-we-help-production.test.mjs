@@ -13,7 +13,7 @@ const drawingsSource = js.match(/const drawings = \{([\s\S]*?)\n  \};/m)[1];
 const drawingIds = [...drawingsSource.matchAll(/^\s*([a-z]+):/gm)].map(match => match[1]);
 
 test('industry page uses the preserved example-library metadata without preview-only markers', () => {
-  assert.match(html, /<title>How we help for Jacksonville small businesses · Jax Systems<\/title>/);
+  assert.match(html, /<title>Industries for Jacksonville small businesses · Jax Systems<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/jaxsystems.ai\/how-we-help"/);
   assert.doesNotMatch(html, /PREVIEW ONLY/);
   assert.doesNotMatch(html, /noindex,nofollow/);
@@ -25,7 +25,7 @@ test('industry page uses the preserved example-library metadata without preview-
 test('broad how-we-help page introduces the seven-area overview and links back to the industry library', () => {
   assert.match(broadHtml, /<title>How we help across seven business areas · Jax Systems<\/title>/);
   assert.match(broadHtml, /rel="canonical" href="https:\/\/jaxsystems.ai\/ways-we-help"/);
-  assert.match(broadHtml, /Choose the area slowing the business down\./);
+  assert.match(broadHtml, /See the business system, then start where it strains\./);
   assert.match(broadHtml, /Browse 19 industries and 57 examples/);
   assert.match(broadHtml, /href="how-we-help.html"/);
 });

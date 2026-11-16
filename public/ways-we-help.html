@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="site.css?v=dcf844166d98">
   <link rel="stylesheet" href="refinements.css?v=400b3b02f6d1">
   <link rel="stylesheet" href="offer-experience.css?v=11b3644ae089">
+  <link rel="stylesheet" href="macro-business.css?v=d3d3894869f9">
   <script src="site.js?v=ab345a7f6ab2" defer></script>
   <script src="offer-experience.js?v=d8c7cbd89c54" defer></script>
   <script type="application/ld+json">{
@@ -40,7 +41,7 @@
   "description": "Practical workflow implementation across seven business areas for small businesses."
 }</script>
 </head>
-<body>
+<body class="macro-business-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
@@ -58,109 +59,120 @@
       <section class="page-hero compact-hero">
         <div class="stack-lg">
           <p class="small-note">How we help</p>
-          <h1>Choose the area slowing the business down.</h1>
-          <p class="lede narrow">Start with one free working session on one business area. The session is practical on purpose: one real question, up to 60 minutes, and a clearer next step before anything paid begins.</p>
+          <h1>See the business system, then start where it strains.</h1>
+          <p class="lede narrow">Most businesses share the same connected functions: offer, marketing, sales, delivery, retention, operations, and finance. Different industries rename them, but the handoffs are familiar.</p>
+          <p class="lede narrow">When one area slips, the others feel it. The free working session still starts small: one real question, one area, up to 60 minutes, and a written summary before anything paid begins.</p>
           <div class="hero-actions"><a class="pill" href="contact.html#contact-form">Request the free working session</a><a class="text-link" href="how-we-help.html">Browse 19 industries and 57 examples ↗</a></div>
         </div>
       </section>
 
       <section class="section accent-section" id="seven-area-selector" aria-labelledby="areas-heading">
         <div class="stack-md section-heading">
-          <h2 id="areas-heading">Where could work flow better?</h2>
-          <p>Choose an area. See a practical way forward.</p>
+          <h2 id="areas-heading">Choose one area to start. Keep the wider system in view.</h2>
+          <p>Explore the connected parts of your business.</p>
+        </div>
+        <div class="macro-system-callout">
+          <p>Most owners are juggling the same chain. What you sell shapes the leads you attract. The sales process shapes delivery. Delivery shapes retention. Operations and finance decide whether the whole thing stays healthy.</p>
         </div>
         <div class="area-selector-layout">
           <div class="area-trigger-list" role="tablist" aria-label="Select a business area">
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-offer" aria-controls="area-panel-offer" aria-selected="true" tabindex="0" data-area-trigger="offer"><strong>Offer</strong><span>Clarify what is sold and where scope drifts.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-marketing" aria-controls="area-panel-marketing" aria-selected="false" tabindex="-1" data-area-trigger="marketing"><strong>Marketing</strong><span>Catch good enquiries before they cool off.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-sales" aria-controls="area-panel-sales" aria-selected="false" tabindex="-1" data-area-trigger="sales"><strong>Sales</strong><span>Keep quotes, follow-up, and approvals moving.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-delivery" aria-controls="area-panel-delivery" aria-selected="false" tabindex="-1" data-area-trigger="delivery"><strong>Delivery and customer experience</strong><span>Reduce missed updates and fuzzy handoffs.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-retention" aria-controls="area-panel-retention" aria-selected="false" tabindex="-1" data-area-trigger="retention"><strong>Retention</strong><span>Bring customers back at the right time.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-operations" aria-controls="area-panel-operations" aria-selected="false" tabindex="-1" data-area-trigger="operations"><strong>Operations and people</strong><span>Untangle ownership between tools and people.</span></button>
-            <button class="area-trigger" type="button" role="tab" id="area-trigger-finance" aria-controls="area-panel-finance" aria-selected="false" tabindex="-1" data-area-trigger="finance"><strong>Finance</strong><span>Tighten the path from finished work to cash.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-offer" aria-controls="area-panel-offer" aria-selected="true" tabindex="0" data-area-trigger="offer"><strong>Offer</strong><span>Define what is standard, what is custom, and what the team can repeat.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-marketing" aria-controls="area-panel-marketing" aria-selected="false" tabindex="-1" data-area-trigger="marketing"><strong>Marketing</strong><span>Turn attention into visible demand and a reliable first response.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-sales" aria-controls="area-panel-sales" aria-selected="false" tabindex="-1" data-area-trigger="sales"><strong>Sales</strong><span>Move opportunities from first conversation to a clear yes, no, or next step.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-delivery" aria-controls="area-panel-delivery" aria-selected="false" tabindex="-1" data-area-trigger="delivery"><strong>Delivery and customer experience</strong><span>Keep promises, handoffs, updates, and customer confidence aligned.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-retention" aria-controls="area-panel-retention" aria-selected="false" tabindex="-1" data-area-trigger="retention"><strong>Retention</strong><span>Create the next useful reason to hear from you again.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-operations" aria-controls="area-panel-operations" aria-selected="false" tabindex="-1" data-area-trigger="operations"><strong>Operations and people</strong><span>Make ownership, exceptions, and team rhythm easier to see.</span></button>
+            <button class="area-trigger" type="button" role="tab" id="area-trigger-finance" aria-controls="area-panel-finance" aria-selected="false" tabindex="-1" data-area-trigger="finance"><strong>Finance</strong><span>See pricing, billing readiness, cash timing, and the next money decision.</span></button>
           </div>
 
           <div id="area-visual-stage" aria-live="polite">
             <article class="area-stage-panel is-active" id="area-panel-offer" role="tabpanel" aria-labelledby="area-trigger-offer" data-area-panel="offer">
               <div class="area-panel-copy">
-                <h3>Stop rewriting the same promise from scratch.</h3>
+                <p class="area-selector-note">Offer</p>
+                <h3>Turn the offer into something the whole team can repeat.</h3>
+                <p>This area covers positioning, packaging, scope boundaries, and the point where standard work becomes custom.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>The business knows its best work, but the offer still lives in scattered notes, old estimates, and memory.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Turn the offer into a short worksheet the owner can reuse: what fits, what changes price, and what needs a deliberate custom decision.</dd></div>
+                  <div><dt>Problem</dt><dd>The business knows its best work, but the promise still lives in memory, old estimates, and one-off explanations.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Write down the repeatable path: what is included, what changes the price, and when the owner needs to make a deliberate exception.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: core packages, estimate templates, add-ons, change requests, and owner approvals.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one offer question</a><a class="text-link" href="pricing.html">See the two paid paths ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Offer worksheet, sample quote card, and pricing decision path">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Offer worksheet connected to repeatable and custom work paths">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eef4ef"/>
-                  <g transform="translate(38 38) rotate(-3 90 98)">
-                    <rect x="4" y="5" width="166" height="210" rx="16" fill="#d7e8df"/>
+                  <g transform="translate(40 36) rotate(-3 88 100)">
+                    <rect x="4" y="6" width="166" height="210" rx="16" fill="#d7e8df"/>
                     <rect x="0" y="0" width="166" height="210" rx="16" fill="#fffdf8" stroke="#9eb8ac" stroke-width="1.5"/>
-                    <text x="20" y="28" font-size="12" fill="#0d5f69" font-weight="800">SERVICE WORKSHEET</text>
-                    <path d="M20 48h100" stroke="#24454d" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M20 68h118M20 84h118M20 100h82" stroke="#cad8d2" stroke-width="3" stroke-linecap="round"/>
-                    <rect x="20" y="122" width="14" height="14" rx="3" fill="#dff0ed" stroke="#0d5f69"/>
-                    <path d="M24 129l3 3 5-7" fill="none" stroke="#0d5f69" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M42 129h86" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
-                    <rect x="20" y="148" width="14" height="14" rx="3" fill="#faefd4" stroke="#b68218"/>
-                    <path d="M42 155h97" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
-                    <rect x="20" y="174" width="14" height="14" rx="3" fill="#eef4ef" stroke="#86ad9d"/>
-                    <path d="M42 181h75" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
+                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">CORE OFFER</text>
+                    <path d="M18 46h100" stroke="#24454d" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M18 66h118M18 82h118M18 98h84" stroke="#cad8d2" stroke-width="3" stroke-linecap="round"/>
+                    <rect x="18" y="122" width="14" height="14" rx="3" fill="#dff0ed" stroke="#0d5f69"/>
+                    <path d="M22 129l3 3 5-7" fill="none" stroke="#0d5f69" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M40 129h86" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
+                    <rect x="18" y="148" width="14" height="14" rx="3" fill="#edf4f8" stroke="#6f95ab"/>
+                    <path d="M40 155h97" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
+                    <rect x="18" y="174" width="14" height="14" rx="3" fill="#eef4ef" stroke="#86ad9d"/>
+                    <path d="M40 181h75" stroke="#acc6ba" stroke-width="3" stroke-linecap="round"/>
                   </g>
-                  <g transform="translate(218 54)">
+                  <g transform="translate(218 56)">
                     <rect x="6" y="7" width="154" height="98" rx="15" fill="#d7e7df"/>
                     <rect x="0" y="0" width="154" height="98" rx="15" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="26" font-size="11" fill="#0d5f69" font-weight="800">STANDARD QUOTE</text>
-                    <text x="18" y="48" font-size="23" fill="#11232c" font-weight="800">$2,499</text>
-                    <path d="M18 65h112" stroke="#d2dcd5" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M18 79h84" stroke="#d2dcd5" stroke-width="3" stroke-linecap="round"/>
+                    <text x="18" y="26" font-size="11" fill="#0d5f69" font-weight="800">REPEATABLE PATH</text>
+                    <path d="M18 46h112" stroke="#d2dcd5" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M18 60h102" stroke="#d2dcd5" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M18 74h84" stroke="#d2dcd5" stroke-width="3" stroke-linecap="round"/>
                   </g>
                   <g transform="translate(214 176)">
                     <rect x="0" y="0" width="164" height="78" rx="18" fill="#113238"/>
-                    <text x="18" y="27" font-size="11" fill="#d9ece6" font-weight="700">CUSTOM REVIEW</text>
-                    <path d="M18 42h88" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
-                    <text x="18" y="63" font-size="11" fill="#f7e6bf">Owner sets scope.</text>
+                    <text x="18" y="28" font-size="11" fill="#d9ece6" font-weight="700">CUSTOM PATH</text>
+                    <path d="M18 44h92" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                    <text x="18" y="63" font-size="11" fill="#d9ece6">Owner reviews scope.</text>
                   </g>
                   <path d="M182 144c28-22 52-24 78-8" fill="none" stroke="#0d5f69" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
-                  <path d="M274 162c18 10 35 24 44 48" fill="none" stroke="#b68218" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+                  <path d="M274 162c18 10 35 24 44 48" fill="none" stroke="#6f95ab" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
                 </svg>
               </div>
             </article>
 
             <article class="area-stage-panel" id="area-panel-marketing" role="tabpanel" aria-labelledby="area-trigger-marketing" data-area-panel="marketing" hidden>
               <div class="area-panel-copy">
-                <h3>Make the first response visible before the lead drifts away.</h3>
+                <p class="area-selector-note">Marketing</p>
+                <h3>Make attention visible before it disappears into disconnected inboxes.</h3>
+                <p>This area covers message-market fit, channels, intake, first response, and whether the owner can actually see what arrived.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>No single person can see what came in today, what already got a reply, or what is still waiting.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Build one live intake view with source, urgency, and next owner so the owner can see the queue at a glance.</dd></div>
+                  <div><dt>Problem</dt><dd>Interest shows up through forms, calls, referrals, or DMs, but nobody has one view of what landed and what still needs a response.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Create one intake view with source, urgency, and next owner so the first response becomes visible instead of accidental.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: website enquiries, referral notes, paid traffic, callback requests, and first-response alerts.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one lead-response question</a><a class="text-link" href="how-we-help.html">See industry examples ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Website lead, text alert, and shared intake board">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Marketing signals flowing into a shared intake view">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eff5f3"/>
-                  <g transform="translate(34 58)">
-                    <rect x="0" y="0" width="138" height="86" rx="14" fill="#fffdf8" stroke="#91ada1" stroke-width="1.5"/>
-                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">WEBSITE ENQUIRY</text>
+                  <g transform="translate(34 54)">
+                    <rect x="0" y="0" width="138" height="80" rx="14" fill="#fffdf8" stroke="#91ada1" stroke-width="1.5"/>
+                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">SOURCE SIGNAL</text>
                     <path d="M18 42h84" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                     <path d="M18 58h101" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                   </g>
-                  <g transform="translate(50 162)">
-                    <rect x="0" y="0" width="118" height="66" rx="18" fill="#113238"/>
-                    <text x="18" y="27" font-size="11" fill="#d7ebe3" font-weight="700">TEXT ALERT</text>
-                    <path d="M18 42h64" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                  <g transform="translate(42 154)">
+                    <rect x="0" y="0" width="126" height="72" rx="18" fill="#113238"/>
+                    <text x="18" y="27" font-size="11" fill="#d7ebe3" font-weight="700">FIRST RESPONSE</text>
+                    <path d="M18 44h74" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M18 58h54" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
                   </g>
-                  <path d="M172 101c28 0 37 16 58 35" fill="none" stroke="#0d5f69" stroke-width="2.2" stroke-dasharray="4 5"/>
-                  <path d="M168 194c33-8 44-22 64-45" fill="none" stroke="#b68218" stroke-width="2.2" stroke-dasharray="4 5"/>
-                  <g transform="translate(232 42)">
-                    <rect x="0" y="0" width="144" height="188" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">TODAY'S INTAKE</text>
+                  <path d="M172 98c28 0 37 16 58 35" fill="none" stroke="#0d5f69" stroke-width="2.2" stroke-dasharray="4 5"/>
+                  <path d="M168 188c33-8 44-22 64-45" fill="none" stroke="#6f95ab" stroke-width="2.2" stroke-dasharray="4 5"/>
+                  <g transform="translate(232 38)">
+                    <rect x="0" y="0" width="144" height="194" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
+                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">INTAKE VIEW</text>
                     <rect x="18" y="46" width="108" height="34" rx="10" fill="#dff0ed"/>
-                    <text x="30" y="67" font-size="11" fill="#11232c">Needs reply now</text>
-                    <rect x="18" y="90" width="108" height="34" rx="10" fill="#faefd4"/>
-                    <text x="30" y="111" font-size="11" fill="#11232c">Waiting on quote</text>
+                    <text x="30" y="67" font-size="11" fill="#11232c">New today</text>
+                    <rect x="18" y="90" width="108" height="34" rx="10" fill="#edf4f8"/>
+                    <text x="30" y="111" font-size="11" fill="#11232c">Reply sent</text>
                     <rect x="18" y="134" width="108" height="34" rx="10" fill="#e7eef3"/>
-                    <text x="30" y="155" font-size="11" fill="#11232c">Already assigned</text>
+                    <text x="30" y="155" font-size="11" fill="#11232c">Needs owner</text>
                   </g>
                 </svg>
               </div>
@@ -168,73 +180,86 @@
 
             <article class="area-stage-panel" id="area-panel-sales" role="tabpanel" aria-labelledby="area-trigger-sales" data-area-panel="sales" hidden>
               <div class="area-panel-copy">
-                <h3>Keep warm quotes from fading into callbacks and memory.</h3>
+                <p class="area-selector-note">Sales</p>
+                <h3>Give sales a visible path from first conversation to clear decision.</h3>
+                <p>This area covers qualification, scoping, proposals, follow-up, approvals, and the handoff into delivery once someone says yes.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>Teams can tell you who asked for a quote, but not who is waiting on approval, who needs a nudge, or which jobs are stuck.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Create one quote board with simple statuses and one follow-up lane the owner can review without digging through email threads.</dd></div>
+                  <div><dt>Problem</dt><dd>The team can name active opportunities, but not which ones are qualified, who needs the next follow-up, or where a decision is stalled.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Use one visible path with clear stages, one next owner, and one handoff moment so progress stops depending on memory.</dd></div>
                 </dl>
-                <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one quote bottleneck</a><a class="text-link" href="pricing.html#pricing-story">See when the plan helps ↗</a></div>
+                <p class="area-mini-note">Examples: qualification, proposals, follow-up, approvals, and handoff.</p>
+                <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one sales bottleneck</a><a class="text-link" href="pricing.html#pricing-story">See when the plan helps ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Quote board with waiting, follow-up, and approved columns">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Sales pipeline with discovery, proposal, decision, and handoff stages">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eff5f3"/>
                   <rect x="34" y="42" width="352" height="198" rx="18" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                  <text x="56" y="69" font-size="12" fill="#0d5f69" font-weight="800">QUOTE BOARD</text>
-                  <g transform="translate(54 88)">
-                    <rect x="0" y="0" width="84" height="128" rx="14" fill="#f5f0e3"/>
-                    <text x="16" y="22" font-size="11" fill="#11232c" font-weight="700">Waiting</text>
-                    <rect x="12" y="38" width="60" height="26" rx="8" fill="#fffdf8" stroke="#d5c7a1"/>
-                    <rect x="12" y="72" width="60" height="26" rx="8" fill="#fffdf8" stroke="#d5c7a1"/>
+                  <text x="56" y="69" font-size="12" fill="#0d5f69" font-weight="800">PIPELINE VIEW</text>
+                  <g transform="translate(48 88)">
+                    <rect x="0" y="0" width="72" height="128" rx="14" fill="#eaf3ef"/>
+                    <text x="14" y="22" font-size="10" fill="#11232c" font-weight="700">Fit</text>
+                    <rect x="10" y="38" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
+                    <rect x="10" y="70" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
                   </g>
-                  <g transform="translate(166 88)">
-                    <rect x="0" y="0" width="84" height="128" rx="14" fill="#dff0ed"/>
-                    <text x="12" y="22" font-size="11" fill="#11232c" font-weight="700">Follow-up</text>
-                    <rect x="12" y="38" width="60" height="26" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
-                    <rect x="12" y="72" width="60" height="26" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
-                    <rect x="12" y="106" width="60" height="26" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
+                  <g transform="translate(132 88)">
+                    <rect x="0" y="0" width="72" height="128" rx="14" fill="#edf4f8"/>
+                    <text x="10" y="22" font-size="10" fill="#11232c" font-weight="700">Scope</text>
+                    <rect x="10" y="38" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bb8c7"/>
+                    <rect x="10" y="70" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bb8c7"/>
                   </g>
-                  <g transform="translate(278 88)">
-                    <rect x="0" y="0" width="84" height="128" rx="14" fill="#e8eef3"/>
-                    <text x="13" y="22" font-size="11" fill="#11232c" font-weight="700">Approved</text>
-                    <rect x="12" y="38" width="60" height="26" rx="8" fill="#fffdf8" stroke="#b9cad5"/>
+                  <g transform="translate(216 88)">
+                    <rect x="0" y="0" width="72" height="128" rx="14" fill="#dff0ed"/>
+                    <text x="8" y="22" font-size="10" fill="#11232c" font-weight="700">Decision</text>
+                    <rect x="10" y="38" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
+                    <rect x="10" y="70" width="52" height="22" rx="8" fill="#fffdf8" stroke="#9bc5b7"/>
                   </g>
-                  <path d="M154 152h16" stroke="#0d5f69" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M266 152h16" stroke="#0d5f69" stroke-width="2" stroke-linecap="round"/>
+                  <g transform="translate(300 88)">
+                    <rect x="0" y="0" width="58" height="128" rx="14" fill="#113238"/>
+                    <text x="10" y="22" font-size="10" fill="#d9ece6" font-weight="700">Start</text>
+                    <path d="M12 44h34" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M12 60h26" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                  </g>
+                  <path d="M122 152h8" stroke="#0d5f69" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M206 152h8" stroke="#0d5f69" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M290 152h8" stroke="#0d5f69" stroke-width="2" stroke-linecap="round"/>
                 </svg>
               </div>
             </article>
 
             <article class="area-stage-panel" id="area-panel-delivery" role="tabpanel" aria-labelledby="area-trigger-delivery" data-area-panel="delivery" hidden>
               <div class="area-panel-copy">
-                <h3>Give the office, crew, and customer the same next-step picture.</h3>
+                <p class="area-selector-note">Delivery and customer experience</p>
+                <h3>Keep the office, the team, and the customer looking at the same next step.</h3>
+                <p>This area covers scheduling, readiness, field handoffs, status updates, and the customer experience during the work itself.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>Schedules change, updates lag behind, and customers ask for answers the team already has somewhere else.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Make today’s commitments visible in one shared handoff view: who is going, what changed, and what update is safe to send.</dd></div>
+                  <div><dt>Problem</dt><dd>Plans change, updates lag, and customers ask for answers the team already has somewhere else.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Make today's commitments visible in one handoff view: who is going, what changed, and what update is safe to send.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: schedule changes, prep notes, customer updates, completion steps, and service recovery.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one delivery handoff</a><a class="text-link" href="how-we-help.html">See familiar service examples ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Schedule board, crew card, and customer update card">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Commitments board connected to team and customer views">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eef5f1"/>
                   <g transform="translate(34 46)">
                     <rect x="0" y="0" width="154" height="190" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">TODAY'S BOARD</text>
+                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">COMMITMENTS</text>
                     <rect x="18" y="48" width="118" height="32" rx="9" fill="#dff0ed"/>
-                    <text x="31" y="68" font-size="11" fill="#11232c">8:30 install</text>
-                    <rect x="18" y="90" width="118" height="32" rx="9" fill="#faefd4"/>
-                    <text x="31" y="110" font-size="11" fill="#11232c">11:00 site visit</text>
+                    <text x="31" y="68" font-size="11" fill="#11232c">Ready today</text>
+                    <rect x="18" y="90" width="118" height="32" rx="9" fill="#edf4f8"/>
+                    <text x="31" y="110" font-size="11" fill="#11232c">Update needed</text>
                     <rect x="18" y="132" width="118" height="32" rx="9" fill="#e8eef3"/>
-                    <text x="31" y="152" font-size="11" fill="#11232c">2:00 follow-up</text>
+                    <text x="31" y="152" font-size="11" fill="#11232c">Closed out</text>
                   </g>
                   <g transform="translate(224 60)">
                     <rect x="0" y="0" width="150" height="74" rx="16" fill="#113238"/>
-                    <text x="18" y="28" font-size="11" fill="#d9ece6" font-weight="700">CREW NOTE</text>
+                    <text x="18" y="28" font-size="11" fill="#d9ece6" font-weight="700">TEAM HANDOFF</text>
                     <path d="M18 44h88" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
-                    <text x="18" y="60" font-size="11" fill="#f7e6bf">Gate code confirmed</text>
+                    <text x="18" y="60" font-size="11" fill="#d9ece6">Changes + owner.</text>
                   </g>
                   <g transform="translate(224 154)">
                     <rect x="0" y="0" width="150" height="82" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="26" font-size="11" fill="#0d5f69" font-weight="800">CUSTOMER UPDATE</text>
+                    <text x="18" y="26" font-size="11" fill="#0d5f69" font-weight="800">CUSTOMER VIEW</text>
                     <path d="M18 45h104" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                     <path d="M18 60h90" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                   </g>
@@ -244,19 +269,22 @@
 
             <article class="area-stage-panel" id="area-panel-retention" role="tabpanel" aria-labelledby="area-trigger-retention" data-area-panel="retention" hidden>
               <div class="area-panel-copy">
-                <h3>Reconnect when the work actually earns another conversation.</h3>
+                <p class="area-selector-note">Retention</p>
+                <h3>Reconnect when the next conversation is useful, not random.</h3>
+                <p>This area covers repeat work, reminders, reviews, referrals, renewals, and the signals that tell you when to reach back out.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>Past customers are scattered across invoices, calendars, and inboxes, so nobody knows who is due for the next useful touch.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Identify the safe trigger for a reminder, review request, or return-service nudge, then make that trigger visible to the owner.</dd></div>
+                  <div><dt>Problem</dt><dd>Past customers are spread across invoices, calendars, and inboxes, so nobody knows who is ready for the next useful touch.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Choose the safe trigger for a reminder, review request, or return-service nudge, then make that trigger visible to the owner.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: maintenance reminders, review timing, referral asks, renewal prompts, and return-service windows.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one follow-up question</a><a class="text-link" href="pricing.html">See support terms ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Completed job history, review reminder, and return-service note">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Customer history linked to a check-in window and next best ask">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eef4ef"/>
                   <g transform="translate(34 54)">
                     <rect x="0" y="0" width="132" height="170" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">PAST JOBS</text>
+                    <text x="18" y="28" font-size="12" fill="#0d5f69" font-weight="800">HISTORY</text>
                     <circle cx="34" cy="60" r="8" fill="#dff0ed" stroke="#0d5f69"/>
                     <path d="M30 60l3 3 5-6" fill="none" stroke="#0d5f69" stroke-width="1.4"/>
                     <path d="M50 60h56" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
@@ -266,12 +294,12 @@
                   </g>
                   <g transform="translate(194 54)">
                     <rect x="0" y="0" width="178" height="72" rx="16" fill="#113238"/>
-                    <text x="18" y="28" font-size="11" fill="#d9ece6" font-weight="700">READY TO ASK?</text>
-                    <text x="18" y="50" font-size="11" fill="#f7e6bf">Owner confirms completion.</text>
+                    <text x="18" y="28" font-size="11" fill="#d9ece6" font-weight="700">CHECK-IN WINDOW</text>
+                    <text x="18" y="50" font-size="11" fill="#d9ece6">Owner confirms timing.</text>
                   </g>
                   <g transform="translate(194 150)">
                     <rect x="0" y="0" width="178" height="74" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="28" font-size="11" fill="#0d5f69" font-weight="800">RETURN SERVICE</text>
+                    <text x="18" y="28" font-size="11" fill="#0d5f69" font-weight="800">NEXT BEST ASK</text>
                     <path d="M18 46h112" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                     <path d="M18 60h84" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                   </g>
@@ -281,15 +309,18 @@
 
             <article class="area-stage-panel" id="area-panel-operations" role="tabpanel" aria-labelledby="area-trigger-operations" data-area-panel="operations" hidden>
               <div class="area-panel-copy">
-                <h3>Untangle the repeated handoff before the team blames the tool.</h3>
+                <p class="area-selector-note">Operations and people</p>
+                <h3>Make ownership clearer before the team blames the tool.</h3>
+                <p>This area covers role clarity, exceptions, recurring coordination, and the places where work bounces between people or systems.</p>
                 <dl class="area-problem-fix">
                   <div><dt>Problem</dt><dd>The work jumps between calls, spreadsheets, calendars, and job tools without one clear owner for the exception.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Map the handoff, mark the exception point, and make ownership explicit so the team knows what to do when the normal path breaks.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Map the handoff, mark the exception point, and name the owner so the team knows what to do when the normal path breaks.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: call notes, internal checklists, scheduling rhythm, escalation rules, and owner decisions.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one repeated handoff</a><a class="text-link" href="how-we-help.html">See cross-industry examples ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Phone note, spreadsheet, calendar, and owner lane connected">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Connected tools and people with a named exception owner">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eef4f0"/>
                   <g transform="translate(34 52)">
                     <rect x="0" y="0" width="90" height="62" rx="14" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
@@ -298,21 +329,21 @@
                   </g>
                   <g transform="translate(150 36)">
                     <rect x="0" y="0" width="112" height="92" rx="14" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">SHEET</text>
+                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">WORK VIEW</text>
                     <path d="M18 42h76M18 58h76M18 74h46" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
                   </g>
                   <g transform="translate(60 154)">
                     <rect x="0" y="0" width="116" height="84" rx="14" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
-                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">CALENDAR</text>
+                    <text x="18" y="24" font-size="11" fill="#0d5f69" font-weight="800">RHYTHM</text>
                     <rect x="18" y="40" width="80" height="24" rx="8" fill="#dff0ed"/>
                   </g>
                   <g transform="translate(236 160)">
                     <rect x="0" y="0" width="140" height="74" rx="16" fill="#113238"/>
                     <text x="18" y="26" font-size="11" fill="#d9ece6" font-weight="700">EXCEPTION OWNER</text>
-                    <text x="18" y="48" font-size="11" fill="#f7e6bf">A person decides.</text>
+                    <text x="18" y="48" font-size="11" fill="#d9ece6">A person decides.</text>
                   </g>
                   <path d="M124 84c24 0 24 0 26 0" fill="none" stroke="#0d5f69" stroke-width="2"/>
-                  <path d="M207 128c-12 22-30 32-52 38" fill="none" stroke="#b68218" stroke-width="2" stroke-dasharray="4 5"/>
+                  <path d="M207 128c-12 22-30 32-52 38" fill="none" stroke="#6f95ab" stroke-width="2" stroke-dasharray="4 5"/>
                   <path d="M262 128c12 20 24 28 42 34" fill="none" stroke="#0d5f69" stroke-width="2" stroke-dasharray="4 5"/>
                 </svg>
               </div>
@@ -320,25 +351,29 @@
 
             <article class="area-stage-panel" id="area-panel-finance" role="tabpanel" aria-labelledby="area-trigger-finance" data-area-panel="finance" hidden>
               <div class="area-panel-copy">
+                <p class="area-selector-note">Finance</p>
                 <h3>Shorten the space between done work, billing, and collected cash.</h3>
+                <p>This area covers pricing signals, billing readiness, cash timing, margin visibility, and the next money decision the owner should see.</p>
                 <dl class="area-problem-fix">
-                  <div><dt>Problem</dt><dd>Teams cannot quickly see what is ready to bill, what is waiting on documentation, and what is already overdue.</dd></div>
-                  <div><dt>Practical fix</dt><dd>Create a simple billing readiness view with one next action per item so cash collection stops depending on memory.</dd></div>
+                  <div><dt>Problem</dt><dd>The team cannot quickly see what is ready to bill, what is waiting on documentation, and which cash tasks keep slipping.</dd></div>
+                  <div><dt>Practical fix</dt><dd>Create a simple readiness view with one next action per item so billing and collection stop depending on memory.</dd></div>
                 </dl>
+                <p class="area-mini-note">Examples: deposits, completed-work billing, overdue follow-up, margin warnings, and cash timing reviews.</p>
                 <div class="area-link-row"><a class="pill secondary" href="contact.html#contact-form">Bring one invoicing question</a><a class="text-link" href="pricing.html">See what stays exact ↗</a></div>
               </div>
               <div class="area-art-frame">
-                <svg viewBox="0 0 420 300" role="img" aria-label="Ready to bill lane, waiting items, and overdue balance view">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Billing readiness view, cash dashboard, and next action panel">
                   <rect x="16" y="18" width="388" height="264" rx="28" fill="#eef4ef"/>
                   <rect x="34" y="44" width="156" height="190" rx="18" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
                   <text x="54" y="72" font-size="12" fill="#0d5f69" font-weight="800">READY TO BILL</text>
                   <rect x="54" y="92" width="116" height="34" rx="10" fill="#dff0ed"/>
-                  <text x="68" y="113" font-size="11" fill="#11232c">Signed off</text>
-                  <rect x="54" y="136" width="116" height="34" rx="10" fill="#faefd4"/>
-                  <text x="68" y="157" font-size="11" fill="#11232c">Needs document</text>
+                  <text x="68" y="113" font-size="11" fill="#11232c">Ready now</text>
+                  <rect x="54" y="136" width="116" height="34" rx="10" fill="#edf4f8"/>
+                  <text x="68" y="157" font-size="11" fill="#11232c">Needs support</text>
                   <rect x="214" y="62" width="158" height="74" rx="16" fill="#113238"/>
-                  <text x="232" y="90" font-size="11" fill="#d9ece6" font-weight="700">OVERDUE BALANCE</text>
-                  <text x="232" y="116" font-size="24" fill="#fff8e3" font-weight="800">$4,280</text>
+                  <text x="232" y="90" font-size="11" fill="#d9ece6" font-weight="700">CASH VIEW</text>
+                  <path d="M232 108h104" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M232 122h84" stroke="#6ea08f" stroke-width="3" stroke-linecap="round"/>
                   <rect x="214" y="154" width="158" height="80" rx="16" fill="#fffdf8" stroke="#93b6a7" stroke-width="1.5"/>
                   <text x="232" y="182" font-size="11" fill="#0d5f69" font-weight="800">NEXT ACTION</text>
                   <path d="M232 200h96" stroke="#bfd2c9" stroke-width="3" stroke-linecap="round"/>
@@ -354,7 +389,7 @@
         <div class="callout soft-callout">
           <div class="stack-md">
             <h2>Start small. Keep the wider view available.</h2>
-            <p>The free working session begins with one area. If that one area still points to a broader operational question, the optional $999 Business Improvement Plan looks across all seven and credits the full amount toward the first $2,499 build.</p>
+            <p>The free working session begins with one area, but it does not pretend the rest of the business disappears. If that first question points to a broader operational pattern, the optional $999 Business Improvement Plan looks across all seven and credits the full amount toward the first $2,499 build.</p>
           </div>
           <div class="section-cta"><a class="pill" href="contact.html#contact-form">Use the contact form</a><a class="pill secondary" href="pricing.html">See the pricing story</a></div>
         </div>

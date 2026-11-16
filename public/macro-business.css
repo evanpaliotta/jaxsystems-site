@@ -1,0 +1,193 @@
+body.macro-business-page .page-hero.compact-hero {
+  padding-bottom: 28px;
+}
+
+body.macro-business-page .page-hero .stack-lg {
+  max-width: 72rem;
+}
+
+body.macro-business-page .page-hero .lede.narrow {
+  max-width: 60rem;
+}
+
+body.macro-business-page #seven-area-selector {
+  gap: 20px;
+}
+
+body.macro-business-page .macro-system-callout {
+  max-width: 62rem;
+  padding: 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(17,35,44,0.08);
+  background: linear-gradient(180deg, rgba(223,240,237,0.72), rgba(255,255,255,0.88));
+}
+
+body.macro-business-page .macro-system-callout p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+body.macro-business-page .area-selector-layout {
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+body.macro-business-page .area-trigger-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 2px 14px;
+  margin: 0 -2px;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+body.macro-business-page .area-trigger-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+body.macro-business-page .area-trigger-list::-webkit-scrollbar-thumb {
+  background: rgba(13,95,105,0.24);
+  border-radius: 999px;
+}
+
+body.macro-business-page .area-trigger {
+  flex: 1 0 auto;
+  width: auto;
+  min-height: 44px;
+  min-width: 0;
+  scroll-snap-align: start;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.86);
+  box-shadow: none;
+}
+
+body.macro-business-page .area-trigger strong,
+body.macro-business-page .area-trigger span {
+  display: block;
+}
+
+body.macro-business-page .area-trigger strong {
+  font-size: 0.95rem;
+}
+
+body.macro-business-page .area-trigger span { display: none; }
+
+body.macro-business-page .area-trigger:hover,
+body.macro-business-page .area-trigger[aria-selected='true'] {
+  box-shadow: 0 12px 28px rgba(17,35,44,0.08);
+}
+
+body.macro-business-page .area-trigger:focus-visible {
+  outline: 3px solid rgba(13,95,105,0.3);
+  outline-offset: 2px;
+}
+
+body.macro-business-page #area-visual-stage {
+  min-width: 0;
+}
+
+body.macro-business-page .area-stage-panel {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+body.macro-business-page .area-panel-copy {
+  gap: 14px;
+}
+
+body.macro-business-page .area-panel-copy > p:first-of-type {
+  margin: 0;
+}
+
+body.macro-business-page .area-panel-copy h3 {
+  font-size: clamp(1.8rem, 2.9vw, 2.8rem);
+}
+
+body.macro-business-page .area-problem-fix {
+  gap: 12px;
+}
+
+body.macro-business-page .area-problem-fix div {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(244,247,245,0.92);
+  border: 1px solid rgba(17,35,44,0.06);
+}
+
+body.macro-business-page .area-mini-note {
+  margin: 0;
+}
+
+body.macro-business-page .area-link-row .text-link {
+  display: inline-flex;
+}
+
+body.macro-business-page .area-art-frame {
+  min-height: 320px;
+  padding: 14px;
+  border-radius: 26px;
+  border: 1px solid rgba(17,35,44,0.06);
+  background: linear-gradient(180deg, rgba(231,239,232,0.95), rgba(244,247,245,0.88));
+  box-shadow: none;
+}
+
+body.macro-business-page .area-art-frame svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 980px) {
+  body.macro-business-page .area-trigger {
+    flex-basis: 13rem;
+  }
+
+  body.macro-business-page .area-stage-panel {
+    grid-template-columns: 1fr;
+  }
+
+  body.macro-business-page .area-art-frame {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  body.macro-business-page .page-hero.compact-hero {
+    padding-bottom: 18px;
+  }
+
+  body.macro-business-page .macro-system-callout {
+    padding: 14px 15px;
+    border-radius: 18px;
+  }
+
+  body.macro-business-page .area-trigger-list {
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  body.macro-business-page .area-trigger {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 12px 14px;
+  }
+
+  body.macro-business-page .area-stage-panel {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  body.macro-business-page .area-art-frame {
+    padding: 10px;
+    border-radius: 22px;
+  }
+}
