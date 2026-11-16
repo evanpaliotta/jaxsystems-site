@@ -17,8 +17,12 @@ class StoryOfferRefreshTest(unittest.TestCase):
 
     def test_pricing_uses_consumer_friendly_paths_and_keeps_written_terms(self):
         pricing = (PUBLIC / 'pricing.html').read_text()
-        self.assertIn('Know what to fix?', pricing)
-        self.assertIn('Need a wider view?', pricing)
+        self.assertIn('Know what needs fixing?', pricing)
+        self.assertIn('Not sure where to start?', pricing)
+        self.assertIn('Build one improvement · $2,499', pricing)
+        self.assertIn('Business Improvement Plan · $999', pricing)
+        for label in ('2A.', '2B.', 'Path A', 'Path B'):
+            self.assertNotIn(label, pricing)
         for amount in ('$2,499', '$999', '$1,500', '$499/month', '$250/month'):
             self.assertIn(amount, pricing)
         self.assertIn('must be agreed in writing before payment', pricing)

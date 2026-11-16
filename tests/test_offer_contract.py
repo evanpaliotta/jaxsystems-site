@@ -47,8 +47,8 @@ class OfferContractTest(unittest.TestCase):
     def test_pricing_page_explains_the_two_paid_paths_and_credit(self):
         pricing = (PUBLIC / 'pricing.html').read_text()
         for marker in (
-            'Path A: $2,499 first standard build',
-            'Path B: $999 Business Improvement Plan',
+            'Build one improvement · $2,499',
+            'Business Improvement Plan · $999',
             '$1,500',
             '$499/month optional support',
             '$250/month',
