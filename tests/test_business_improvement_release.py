@@ -30,7 +30,7 @@ class BusinessImprovementReleaseTest(unittest.TestCase):
             '$499/month optional support',
             '$250/month',
             'Priorities',
-            'Measurement',
+            'measurement',
             'One implementation blueprint',
             'You keep the plan either way',
         ):

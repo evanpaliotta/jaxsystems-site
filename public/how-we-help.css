@@ -136,6 +136,18 @@
   }
 }
 @media (max-width: 760px) {
+  body.how-help-page .header-right.site-nav {
+    display: grid;
+    gap: 12px;
+    text-align: center;
+  }
+  body.how-help-page .header-right .header-link {
+    display: flex;
+    justify-content: center;
+  }
+  body.how-help-page .header-right .header-cta {
+    display: inline-flex;
+  }
   #site-nav { max-height: calc(100dvh - 110px); overflow-y: auto; overscroll-behavior: contain; }
   .site-nav .help-menu-wrap {
     width: 100%;
