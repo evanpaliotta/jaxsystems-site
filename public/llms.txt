@@ -16,7 +16,6 @@ Pages:
 - https://jaxsystems.ai/
 - https://jaxsystems.ai/ways-we-help
 - https://jaxsystems.ai/how-we-help
-- https://jaxsystems.ai/free-working-session
 - https://jaxsystems.ai/pricing
 - https://jaxsystems.ai/privacy
 - https://jaxsystems.ai/contact

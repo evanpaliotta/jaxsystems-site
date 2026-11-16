@@ -25,7 +25,7 @@ test('industry page uses the preserved example-library metadata without preview-
 test('broad how-we-help page introduces the seven-area overview and links back to the industry library', () => {
   assert.match(broadHtml, /<title>How we help across seven business areas · Jax Systems<\/title>/);
   assert.match(broadHtml, /rel="canonical" href="https:\/\/jaxsystems.ai\/ways-we-help"/);
-  assert.match(broadHtml, /Seven business areas\. One practical next step at a time\./);
+  assert.match(broadHtml, /Choose the area slowing the business down\./);
   assert.match(broadHtml, /Browse 19 industries and 57 examples/);
   assert.match(broadHtml, /href="how-we-help.html"/);
 });

@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 public = Path(__file__).resolve().parents[1] / 'public'
-assets = ('site.css', 'workshop.css', 'how-we-help.css', 'site.js', 'workshop.js', 'how-we-help.js')
+assets = ('site.css', 'workshop.css', 'how-we-help.css', 'site.js', 'workshop.js', 'how-we-help.js', 'offer-experience.css', 'offer-experience.js')
 for page in public.glob('*.html'):
     text = page.read_text()
     for asset in assets:

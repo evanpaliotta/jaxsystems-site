@@ -10,7 +10,6 @@ CONTENT_PAGES = {
     'index.html',
     'how-we-help.html',
     'ways-we-help.html',
-    'free-working-session.html',
     'pricing.html',
     'contact.html',
     'privacy.html',
@@ -101,19 +100,18 @@ class PublicSiteTest(unittest.TestCase):
         self.assertNotIn('testimonial', home.lower())
 
     def test_shared_navigation_preserves_broad_and_industry_paths(self):
-        for page_name in ['index.html', 'ways-we-help.html', 'how-we-help.html', 'pricing.html', 'contact.html', 'free-working-session.html']:
+        for page_name in ['index.html', 'ways-we-help.html', 'how-we-help.html', 'pricing.html', 'contact.html', 'privacy.html']:
             html = (PUBLIC / page_name).read_text()
             with self.subTest(page=page_name):
                 self.assertIn('href="ways-we-help.html"', html)
                 self.assertIn('href="how-we-help.html"', html)
-                self.assertIn('href="free-working-session.html"', html)
+                self.assertNotIn('href="free-working-session.html"', html)
 
     def test_metadata_canonicals_and_jsonld(self):
         required_title_bits = {
             'index.html': 'Jacksonville AI help',
             'how-we-help.html': 'How we help',
             'ways-we-help.html': 'How we help',
-            'free-working-session.html': 'Free working session',
             'how-it-works.html': 'Redirecting',
             'pricing.html': 'Pricing',
             'contact.html': 'Contact',
@@ -123,7 +121,6 @@ class PublicSiteTest(unittest.TestCase):
             'index.html': CANONICAL_BASE,
             'how-we-help.html': CANONICAL_BASE + 'how-we-help',
             'ways-we-help.html': CANONICAL_BASE + 'ways-we-help',
-            'free-working-session.html': CANONICAL_BASE + 'free-working-session',
             'how-it-works.html': CANONICAL_BASE + '#workflow-frame',
             'pricing.html': CANONICAL_BASE + 'pricing',
             'contact.html': CANONICAL_BASE + 'contact',
@@ -239,6 +236,7 @@ class PublicSiteTest(unittest.TestCase):
         for page in sorted(CONTENT_PAGES):
             loc = CANONICAL_BASE if page == 'index.html' else CANONICAL_BASE + page.removesuffix('.html')
             self.assertIn(f'<loc>{loc}</loc>', sitemap)
+        self.assertNotIn('<loc>https://jaxsystems.ai/free-working-session</loc>', sitemap)
 
         robots = (PUBLIC / 'robots.txt').read_text()
         self.assertIn('Sitemap: https://jaxsystems.ai/sitemap.xml', robots)
@@ -248,8 +246,13 @@ class PublicSiteTest(unittest.TestCase):
         self.assertIn('https://jaxsystems.ai/', llms)
         self.assertIn('https://jaxsystems.ai/how-we-help', llms)
         self.assertIn('https://jaxsystems.ai/ways-we-help', llms)
-        self.assertIn('https://jaxsystems.ai/free-working-session', llms)
+        self.assertNotIn('https://jaxsystems.ai/free-working-session', llms)
         self.assertIn('Jacksonville-based AI help for small businesses.', llms)
+
+    def test_old_free_session_route_redirects_to_contact(self):
+        redirects = (PUBLIC / '_redirects').read_text()
+        self.assertIn('/free-working-session /contact 302', redirects)
+        self.assertIn('/free-working-session.html /contact 302', redirects)
 
     def test_public_assets_and_copy_boundaries(self):
         for asset in ['hero.mp4', 'poster.webp', 'site.js', 'workshop.js', 'how-we-help.js', 'site.css', 'workshop.css', 'how-we-help.css', 'sitemap.xml', 'robots.txt', 'llms.txt']:

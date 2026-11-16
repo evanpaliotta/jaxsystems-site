@@ -20,14 +20,12 @@ class OfferContractTest(unittest.TestCase):
         contact = (PUBLIC / 'contact.html').read_text().lower()
         ways = (PUBLIC / 'ways-we-help.html').read_text().lower()
         how_help = ((PUBLIC / 'how-we-help.html').read_text() + (PUBLIC / 'how-we-help.js').read_text()).lower()
-        free_session = (PUBLIC / 'free-working-session.html').read_text().lower()
         llms = (PUBLIC / 'llms.txt').read_text().lower()
         for name, text in {
             'home': home,
             'contact': contact,
             'ways-we-help': ways,
             'how-we-help': how_help,
-            'free-working-session': free_session,
             'llms': llms,
         }.items():
             with self.subTest(page=name):
