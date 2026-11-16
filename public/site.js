@@ -189,7 +189,7 @@ function setPending(pending) {
   const button = document.querySelector('[data-submit-button]');
   if (!button) return;
   button.disabled = pending;
-  button.textContent = pending ? 'Sending your note…' : 'Request an introductory call';
+  button.textContent = pending ? 'Sending your note…' : 'Request a free working session';
 }
 
 async function loadContactConfig() {

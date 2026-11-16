@@ -36,7 +36,7 @@ class ReviewPublicationTest(unittest.TestCase):
         pricing = (PUBLIC / 'pricing.html').read_text()
         self.assertEqual(pricing.count('class="pricing-card"'), 3)
         self.assertNotIn('class="pricing-card featured"', pricing)
-        for amount in ('$999 Business Improvement Plan', '$2,499 first standard build', '$499/month ongoing support', '$1,500', '$249/month'):
+        for amount in ('$999 Business Improvement Plan', '$2,499 first standard build', '$499/month optional support', '$1,500', '$250/month'):
             self.assertIn(amount, pricing)
 
     def test_old_workflow_route_redirects_without_duplicate_page(self):
