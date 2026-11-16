@@ -14,12 +14,14 @@ Current public offer:
 
 Pages:
 - https://jaxsystems.ai/
+- https://jaxsystems.ai/ways-we-help
 - https://jaxsystems.ai/how-we-help
+- https://jaxsystems.ai/free-working-session
 - https://jaxsystems.ai/pricing
 - https://jaxsystems.ai/privacy
 - https://jaxsystems.ai/contact
 
 Notes:
-- Explore workflows across 19 industries.
+- The industry page keeps 19 industries and 57 examples.
 - Public contact stays on the website form until the free business mailbox is verified.
 - Do not infer testimonials, guarantees, street address, ratings, or universal industry expertise.

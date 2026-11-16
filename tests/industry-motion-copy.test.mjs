@@ -20,21 +20,20 @@ test('customer-facing copy removes illustrative and customer-result disclaimers'
   }
 });
 
-test('hero stage ships dedicated visible flow animation CSS with pause support', () => {
-  assert.match(html, /\.workflow-motion/);
-  assert.match(html, /\.motion-beam/);
-  assert.match(html, /\.motion-review/);
-  assert.match(html, /@keyframes beam-forward/);
-  assert.match(html, /@keyframes review-pulse/);
-  assert.match(html, /@keyframes beam-handoff/);
-  assert.match(html, /\.stage\.paused \.workflow-motion \*/);
+test('industry hero motion keeps reduced-motion protection without visible slider or pause controls', () => {
+  assert.doesNotMatch(html, /Pause workflow motion/);
+  assert.doesNotMatch(html, /Pause motion/);
+  assert.doesNotMatch(html, /motion-beam/);
+  assert.doesNotMatch(html, /motion-review/);
+  assert.match(html, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(html, /\.stage-flow \.float-card\.first/);
+  assert.match(html, /@keyframes card-focus/);
 });
 
-test('production JS renders input review handoff motion and honors reduced motion', () => {
-  assert.match(js, /function stageMotion\(/);
-  assert.match(js, /aria-label="Workflow flow from input to review to handoff"/);
-  assert.match(js, /motionMedia = matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
-  assert.match(js, /pause\.disabled = reduce/);
-  assert.match(js, /pause\.textContent = reduce \? 'Motion reduced' : \(paused \? 'Play motion' : 'Pause motion'\)/);
-  assert.match(js, /page\.querySelector\('\.stage'\)\.classList\.toggle\('paused', paused\)/);
+test('production JS renders the industry stories without stage slider controls', () => {
+  assert.doesNotMatch(js, /function stageMotion\(/);
+  assert.doesNotMatch(js, /Pause workflow motion/);
+  assert.doesNotMatch(js, /Play workflow motion/);
+  assert.match(js, /window\.addEventListener\('popstate'/);
+  assert.match(js, /<div class="stage"/);
 });

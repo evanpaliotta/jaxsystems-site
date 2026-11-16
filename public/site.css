@@ -75,6 +75,8 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
   letter-spacing: -0.03em;
   color: var(--ink);
 }
+.wordmark .brand-logo { display: block; width: 86px; height: auto; }
+.site-footer .brand-logo { width: 104px; }
 .wordmark svg { width: 40px; height: 30px; }
 .wordmark span { font-size: 1.45rem; display: inline-flex; align-items: flex-end; gap: 2px; }
 .wordmark small { font-size: 0.65rem; letter-spacing: 0.16em; }
@@ -463,6 +465,8 @@ textarea { resize: vertical; }
   .callout { flex-direction: column; align-items: flex-start; }
   .hero-copy h1,
   .page-hero h1 { font-size: clamp(2.1rem, 8.5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.035em; }
+  .wordmark .brand-logo { width: 70px; }
+  .site-footer .brand-logo { width: 86px; }
   .section,
   .page-hero,
   .hero { padding: 12px 0; }

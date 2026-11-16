@@ -46,13 +46,13 @@ function centerX(b){let r=rail.getBoundingClientRect(),q=b.getBoundingClientRect
 function highlight(b){physical.forEach(x=>x.classList.toggle('is-current',x===b))}
 function rebase(i){let canonical=tabs[i];rail.scrollTo({left:centerX(canonical),behavior:'instant'});highlight(canonical)}
 function center(i,animate=true){clearTimeout(settleTimer);let choices=physical.filter(x=>Number(x.dataset.index)===i),candidate=choices.reduce((best,x)=>Math.abs(centerX(x)-rail.scrollLeft)<Math.abs(centerX(best)-rail.scrollLeft)?x:best);highlight(candidate);rail.scrollTo({left:centerX(candidate),behavior:animate&&!reduced.matches?'smooth':'instant'});if(candidate!==tabs[i])settleTimer=setTimeout(()=>rebase(i),850)}
-function showPlayback(){toggle.textContent=playing?'Pause':'Play';toggle.setAttribute('aria-label',playing?'Pause automatic cycling':'Play automatic cycling')}
+function showPlayback(){if(!toggle)return;toggle.textContent=playing?'Pause':'Play';toggle.setAttribute('aria-label',playing?'Pause automatic cycling':'Play automatic cycling')}
 function schedule(){clearTimeout(timer);if(!playing||hovering||focused||dragging||!visible||document.hidden)return;timer=setTimeout(()=>select((active+1)%tabs.length),8000)}
 function sync(i,animate=true){if(!Number.isInteger(i)||i<0||i>=tabs.length)return;active=i;tabs.forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1;panels[j].inert=j!==i;panels[j].classList.toggle('is-active',j===i)});center(i,animate)}
 function select(i,focus=false){i=(i+tabs.length)%tabs.length;sync(i);if(focus)tabs[i].focus({preventScroll:true});schedule()}
 tabs.forEach((b,i)=>{b.onclick=()=>select(i);b.onkeydown=e=>{let j=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:e.key==='Home'?0:e.key==='End'?tabs.length-1:null;if(j!==null){e.preventDefault();select(j,true)}}});
 physical.filter(b=>b.getAttribute('aria-hidden')==='true').forEach(b=>b.onclick=()=>select(Number(b.dataset.index)));prev.onclick=()=>select(active-1);next.onclick=()=>select(active+1);
-toggle.onclick=()=>{playing=!playing;if(playing)focused=false;showPlayback();schedule()};
+if(toggle)toggle.onclick=()=>{playing=!playing;if(playing)focused=false;showPlayback();schedule()};
 
 let swipeStart=null;
 track.addEventListener('pointerdown',e=>{swipeStart={x:e.clientX,y:e.clientY};dragging=true;schedule()});

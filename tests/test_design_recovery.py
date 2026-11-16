@@ -6,7 +6,7 @@ from urllib.parse import parse_qs, urlsplit
 
 PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 PAGES = sorted(PUBLIC.glob('*.html'))
-CONTENT_PAGES = [page for page in PAGES if page.name not in {'ways-we-help.html', 'how-it-works.html'}]
+CONTENT_PAGES = [page for page in PAGES if page.name != 'how-it-works.html']
 REQUIRED_ALL = ('site.css', 'site.js')
 OPTIONAL_ALL = ('how-we-help.css', 'how-we-help.js', 'workshop.css', 'workshop.js', 'refinements.css')
 
@@ -17,7 +17,7 @@ class DesignRecoveryTest(unittest.TestCase):
             html = page.read_text()
             for asset in REQUIRED_ALL:
                 refs = re.findall(r'(?:href|src)="(' + re.escape(asset) + r'[^"]*)"', html)
-                if page.name in {'ways-we-help.html', 'how-it-works.html'}:
+                if page.name == 'how-it-works.html':
                     self.assertEqual(len(refs), 0, (page.name, asset, refs))
                     continue
                 self.assertEqual(len(refs), 1, (page.name, asset, refs))
@@ -85,7 +85,6 @@ class DesignRecoveryTest(unittest.TestCase):
         how = (PUBLIC / 'how-we-help.html').read_text()
         self.assertIn('class="film-frame"', home)
         self.assertIn('src="hero.mp4"', home)
-        self.assertIn('data-motion', home)
         self.assertIn('role="tablist"', home)
         self.assertIn('id="examples"', home)
         self.assertIn('id="industry-page"', how)
@@ -104,7 +103,6 @@ class DesignRecoveryTest(unittest.TestCase):
         self.assertIn('class="workshop-intro"', html)
         self.assertIn('class="film-frame"', html)
         self.assertIn('hero.mp4', html)
-        self.assertIn('data-motion', html)
         self.assertIn('role="tablist"', html)
         self.assertIn('id="examples"', html)
         self.assertNotIn('data-demo-stage', html)

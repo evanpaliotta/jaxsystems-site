@@ -1,0 +1,24 @@
+name: Review-only Cloudflare Pages preview
+on:
+  push:
+    branches: ['preview/free-session-seven-areas']
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test review build
+        run: |
+          python3 -m unittest discover -s tests -v
+          node --test tests/contact.test.mjs tests/how-we-help-production.test.mjs tests/industry-motion-copy.test.mjs tests/how-it-works-restored.test.mjs
+      - name: Mark review output non-indexable
+        run: |
+          printf '/*\n  X-Robots-Tag: noindex, nofollow\n' >> public/_headers
+          printf 'User-agent: *\nDisallow: /\n' > public/robots.txt
+      - name: Publish preview only, never production
+        run: npx --yes wrangler@4 pages deploy public --project-name jaxsystems-site --branch review-free-session-seven-areas
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

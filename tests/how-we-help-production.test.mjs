@@ -5,14 +5,14 @@ import vm from 'node:vm';
 
 const root = new URL('../', import.meta.url);
 const html = readFileSync(new URL('public/how-we-help.html', root), 'utf8');
-const redirectHtml = readFileSync(new URL('public/ways-we-help.html', root), 'utf8');
+const broadHtml = readFileSync(new URL('public/ways-we-help.html', root), 'utf8');
 const js = readFileSync(new URL('public/how-we-help.js', root), 'utf8');
 const canonical = JSON.parse(readFileSync(new URL('public/industries.json', root), 'utf8'));
 const data = vm.runInNewContext(js.match(/const industries = ([\s\S]*?);\nconst hasIndustry/)[1].replace(/;$/, '').replace(/^/, '(') + ')');
 const drawingsSource = js.match(/const drawings = \{([\s\S]*?)\n  \};/m)[1];
 const drawingIds = [...drawingsSource.matchAll(/^\s*([a-z]+):/gm)].map(match => match[1]);
 
-test('production page uses How we help metadata without preview-only markers', () => {
+test('industry page uses the preserved example-library metadata without preview-only markers', () => {
   assert.match(html, /<title>How we help for Jacksonville small businesses · Jax Systems<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/jaxsystems.ai\/how-we-help"/);
   assert.doesNotMatch(html, /PREVIEW ONLY/);
@@ -20,6 +20,14 @@ test('production page uses How we help metadata without preview-only markers', (
   assert.doesNotMatch(html, /live website has not changed/);
   assert.match(html, /id="industry-label">Jax Systems for<\/strong>/);
   assert.match(html, /id="help-navigation"/);
+});
+
+test('broad how-we-help page introduces the seven-area overview and links back to the industry library', () => {
+  assert.match(broadHtml, /<title>How we help across seven business areas · Jax Systems<\/title>/);
+  assert.match(broadHtml, /rel="canonical" href="https:\/\/jaxsystems.ai\/ways-we-help"/);
+  assert.match(broadHtml, /Seven business areas\. One practical next step at a time\./);
+  assert.match(broadHtml, /Browse 19 industries and 57 examples/);
+  assert.match(broadHtml, /href="how-we-help.html"/);
 });
 
 test('script keeps the exact 19 canonical industries and 57 approved stories', () => {
@@ -46,10 +54,10 @@ test('thumbnail menu and history-aware link generation are wired in production J
   assert.match(js, /Your people stay in control\./);
 });
 
-test('legacy ways route redirects to how-we-help while preserving industry selectors', () => {
-  assert.match(redirectHtml, /location\.replace/);
-  assert.match(redirectHtml, /how-we-help\.html/);
-  assert.match(redirectHtml, /validIndustries/);
-  assert.match(redirectHtml, /queryIndustry/);
-  assert.match(redirectHtml, /hashIndustry/);
+test('broad page replaces the old redirect and the industry library stays direct-linkable', () => {
+  assert.doesNotMatch(broadHtml, /location\.replace/);
+  assert.match(broadHtml, /href="how-we-help.html"/);
+  assert.match(js, /function industryURL\(id\)/);
+  assert.match(js, /queryIndustry/);
+  assert.match(js, /hashIndustry/);
 });

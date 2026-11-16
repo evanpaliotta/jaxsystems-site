@@ -163,11 +163,11 @@ function buildHarness() {
   };
 }
 
-test('workflow visual script animates signal positions, exposes pause/resume, and honors reduced motion', () => {
+test('workflow visual script animates signal positions and honors reduced motion without exposing a visible pause control', () => {
   const harness = buildHarness();
   const desktopSignal = harness.circles.desktop[0];
 
-  assert.equal(harness.toggle.hidden, false);
+  assert.equal(harness.toggle.hidden, true);
   assert.equal(harness.toggle.textContent, 'Pause animation');
   assert.equal(harness.toggle.getAttribute('aria-label'), 'Pause workflow animation');
   assert.equal(harness.viewport.getAttribute('data-phase'), '1');
@@ -187,16 +187,6 @@ test('workflow visual script animates signal positions, exposes pause/resume, an
   assert.notEqual(after.cy, before.cy);
   assert.equal(desktopSignal.getAttribute('opacity'), '0.92');
   assert.equal(harness.circles.desktop[1].getAttribute('opacity'), '0.18');
-
-  harness.toggle.listeners.click();
-  assert.equal(harness.frame.getAttribute('data-paused'), 'true');
-  assert.equal(harness.toggle.textContent, 'Play animation');
-  assert.equal(harness.toggle.getAttribute('aria-label'), 'Play workflow animation');
-
-  harness.toggle.listeners.click();
-  assert.equal(harness.frame.getAttribute('data-paused'), 'false');
-  assert.equal(harness.viewport.getAttribute('data-phase'), '1');
-  assert.equal(harness.toggle.textContent, 'Pause animation');
 
   harness.motion.listener({ matches: true });
   assert.equal(harness.frame.getAttribute('data-paused'), 'true');

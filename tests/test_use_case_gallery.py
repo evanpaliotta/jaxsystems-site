@@ -73,9 +73,10 @@ class UseCaseGalleryTest(unittest.TestCase):
         self.assertIn('FOLLOW-UP QUEUE', self.html)
         self.assertIn('PAYMENT RECEIVED', self.html)
 
-    def test_centered_rail_and_playback_controls_are_present(self):
+    def test_centered_rail_and_auto_cycle_navigation_are_present(self):
         self.assertIn('class="tabs" role="tablist"', self.html)
-        self.assertEqual({c['id'] for c in self.doc.controls}, {'cycle-toggle', 'prev', 'next'})
+        self.assertEqual({c['id'] for c in self.doc.controls}, {'prev', 'next'})
+        self.assertNotIn('cycle-toggle', self.html)
         self.assertIn('function centerX', self.script)
         self.assertIn('function rebase', self.script)
         self.assertIn("behavior:animate&&!reduced.matches?'smooth':'instant'", self.script)

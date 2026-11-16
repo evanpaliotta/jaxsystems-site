@@ -5,7 +5,7 @@
   var frame = document.getElementById('workflow-frame');
   var viewport = document.getElementById('diagram-viewport');
   var toggle = document.getElementById('workflow-motion-toggle');
-  if (!frame || !viewport || !toggle) return;
+  if (!frame || !viewport) return;
   var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var playing = !motion.matches;
   var index = 0;
@@ -26,8 +26,10 @@
   function applyState() {
     viewport.setAttribute('data-phase', phase);
     frame.setAttribute('data-paused', playing ? 'false' : 'true');
-    toggle.textContent = playing ? 'Pause animation' : 'Play animation';
-    toggle.setAttribute('aria-label', playing ? 'Pause workflow animation' : 'Play workflow animation');
+    if (toggle) {
+      toggle.textContent = playing ? 'Pause animation' : 'Play animation';
+      toggle.setAttribute('aria-label', playing ? 'Pause workflow animation' : 'Play workflow animation');
+    }
   }
   function renderSignals() {
     signalSets.forEach(function (set) {
@@ -62,7 +64,7 @@
     }
     window.requestAnimationFrame(tick);
   }
-  toggle.addEventListener('click', function () {
+  if (toggle) toggle.addEventListener('click', function () {
     playing = !playing;
     if (playing && phase === 'all') { index = 0; phase = sequence[index]; elapsed = 0; }
     applyState();
@@ -79,6 +81,5 @@
   window.addEventListener('resize', renderSignals);
   applyState();
   renderSignals();
-  toggle.hidden = false;
   window.requestAnimationFrame(tick);
 })();

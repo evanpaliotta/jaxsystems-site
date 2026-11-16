@@ -2697,7 +2697,7 @@ function ensureHeaderHelpNav() {
   const current = fallbackLink.getAttribute('aria-current') === 'page';
   const wrapper = document.createElement('div');
   wrapper.className = 'help-menu-wrap';
-  wrapper.innerHTML = `<button id="help-toggle" class="help-toggle${current ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="help-navigation">How we help <span aria-hidden="true">⌄</span></button><div id="help-navigation" class="help-navigation" hidden><div class="help-menu-heading"><div><strong>Find your industry.</strong></div><button type="button" class="help-close" aria-label="Close industry navigation">Close ×</button></div><div class="help-grid"></div><p class="help-menu-note">Ways we can help. Your people stay in control.</p></div>`;
+  wrapper.innerHTML = `<a href="ways-we-help.html">How we help</a><button id="help-toggle" class="help-toggle${current ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="help-navigation">Industries <span aria-hidden="true">⌄</span></button><div id="help-navigation" class="help-navigation" hidden><div class="help-menu-heading"><div><strong>Find your industry.</strong></div><button type="button" class="help-close" aria-label="Close industry navigation">Close ×</button></div><div class="help-grid"></div><p class="help-menu-note">19 industries. 57 examples. Your people stay in control.</p></div>`;
   fallbackLink.replaceWith(wrapper);
   navToggle = wrapper.querySelector('#help-toggle');
   navPanel = wrapper.querySelector('#help-navigation');
@@ -2710,31 +2710,6 @@ const toggle = document.querySelector('#industry-toggle');
 const menu = document.querySelector('#industry-options');
 const hasPage = Boolean(page && toggle && menu);
 let selectedIndustry = 'trades';
-const motionMedia = matchMedia('(prefers-reduced-motion: reduce)');
-let motionPaused = false;
-
-function stageMotion() {
-  return '<div class="workflow-motion" role="img" aria-label="Workflow flow from input to review to handoff"><span class="motion-rail rail-input"></span><span class="motion-rail rail-handoff"></span><span class="motion-beam beam-forward"></span><span class="motion-beam beam-handoff"></span><span class="motion-review"></span></div>';
-}
-
-function syncStageMotion() {
-  if (!hasPage) return;
-  const stage = page.querySelector('.stage');
-  const pause = page.querySelector('.pause');
-  if (!stage || !pause) return;
-  const reduce = motionMedia.matches;
-  const paused = reduce || motionPaused;
-  page.querySelector('.stage').classList.toggle('paused', paused);
-  pause.disabled = reduce;
-  pause.setAttribute('aria-pressed', String(paused));
-  pause.textContent = reduce ? 'Motion reduced' : (paused ? 'Play motion' : 'Pause motion');
-  pause.setAttribute('aria-label', reduce ? 'Motion disabled because reduced motion is enabled' : (paused ? 'Play workflow motion' : 'Pause workflow motion'));
-}
-
-motionMedia.addEventListener('change', () => {
-  syncStageMotion();
-});
-
 function heroCard(card, kind) {
   const chips = card.chips ? `<div class="chips">${card.chips.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div>` : '';
   const rows = card.rows ? card.rows.map(r => `<div class="row-detail"><span>${esc(r[0])}</span><strong>${esc(r[1])}</strong></div>`).join('') : '';
@@ -2852,14 +2827,7 @@ function showIndustry(id, updateURL = false) {
     else a.removeAttribute('aria-current');
   });
   if (updateURL && new URL(location.href).searchParams.get('industry') !== id) history.pushState({ industry: id }, '', industryURL(id));
-  page.innerHTML = `<div class="hero"><h1>${esc(d.title)}</h1><p class="hero-intro">${esc(d.intro)}</p><div class="hero-actions"><a class="cta" href="contact.html#contact-form">Request a free working session ↗</a><a class="plain-link" href="#stories">Explore the examples ↓</a></div><div class="stage" style="--stage:${esc(d.stage)}"><span class="stage-label">${esc(d.stageLabel)}</span><button class="pause" type="button" aria-pressed="false" aria-label="Pause workflow motion">Pause motion</button>${stageMotion()}<div class="stage-flow">${heroCard(d.hero[0], 'first')}${heroCard(d.hero[1], 'middle')}${heroCard(d.hero[2], 'last')}</div><span class="stage-note">Input → review → handoff, with your team approving the next move.</span></div></div><section class="overview" id="stories"><div class="overview-top"><div><h2>${esc(d.overview)}</h2></div><p>${esc(d.overviewIntro)}</p></div><div class="pillars">${d.pillars.map(p => `<div class="pillar"><span>${esc(p[0])}</span><strong>${esc(p[1])}</strong><p>${esc(p[2])}</p></div>`).join('')}</div></section><div class="story-list">${d.stories.map(s => `<section class="story"><div class="story-copy"><p class="story-index">WORKFLOW / ${esc(s.n)}</p><h3>${esc(s.title)}</h3><p>${esc(s.copy)}</p><p class="story-note">${esc(s.note)}</p></div>${visual(s)}</section>`).join('')}</div><section class="human"><div><h2>The tools help. Your team decides.</h2></div><p>${esc(d.boundary)} We start with the tools and processes you already use, then work alongside your team to find the right fit.</p></section><section class="human" aria-labelledby="session-areas-heading"><div><h2 id="session-areas-heading">Choose one area for the free working session.</h2></div><p>The session covers one question in one of seven business areas: Offer, Marketing, Sales, Delivery and customer experience, Retention, Operations and people, and Finance. If one improvement is clear, you can go straight to a direct build. If it is not, Path B gives you a Business Improvement Plan across all seven areas.</p></section><section class="end-card"><h2>Start with one real question.</h2><p>Bring one area of the business and one question. We’ll confirm whether a free working session, a direct build, or a full Business Improvement Plan makes sense.</p><a class="cta" href="contact.html#contact-form">Request a free working session ↗</a></section>`;
-  const pause = page.querySelector('.pause');
-  syncStageMotion();
-  pause.addEventListener('click', () => {
-    if (motionMedia.matches) return;
-    motionPaused = !motionPaused;
-    syncStageMotion();
-  });
+  page.innerHTML = `<div class="hero"><h1>${esc(d.title)}</h1><p class="hero-intro">${esc(d.intro)}</p><div class="hero-actions"><a class="cta" href="free-working-session.html">See the free working session ↗</a><a class="plain-link" href="#stories">Explore the examples ↓</a></div><div class="stage" style="--stage:${esc(d.stage)}"><span class="stage-label">${esc(d.stageLabel)}</span><div class="stage-flow">${heroCard(d.hero[0], 'first')}${heroCard(d.hero[1], 'middle')}${heroCard(d.hero[2], 'last')}</div><span class="stage-note">Input → review → handoff, with your team approving the next move.</span></div></div><section class="overview" id="stories"><div class="overview-top"><div><h2>${esc(d.overview)}</h2></div><p>${esc(d.overviewIntro)}</p></div><div class="pillars">${d.pillars.map(p => `<div class="pillar"><span>${esc(p[0])}</span><strong>${esc(p[1])}</strong><p>${esc(p[2])}</p></div>`).join('')}</div></section><div class="story-list">${d.stories.map(s => `<section class="story"><div class="story-copy"><p class="story-index">WORKFLOW / ${esc(s.n)}</p><h3>${esc(s.title)}</h3><p>${esc(s.copy)}</p><p class="story-note">${esc(s.note)}</p></div>${visual(s)}</section>`).join('')}</div><section class="human"><div><h2>The tools help. Your team decides.</h2></div><p>${esc(d.boundary)} We start with the tools and processes you already use, then work alongside your team to find the right fit.</p></section><section class="human" aria-labelledby="session-areas-heading"><div><h2 id="session-areas-heading">Choose one area for the free working session.</h2></div><p>The session covers one question in one of seven business areas: Offer, Marketing, Sales, Delivery and customer experience, Retention, Operations and people, and Finance. If one improvement is clear, you can go straight to a direct build. If it is not, Path B gives you a Business Improvement Plan across all seven areas. Review the exact session limits on the dedicated free-session page before you contact Jax Systems.</p></section><section class="end-card"><h2>Start with one real question.</h2><p>Bring one area of the business and one question. We’ll confirm whether a free working session, a direct build, or a full Business Improvement Plan makes sense.</p><a class="cta" href="contact.html#contact-form">Request a free working session ↗</a></section>`;
 }
 
 populateNavPanel();
