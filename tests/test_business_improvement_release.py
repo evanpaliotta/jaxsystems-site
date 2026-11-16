@@ -35,7 +35,7 @@ class BusinessImprovementReleaseTest(unittest.TestCase):
             'You keep the plan either way',
         ):
             self.assertTrue(part in html, part)
-        self.assertTrue('targets are not guaranteed results' in html and 'One of seven areas of your business' in html)
+        self.assertTrue('targets are not guaranteed results' in html and 'A high-level review of all seven business areas' in html)
 
     def test_real_contact_form(self):
         html = (PUBLIC / 'contact.html').read_text()

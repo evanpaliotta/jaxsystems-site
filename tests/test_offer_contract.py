@@ -59,12 +59,19 @@ class OfferContractTest(unittest.TestCase):
             with self.subTest(marker=marker):
                 self.assertIn(marker, pricing)
 
-    def test_seven_business_areas_are_named_on_pricing_and_how_we_help(self):
+    def test_pricing_omits_duplicate_area_catalogue(self):
         pricing = (PUBLIC / 'pricing.html').read_text()
+        self.assertNotIn('id="seven-areas-heading"', pricing)
+        self.assertNotIn('The seven business areas stay the same.', pricing)
+        for marker in ('$999', '$2,499', '$499/month', '$1,500', '$250/month'):
+            self.assertIn(marker, pricing)
+
+    def test_seven_business_areas_remain_in_the_help_catalogues(self):
         how_help = (PUBLIC / 'how-we-help.js').read_text()
+        ways = (PUBLIC / 'ways-we-help.html').read_text()
         for area in AREAS:
             with self.subTest(area=area):
-                self.assertIn(area, pricing)
+                self.assertIn(area, ways)
                 self.assertIn(area, how_help)
 
     def test_pricing_metadata_and_repeat_scope_match_the_approved_offer(self):
