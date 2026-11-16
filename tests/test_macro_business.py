@@ -28,6 +28,23 @@ class MacroBusinessPageTest(unittest.TestCase):
         self.assertIn('scroll-snap-type: x proximity', css)
         self.assertIn('min-height: 44px', css)
 
+    def test_button_labels_are_centered_across_the_site(self):
+        rules = {
+            'site.css': ['button', 'button.pill'],
+            'offer-experience.css': ['.area-trigger'],
+            'how-we-help.html': ['#industry-toggle', '#industry-options button', '.header-cta,.cta'],
+            'how-we-help.css': ['.site-nav .help-toggle'],
+        }
+        import re
+        for filename, selectors in rules.items():
+            stylesheet = (PUBLIC / filename).read_text()
+            for selector in selectors:
+                with self.subTest(filename=filename, selector=selector):
+                    self.assertRegex(
+                        stylesheet,
+                        re.escape(selector) + r'\s*\{[^}]*text-align:\s*center',
+                    )
+
 
 if __name__ == '__main__':
     unittest.main()
